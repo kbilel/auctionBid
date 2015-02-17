@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="auction-ejb">
+		<jta-data-source>java:/auctionJNDI</jta-data-source>
+		<class>tn.esprit.auction.domain.Admin</class>
+		<class>tn.esprit.auction.domain.Answer</class>
+		<class>tn.esprit.auction.domain.Auction</class>
+		<class>tn.esprit.auction.domain.Bid</class>
+		<class>tn.esprit.auction.domain.BidPK</class>
+		<class>tn.esprit.auction.domain.BookKeeper</class>
+		<class>tn.esprit.auction.domain.Client</class>
+		<class>tn.esprit.auction.domain.Configuration</class>
+		<class>tn.esprit.auction.domain.DeliveryMan</class>
+		<class>tn.esprit.auction.domain.DutchAuction</class>
+		<class>tn.esprit.auction.domain.Employee</class>
+		<class>tn.esprit.auction.domain.EnglishAuction</class>
+		<class>tn.esprit.auction.domain.Manager</class>
+		<class>tn.esprit.auction.domain.Message</class>
+		<class>tn.esprit.auction.domain.MessagePK</class>
+		<class>tn.esprit.auction.domain.NegociatedAuction</class>
+		<class>tn.esprit.auction.domain.Order</class>
+		<class>tn.esprit.auction.domain.OrderPK</class>
+		<class>tn.esprit.auction.domain.Panel</class>
+		<class>tn.esprit.auction.domain.PanelPK</class>
+		<class>tn.esprit.auction.domain.Payement</class>
+		<class>tn.esprit.auction.domain.Product</class>
+		<class>tn.esprit.auction.domain.ProductRecommended</class>
+		<class>tn.esprit.auction.domain.Question</class>
+		<class>tn.esprit.auction.domain.Quiz</class>
+		<class>tn.esprit.auction.domain.Result</class>
+		<class>tn.esprit.auction.domain.ResultPK</class>
+		<class>tn.esprit.auction.domain.Review</class>
+		<class>tn.esprit.auction.domain.ReviewPK</class>
+		<class>tn.esprit.auction.domain.StockManager</class>
+		<class>tn.esprit.auction.domain.User</class>
+		<class>tn.esprit.auction.domain.YankeeAuction</class>
+		<properties>
+			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+			<property name="hibernate.show_sql" value="true"/>
+			<property name="hibernate.format_sql" value="true"/>
+		</properties>
+	</persistence-unit>
+</persistence>
