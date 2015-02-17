@@ -73,7 +73,7 @@ public class ProfilClient extends JPanel {
 		contentPane.setLayout(null);
 		
 		final JPanel panelProfile = new JPanel();
-		panelProfile.setBounds(10, 11, 1122, 790);
+		panelProfile.setBounds(-370, 0, 1122, 790);
 		contentPane.add(panelProfile);
 		panelProfile.setLayout(null);
 		
