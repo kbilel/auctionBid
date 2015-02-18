@@ -30,6 +30,7 @@ import tn.esprit.auction.domain.NegociatedAuction;
 import tn.esprit.auction.domain.User;
 import tn.esprit.auction.domain.YankeeAuction;
 import tn.esprit.auction.gui.authentification.Authentification;
+import javax.swing.JMenuItem;
 
 public class EspaceClient extends JFrame {
 	User userConnected;
@@ -44,9 +45,14 @@ public class EspaceClient extends JFrame {
 	private JTextField tfEmailEdit;
 	private JTextField tfAdresseEdit;
 	private JTextField tfPathImageUser;
-	ProfilClient profileClient = new ProfilClient();
+
+	PanelProfil panelProfil;
+	StatisticAuctionCategories statisticAuctions;
+	StatisticProductCategories statisticProducts;
+	
 	DefaultPieDataset dataset = null;
 	JFreeChart graphe = null;
+	JScrollPane scrollPane;
 	ChartPanel cp = null;
 
 	/**
@@ -70,6 +76,9 @@ public class EspaceClient extends JFrame {
 	 */
 	public EspaceClient() {
 		client = new Client();
+		statisticAuctions=new StatisticAuctionCategories();
+		statisticProducts=new StatisticProductCategories();
+		panelProfil=new PanelProfil();
 		userConnected = Authentification.getUser();
 		if (userConnected == null)
 			userConnected = SubscribingSpace.getUser();
@@ -80,47 +89,66 @@ public class EspaceClient extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-
-		JPanel panel = new JPanel();
-		panel.setBounds(10, 11, 1122, 790);
-		contentPane.add(panel);
-		panel.setLayout(null);
-
-		final JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 0, 1122, 790);
-		panel.add(scrollPane);
-
+		
 		JMenuBar menuBar = new JMenuBar();
-		scrollPane.setColumnHeaderView(menuBar);
-
-		JMenu mnHome = new JMenu("home");
-		menuBar.add(mnHome);
-
-		JMenu mnAuctions = new JMenu("Auctions");
-		menuBar.add(mnAuctions);
-
-		JMenu mnProducts = new JMenu("Products");
-		menuBar.add(mnProducts);
-
-		JMenu mnStatistic = new JMenu("Statistic");
-		menuBar.add(mnStatistic);
-
-		JMenu mnAboutUs = new JMenu("About us");
-		menuBar.add(mnAboutUs);
-		final JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane.setViewportView(scrollPane_1);
-
-		JMenu menuProfil = new JMenu("profil");
-		menuProfil.addActionListener(new ActionListener() {
+		menuBar.setBounds(0, 0, 1222, 21);
+		contentPane.add(menuBar);
+		
+		JMenu mnProfil = new JMenu("Profil");
+		mnProfil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ProfilClient profil = new ProfilClient();
-				scrollPane_1.setViewportView(profil);
-				profil.setVisible(true);
-
+				
+				
 			}
 		});
-
-		menuBar.add(menuProfil);
+		
+		JMenu mnNewMenu = new JMenu("home");
+		menuBar.add(mnNewMenu);
+		
+		JMenu mnAuctions = new JMenu("Auctions");
+		menuBar.add(mnAuctions);
+		
+		JMenu mnProducts = new JMenu("Products");
+		menuBar.add(mnProducts);
+		
+		JMenu mnStatistic = new JMenu("Statistic");
+		menuBar.add(mnStatistic);
+		
+		JMenuItem mntmProductsaucction = new JMenuItem("Products'categories");
+		mntmProductsaucction.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				scrollPane.setViewportView(statisticProducts);
+				System.out.println("otttk");
+			}
+		});
+		
+		JMenuItem mntmAuctionsCategories = new JMenuItem("Auction's categories");
+		mntmAuctionsCategories.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				scrollPane.setViewportView(statisticAuctions);
+				System.out.println("otttk");
+			}
+		});
+		mnStatistic.add(mntmAuctionsCategories);
+		mnStatistic.add(mntmProductsaucction);
+		menuBar.add(mnProfil);
+		
+		JMenuItem mntmGestionProfil = new JMenuItem("Gestion Profil");
+		mntmGestionProfil.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				scrollPane.setViewportView(panelProfil);
+				System.out.println("otttk");
+			}
+		});
+		mnProfil.add(mntmGestionProfil);
+		
+		JMenu mnAboutUs = new JMenu("About us");
+		menuBar.add(mnAboutUs);
+		
+		 scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 32, 1122, 769);
+		contentPane.add(scrollPane);
 
 		/******** Stat *******/
 		List<Auction> auctions = new ArrayList<Auction>();

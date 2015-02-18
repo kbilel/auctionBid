@@ -18,7 +18,7 @@ import tn.esprit.auction.domain.NegociatedAuction;
 import tn.esprit.auction.domain.YankeeAuction;
 
 public class StatisticAuctionCategories extends JPanel {
-	ProfilClient profileClient=new ProfilClient();
+	
 	DefaultPieDataset dataset = null;
     JFreeChart graphe = null;
    ChartPanel cp = null;
@@ -26,7 +26,7 @@ public class StatisticAuctionCategories extends JPanel {
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(10, 11, 430, 278);
+		panel.setBounds(10, 11, 718, 462);
 		add(panel);
 		/********Stat*******/
 		 List<Auction> auctions=new ArrayList<Auction>();
@@ -60,11 +60,13 @@ public class StatisticAuctionCategories extends JPanel {
       dataset.setValue("English Auction", englishAuction);
       dataset.setValue("Dutch Auction", yankeeAuction);
       dataset.setValue("Yankee Auction", dutchAuction);
-      dataset.setValue("England",negocietedAuction);
+      dataset.setValue("Negocieted Auction",negocietedAuction);
       dataset.setValue("Other", auction5);
-      graphe = ChartFactory.createPieChart3D("Pie Chart Country", dataset,true, true, true);
+      graphe = ChartFactory.createPieChart3D("Pie Chart Auctions/Categories", dataset,true, true, true);
+      panel.setLayout(null);
       
       cp = new ChartPanel(graphe);
+      cp.setBounds(19, 5, 680, 435);
       panel.add(cp);
       //tabbedPane.addTab("New tab", null, cp, null);
 		/********Stat*******/

@@ -30,7 +30,7 @@ public class StatisticProductCategories extends JPanel {
 	setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(10, 11, 430, 278);
+		panel.setBounds(10, 11, 716, 566);
 		add(panel);
 		
 		/********Stat*******/
@@ -46,7 +46,7 @@ public class StatisticProductCategories extends JPanel {
 		 Integer compteur=0;
 		 for (Product product : products) {
 			 if(compteur>0)
-			 { System.out.println("nbr Categories ="+ mapCategorie.get("Home"));
+			 { //System.out.println("nbr Categories ="+ mapCategorie.get("Home"));
 				
 				 if(mapCategorie.containsKey(product.getCategory()))
 				{
@@ -72,7 +72,7 @@ public class StatisticProductCategories extends JPanel {
 		{
 			
 			String key= (String) iterateur.next();
-			 System.out.println("nbr Categories ="+ key);
+			// System.out.println("nbr Categories ="+ key);
 			
 			 dataset.setValue(key,(Integer) mapCategorie.get(key));
 		}            
@@ -83,9 +83,11 @@ public class StatisticProductCategories extends JPanel {
     
     
      
-     graphe = ChartFactory.createPieChart3D("Pie Chart Country", dataset,true, true, true);
+     graphe = ChartFactory.createPieChart3D("Pie Chart Products/Categories", dataset,true, true, true);
+     panel.setLayout(null);
      
      cp = new ChartPanel(graphe);
+     cp.setBounds(10, 11, 696, 533);
      panel.add(cp);
      //tabbedPane.addTab("New tab", null, cp, null);
 		/********Stat Product*******/

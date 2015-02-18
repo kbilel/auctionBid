@@ -21,11 +21,16 @@ import java.awt.event.ActionEvent;
 import javax.swing.border.LineBorder;
 
 import tn.esprit.auction.delegate.GestionUserDelegate;
+import tn.esprit.auction.domain.Admin;
 import tn.esprit.auction.domain.Client;
 import tn.esprit.auction.domain.Manager;
 import tn.esprit.auction.domain.User;
+import tn.esprit.auction.gui.admin.EspaceAdmin;
+
 import tn.esprit.auction.gui.client.EspaceClient;
+
 import tn.esprit.auction.gui.client.SubscribingSpace;
+
 import tn.esprit.auction.gui.manager.EspaceManager;
 
 import java.awt.Color;
@@ -115,12 +120,19 @@ public class Authentification extends JFrame {
 					 userConnected=GestionUserDelegate.doAuthentificate(username, pwd);
 					 if(userConnected instanceof Client)
 						{
+						 //new EspaceClient().setVisible(true);
 						 new EspaceClient().setVisible(true);
 						 setVisible(false);
 						}
 					 else if(userConnected instanceof Manager)
 					 {
 						 new EspaceManager().setVisible(true);
+						 setVisible(false);
+					 }
+					 
+					 else if(userConnected instanceof Admin)
+					 {
+						 new EspaceAdmin().setVisible(true);
 						 setVisible(false);
 					 }
 					 
