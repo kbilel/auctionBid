@@ -28,7 +28,9 @@ import org.jdesktop.swingbinding.SwingBindings;
 import org.jdesktop.beansbinding.AutoBinding.UpdateStrategy;
 import org.jdesktop.beansbinding.BeanProperty;
 
+import tn.esprit.auction.domain.Auction;
 import tn.esprit.auction.domain.Client;
+
 
 
 import java.util.Date;
@@ -36,15 +38,15 @@ import java.util.Date;
 import org.jdesktop.beansbinding.ObjectProperty;
 
 public class PanelManageAuction extends JPanel {
+	List<Auction> auctions;
 	private JTable table;
-	List<EnglishAuction> englishAuctions;
 
 	/**
 	 * Create the panel.
 	 */
 	public PanelManageAuction() {
-		englishAuctions=new ArrayList<EnglishAuction>();
-		englishAuctions=GestionAuctionDelegate.doFindAllEnglishAuctions();
+		auctions=new ArrayList<Auction>();
+		auctions=GestionAuctionDelegate.doFindAllAuctions();
 		setBorder(new TitledBorder(null, "Manage Auctions", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		setLayout(null);
 		
@@ -60,11 +62,11 @@ public class PanelManageAuction extends JPanel {
 		label_1.setBounds(246, 36, 659, 74);
 		add(label_1);
 		
-		JLabel label_4 = new JLabel("English Auctions Table :");
-		label_4.setForeground(new Color(0, 0, 139));
-		label_4.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		label_4.setBounds(230, 194, 249, 41);
-		add(label_4);
+		JLabel lblAuctionsTable = new JLabel("Auction's Table :");
+		lblAuctionsTable.setForeground(new Color(0, 0, 139));
+		lblAuctionsTable.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		lblAuctionsTable.setBounds(227, 121, 249, 41);
+		add(lblAuctionsTable);
 		
 		JLabel label_5 = new JLabel("Click here to convert a Product to an Auction !");
 		label_5.setForeground(Color.GREEN);
@@ -99,31 +101,36 @@ public class PanelManageAuction extends JPanel {
 		label_7.setBounds(200, 427, 454, 14);
 		add(label_7);
 		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(27, 187, 756, 159);
+		add(scrollPane);
+		
 		table = new JTable();
-		table.setBounds(37, 253, 730, 41);
-		add(table);
+		scrollPane.setViewportView(table);
 		initDataBindings();
 
 	}
 	protected void initDataBindings() {
-		JTableBinding<EnglishAuction, List<EnglishAuction>, JTable> jTableBinding = SwingBindings.createJTableBinding(UpdateStrategy.READ, englishAuctions, table);
+		JTableBinding<Auction, List<Auction>, JTable> jTableBinding = SwingBindings.createJTableBinding(UpdateStrategy.READ, auctions, table);
 		//
-		BeanProperty<EnglishAuction, Integer> englishAuctionBeanProperty = BeanProperty.create("auctionStartingPrice");
-		jTableBinding.addColumnBinding(englishAuctionBeanProperty).setColumnName("Starting Price").setEditable(false);
+		BeanProperty<Auction, Date> auctionBeanProperty = BeanProperty.create("auctionEndDate");
+		jTableBinding.addColumnBinding(auctionBeanProperty).setColumnName("End Date").setEditable(false);
 		//
-		BeanProperty<EnglishAuction, Integer> englishAuctionBeanProperty_1 = BeanProperty.create("currentBidValue");
-		jTableBinding.addColumnBinding(englishAuctionBeanProperty_1).setColumnName("Current Bid Value").setEditable(false);
+		BeanProperty<Auction, String> auctionBeanProperty_1 = BeanProperty.create("class.simpleName");
+		jTableBinding.addColumnBinding(auctionBeanProperty_1).setColumnName("Type").setEditable(false);
 		//
-		BeanProperty<EnglishAuction, Client> englishAuctionBeanProperty_2 = BeanProperty.create("currentWinner");
-		jTableBinding.addColumnBinding(englishAuctionBeanProperty_2).setColumnName("Current Winner").setEditable(false);
+		BeanProperty<Auction, Date> auctionBeanProperty_2 = BeanProperty.create("auctionStartingDate");
+		jTableBinding.addColumnBinding(auctionBeanProperty_2).setColumnName("Starting Date").setEditable(false);
 		//
-		BeanProperty<EnglishAuction, String> englishAuctionBeanProperty_3 = BeanProperty.create("product.name");
-		jTableBinding.addColumnBinding(englishAuctionBeanProperty_3).setColumnName("Produit Name").setEditable(false);
+		BeanProperty<Auction, Integer> auctionBeanProperty_3 = BeanProperty.create("auctionStartingPrice");
+		jTableBinding.addColumnBinding(auctionBeanProperty_3).setColumnName("Starting Price").setEditable(false);
 		//
-		BeanProperty<EnglishAuction, Date> englishAuctionBeanProperty_4 = BeanProperty.create("auctionEndDate");
-		jTableBinding.addColumnBinding(englishAuctionBeanProperty_4).setColumnName("End Time").setEditable(false);
+		BeanProperty<Auction, String> auctionBeanProperty_4 = BeanProperty.create("product.name");
+		jTableBinding.addColumnBinding(auctionBeanProperty_4).setColumnName("Product Name").setEditable(false);
 		//
-		jTableBinding.setEditable(false);
+		BeanProperty<Auction, String> auctionBeanProperty_5 = BeanProperty.create("product.category");
+		jTableBinding.addColumnBinding(auctionBeanProperty_5).setColumnName("Product Category").setEditable(false);
+		//
 		jTableBinding.bind();
 	}
 }

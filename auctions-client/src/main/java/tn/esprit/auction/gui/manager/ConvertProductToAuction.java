@@ -2,6 +2,7 @@ package tn.esprit.auction.gui.manager;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Window;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -10,13 +11,30 @@ import javax.swing.JTable;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JButton;
+
+import tn.esprit.auction.delegate.GestionProductDelegate;
+import tn.esprit.auction.domain.Product;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.jdesktop.swingbinding.JTableBinding;
+import org.jdesktop.swingbinding.SwingBindings;
+import org.jdesktop.beansbinding.AutoBinding.UpdateStrategy;
+import org.jdesktop.beansbinding.BeanProperty;
+
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.Color;
 
 public class ConvertProductToAuction extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
+	List<Product>products;
+	static Product productSelected;
 
 	/**
 	 * Launch the application.
@@ -38,6 +56,8 @@ public class ConvertProductToAuction extends JFrame {
 	 * Create the frame.
 	 */
 	public ConvertProductToAuction() {
+		products =new ArrayList<Product>();
+		products=GestionProductDelegate.doFindAllProducts();
 		setTitle("Convert a Product to an Auction");
 		setBounds(100, 100, 550, 500);
 		contentPane = new JPanel();
@@ -50,7 +70,14 @@ public class ConvertProductToAuction extends JFrame {
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
-		scrollPane.setViewportView(table);
+		table.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				productSelected=new Product();
+				productSelected=products.get(table.getSelectedRow());
+						}
+		});
+		scrollPane.setColumnHeaderView(table);
 		//table.setModel(new TableProductModel());
 		
 		JLabel lblConvertAProduct = new JLabel("Convert a product to an Auction :");
@@ -60,9 +87,16 @@ public class ConvertProductToAuction extends JFrame {
 		JButton btnNewButton = new JButton("Next");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				JLabel lblYouNeedTo = new JLabel("You need to select a Product first !");
+				lblYouNeedTo.setForeground(Color.RED);
+				lblYouNeedTo.setBounds(40, 401, 301, 14);
+				lblYouNeedTo.setVisible(false);
+				contentPane.add(lblYouNeedTo);
+				if (productSelected!=null){
 				AddAuction frame = new AddAuction();
 				frame.setVisible(true);
 				setVisible(false);
+				}else lblYouNeedTo.setVisible(true);
 			}
 		});
 		btnNewButton.setBounds(435, 427, 89, 23);
@@ -81,5 +115,25 @@ public class ConvertProductToAuction extends JFrame {
 		JLabel lblPleaseSelectA = new JLabel("Choose and select the product you want to convert to an auction from the table .");
 		lblPleaseSelectA.setBounds(40, 360, 454, 14);
 		contentPane.add(lblPleaseSelectA);
+		
+		
+		initDataBindings();
+	}
+	protected void initDataBindings() {
+		JTableBinding<Product, List<Product>, JTable> jTableBinding = SwingBindings.createJTableBinding(UpdateStrategy.READ, products, table);
+		//
+		BeanProperty<Product, String> productBeanProperty = BeanProperty.create("category");
+		jTableBinding.addColumnBinding(productBeanProperty).setColumnName("Category").setEditable(false);
+		//
+		BeanProperty<Product, String> productBeanProperty_1 = BeanProperty.create("name");
+		jTableBinding.addColumnBinding(productBeanProperty_1).setColumnName("Name").setEditable(false);
+		//
+		BeanProperty<Product, Integer> productBeanProperty_2 = BeanProperty.create("price");
+		jTableBinding.addColumnBinding(productBeanProperty_2).setColumnName("Price").setEditable(false);
+		//
+		BeanProperty<Product, Integer> productBeanProperty_3 = BeanProperty.create("quantity");
+		jTableBinding.addColumnBinding(productBeanProperty_3).setColumnName("Quantity").setEditable(false);
+		//
+		jTableBinding.bind();
 	}
 }

@@ -13,20 +13,26 @@ import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
+import javax.transaction.Transactional.TxType;
 
 import tn.esprit.auction.delegate.GestionAuctionDelegate;
+import tn.esprit.auction.domain.AgregateAuction;
+import tn.esprit.auction.domain.DutchAuction;
 import tn.esprit.auction.domain.EnglishAuction;
+import tn.esprit.auction.domain.YankeeAuction;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
-public class AddEnglishAuction extends JFrame {
+public class AddYankeeAuction extends JFrame {
 
 	private JPanel contentPane;
 	private JButton button;
 	private JButton btnFinish;
 	private JLabel lblNewLabel_1;
 	private JLabel lblByClickingFinish;
+	private JLabel lblNewLabel;
 	/**
 	 * Launch the application.
 	 */
@@ -34,7 +40,7 @@ public class AddEnglishAuction extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AddEnglishAuction frame = new AddEnglishAuction();
+					AddYankeeAuction frame = new AddYankeeAuction();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -46,8 +52,8 @@ public class AddEnglishAuction extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public AddEnglishAuction() {
-		setTitle("Add English Auction");
+	public AddYankeeAuction() {
+		setTitle("Add Yankee Auction");
 		setBounds(100, 100, 550, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -69,9 +75,11 @@ public class AddEnglishAuction extends JFrame {
 		btnFinish = new JButton("Finish");
 		btnFinish.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				AddAuction addAuction=new AddAuction();
-				EnglishAuction englishAuction=(EnglishAuction) AddAuction.auction;
-				GestionAuctionDelegate.doAddAuction(englishAuction);
+				YankeeAuction yankeeAuction=(YankeeAuction) AddAuction.auction;
+				
+				GestionAuctionDelegate.doAddAuction(yankeeAuction);
 				setVisible(false);
 			}
 		});
@@ -79,16 +87,18 @@ public class AddEnglishAuction extends JFrame {
 		contentPane.add(btnFinish);
 		
 		lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(AddEnglishAuction.class.getResource("/tn/esprit/auction/gui/manager/English-Auction1.png")));
-		lblNewLabel_1.setBounds(56, 63, 432, 193);
+		lblNewLabel_1.setIcon(new ImageIcon(AddYankeeAuction.class.getResource("/tn/esprit/auction/gui/manager/yankees.jpg")));
+		lblNewLabel_1.setBounds(123, 11, 372, 149);
 		contentPane.add(lblNewLabel_1);
 		
-		JLabel lblNoMoreData = new JLabel("No more data to input  in English Auction !");
-		lblNoMoreData.setBounds(45, 365, 322, 14);
+		JLabel lblNoMoreData = new JLabel("No more Data to add in Yankee Auction !");
+		lblNoMoreData.setBounds(45, 222, 322, 14);
 		contentPane.add(lblNoMoreData);
 		
 		lblByClickingFinish = new JLabel("By clicking Finish , an email will be send to notify interested clients in this category of auction!");
-		lblByClickingFinish.setBounds(45, 390, 461, 14);
+		lblByClickingFinish.setBounds(10, 350, 461, 14);
 		contentPane.add(lblByClickingFinish);
+		
+		
 	}
 }

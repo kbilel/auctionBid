@@ -14,7 +14,7 @@ import tn.esprit.auction.domain.Client;
  */
 @Entity
 @Table(name="t_negociated_auction")
-
+@DiscriminatorValue(value="Negociated Auction")
 public class NegociatedAuction extends Auction implements Serializable {
 
 	

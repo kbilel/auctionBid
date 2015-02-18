@@ -15,12 +15,13 @@ import javax.swing.JButton;
 import javax.swing.ImageIcon;
 
 import tn.esprit.auction.delegate.GestionAuctionDelegate;
+import tn.esprit.auction.domain.AgregateAuction;
 import tn.esprit.auction.domain.EnglishAuction;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class AddEnglishAuction extends JFrame {
+public class AddAgregateAuction extends JFrame {
 
 	private JPanel contentPane;
 	private JButton button;
@@ -34,7 +35,7 @@ public class AddEnglishAuction extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AddEnglishAuction frame = new AddEnglishAuction();
+					AddAgregateAuction frame = new AddAgregateAuction();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -46,8 +47,8 @@ public class AddEnglishAuction extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public AddEnglishAuction() {
-		setTitle("Add English Auction");
+	public AddAgregateAuction() {
+		setTitle("Add Agregate Auction");
 		setBounds(100, 100, 550, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -70,8 +71,8 @@ public class AddEnglishAuction extends JFrame {
 		btnFinish.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				AddAuction addAuction=new AddAuction();
-				EnglishAuction englishAuction=(EnglishAuction) AddAuction.auction;
-				GestionAuctionDelegate.doAddAuction(englishAuction);
+				AgregateAuction agregateAuction=(AgregateAuction) AddAuction.auction;
+				GestionAuctionDelegate.doAddAuction(agregateAuction);
 				setVisible(false);
 			}
 		});
@@ -79,11 +80,11 @@ public class AddEnglishAuction extends JFrame {
 		contentPane.add(btnFinish);
 		
 		lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(AddEnglishAuction.class.getResource("/tn/esprit/auction/gui/manager/English-Auction1.png")));
-		lblNewLabel_1.setBounds(56, 63, 432, 193);
+		lblNewLabel_1.setIcon(new ImageIcon(AddAgregateAuction.class.getResource("/tn/esprit/auction/gui/manager/aggregate auction.png")));
+		lblNewLabel_1.setBounds(120, 23, 333, 291);
 		contentPane.add(lblNewLabel_1);
 		
-		JLabel lblNoMoreData = new JLabel("No more data to input  in English Auction !");
+		JLabel lblNoMoreData = new JLabel("No more data to input  in Agregate Auction !");
 		lblNoMoreData.setBounds(45, 365, 322, 14);
 		contentPane.add(lblNoMoreData);
 		

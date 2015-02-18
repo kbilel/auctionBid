@@ -12,7 +12,7 @@ public class TestGestionProduct {
 	public static void doAddProduct(ProductServicesRemote remote){
 
 		Product product=new Product();
-		product.setName("iphone");
+		product.setName("car");
 		if(remote.addProduct(product)){
 			System.out.println("Product added");
 		}
@@ -23,7 +23,7 @@ public class TestGestionProduct {
 	public static void doUpdateProduct(ProductServicesRemote remote){
 
 		Product product=remote.findProductById(1);
-		product.setName("iphone5");
+		product.setName("pc");
 		if(remote.updateProduct(product)){
 			System.out.println("updated");
 		}

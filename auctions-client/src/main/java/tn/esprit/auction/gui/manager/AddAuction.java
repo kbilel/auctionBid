@@ -12,8 +12,21 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
+
+import tn.esprit.auction.domain.AgregateAuction;
+import tn.esprit.auction.domain.Auction;
+import tn.esprit.auction.domain.DutchAuction;
+import tn.esprit.auction.domain.EnglishAuction;
+import tn.esprit.auction.domain.NegociatedAuction;
+import tn.esprit.auction.domain.Product;
+import tn.esprit.auction.domain.YankeeAuction;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
+import javax.swing.DefaultComboBoxModel;
+
+import java.awt.Color;
 
 public class AddAuction extends JFrame {
 
@@ -32,13 +45,15 @@ public class AddAuction extends JFrame {
 	private JLabel label_3;
 	private JLabel label_4;
 	private JLabel lblStartingPrice;
-	private JTextField textField_6;
+	private JTextField txtfStartingPrice;
 	private JLabel lblTd;
 	private JPanel panel_1;
 	private JComboBox comboBox;
 	private JLabel lblType;
 	private JButton button;
 	private JButton button_1;
+	private JLabel lblDataIsMissing;
+	static Auction auction;
 
 	/**
 	 * Launch the application.
@@ -47,6 +62,7 @@ public class AddAuction extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					Product product=new Product();
 					AddAuction frame = new AddAuction();
 					frame.setVisible(true);
 				} catch (Exception e) {
@@ -59,7 +75,7 @@ public class AddAuction extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public AddAuction() {
+	public AddAuction( ) {
 		setTitle("Add Auction");
 		setBounds(100, 100, 550, 500);
 		contentPane = new JPanel();
@@ -139,10 +155,10 @@ public class AddAuction extends JFrame {
 		lblStartingPrice.setBounds(10, 100, 112, 14);
 		panel.add(lblStartingPrice);
 		
-		textField_6 = new JTextField();
-		textField_6.setColumns(10);
-		textField_6.setBounds(132, 97, 89, 20);
-		panel.add(textField_6);
+		txtfStartingPrice = new JTextField();
+		txtfStartingPrice.setColumns(10);
+		txtfStartingPrice.setBounds(132, 97, 89, 20);
+		panel.add(txtfStartingPrice);
 		
 		lblTd = new JLabel("TD");
 		lblTd.setBounds(229, 100, 27, 20);
@@ -155,6 +171,7 @@ public class AddAuction extends JFrame {
 		panel_1.setLayout(null);
 		
 		comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"English Auction", "Dutch Auction", "Negociated Auction", "Yankee Auction", "Agregate Auction"}));
 		comboBox.setBounds(132, 28, 188, 20);
 		panel_1.add(comboBox);
 		
@@ -177,12 +194,70 @@ public class AddAuction extends JFrame {
 		button_1 = new JButton("Next");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AddEnglishAuction frame = new AddEnglishAuction();
+				// Label data is missing
+				lblDataIsMissing = new JLabel("Data is wrong or missing !");
+				lblDataIsMissing.setForeground(Color.RED);
+				lblDataIsMissing.setBounds(45, 380, 200, 14);
+				lblDataIsMissing.setVisible(false);
+				contentPane.add(lblDataIsMissing);
+				// *** end label data is missing
+				
+				// recuperatio de produit
+				ConvertProductToAuction convertProductToAuction=new ConvertProductToAuction();
+			Product product=new Product();
+			product = convertProductToAuction.productSelected;
+				// ** end recuperation produit
+			
+				if (txtfStartingPrice.getText().equals("") ){
+					lblDataIsMissing.setVisible(true);
+					
+				}else {
+				
+				String selectedComboBox =(String) comboBox.getSelectedItem();
+				
+					if (selectedComboBox=="English Auction"){
+						auction =new EnglishAuction();
+						auction.setAuctionStartingPrice(Integer.parseInt(txtfStartingPrice.getText()));
+						auction.setProduct(product);
+						AddEnglishAuction frame = new AddEnglishAuction();
+						frame.setVisible(true);
+						setVisible(false);
+				}else if(selectedComboBox=="Agregate Auction"){
+					auction =new AgregateAuction();
+					auction.setAuctionStartingPrice(Integer.parseInt(txtfStartingPrice.getText()));
+					auction.setProduct(product);
+					AddAgregateAuction frame = new AddAgregateAuction();
+					frame.setVisible(true);
+					setVisible(false);
+			}else if(selectedComboBox=="Dutch Auction"){
+				auction =new DutchAuction();
+				auction.setAuctionStartingPrice(Integer.parseInt(txtfStartingPrice.getText()));
+				auction.setProduct(product);
+				AddDutchAuction frame = new AddDutchAuction();
 				frame.setVisible(true);
 				setVisible(false);
+		}else if(selectedComboBox=="Yankee Auction"){
+			auction =new YankeeAuction();
+			auction.setAuctionStartingPrice(Integer.parseInt(txtfStartingPrice.getText()));
+			auction.setProduct(product);
+			AddYankeeAuction frame = new AddYankeeAuction();
+			frame.setVisible(true);
+			setVisible(false);
+	}else if(selectedComboBox=="Negociated Auction"){
+		auction =new NegociatedAuction();
+		auction.setAuctionStartingPrice(Integer.parseInt(txtfStartingPrice.getText()));
+		auction.setProduct(product);
+		AddNegociatedAuction frame = new AddNegociatedAuction();
+		frame.setVisible(true);
+		setVisible(false);
+}
+					
+					}
 			}
 		});
 		button_1.setBounds(435, 427, 89, 23);
 		contentPane.add(button_1);
+		
+		
 	}
 }

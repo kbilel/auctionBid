@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.lang.Integer;
 
 
+
 import javax.persistence.*;
 
 import tn.esprit.auction.domain.Auction;
@@ -14,7 +15,7 @@ import tn.esprit.auction.domain.Auction;
  */
 @Entity
 @Table(name="t_dutch_auction")
-
+@DiscriminatorValue(value="Dutch Auction")
 public class DutchAuction extends Auction implements Serializable {
 
 	

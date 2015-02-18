@@ -6,6 +6,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
+import tn.esprit.auction.domain.AgregateAuction;
 import tn.esprit.auction.domain.Auction;
 import tn.esprit.auction.domain.DutchAuction;
 import tn.esprit.auction.domain.EnglishAuction;
@@ -17,7 +18,7 @@ public class TestGestionAuction {
 	static AuctionServicesRemote remote;
 	public static void doAddAuction(AuctionServicesRemote remote){
 
-		NegociatedAuction auction=new NegociatedAuction();
+		EnglishAuction auction=new EnglishAuction();
 		auction.setAuctionStartingPrice(500);
 		if(remote.addAuction(auction)){
 			System.out.println("OK");
