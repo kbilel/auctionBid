@@ -114,6 +114,7 @@ public class Authentification extends JFrame {
 
 				 String username=tfLogin.getText();
 			        String pwd= new String(tfPassword.getText());
+			      
 			        if(GestionUserDelegate.doAuthentificate(username, pwd)!=null)
 				 {
 			        	
