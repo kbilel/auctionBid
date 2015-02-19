@@ -107,6 +107,7 @@ public class PanelManageAuction extends JPanel {
 		
 		table = new JTable();
 		scrollPane.setViewportView(table);
+		
 		initDataBindings();
 
 	}
@@ -114,7 +115,7 @@ public class PanelManageAuction extends JPanel {
 		JTableBinding<Auction, List<Auction>, JTable> jTableBinding = SwingBindings.createJTableBinding(UpdateStrategy.READ, auctions, table);
 		//
 		BeanProperty<Auction, Date> auctionBeanProperty = BeanProperty.create("auctionEndDate");
-		jTableBinding.addColumnBinding(auctionBeanProperty).setColumnName("End Date").setEditable(false);
+		jTableBinding.addColumnBinding(auctionBeanProperty).setColumnName("Enddd Date").setEditable(false);
 		//
 		BeanProperty<Auction, String> auctionBeanProperty_1 = BeanProperty.create("class.simpleName");
 		jTableBinding.addColumnBinding(auctionBeanProperty_1).setColumnName("Type").setEditable(false);

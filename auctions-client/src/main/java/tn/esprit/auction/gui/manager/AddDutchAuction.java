@@ -107,7 +107,7 @@ public class AddDutchAuction extends JFrame {
 		contentPane.add(lblNoMoreData);
 		
 		lblByClickingFinish = new JLabel("By clicking Finish , an email will be send to notify interested clients in this category of auction!");
-		lblByClickingFinish.setBounds(45, 350, 461, 14);
+		lblByClickingFinish.setBounds(10, 350, 461, 14);
 		contentPane.add(lblByClickingFinish);
 		
 		lblDecreaseValue = new JLabel("Decrease value :");

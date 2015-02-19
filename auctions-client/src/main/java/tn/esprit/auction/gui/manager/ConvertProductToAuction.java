@@ -70,6 +70,7 @@ public class ConvertProductToAuction extends JFrame {
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
+		scrollPane.setViewportView(table);
 		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -77,7 +78,7 @@ public class ConvertProductToAuction extends JFrame {
 				productSelected=products.get(table.getSelectedRow());
 						}
 		});
-		scrollPane.setColumnHeaderView(table);
+		
 		//table.setModel(new TableProductModel());
 		
 		JLabel lblConvertAProduct = new JLabel("Convert a product to an Auction :");

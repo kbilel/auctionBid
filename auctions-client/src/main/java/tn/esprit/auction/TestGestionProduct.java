@@ -54,8 +54,16 @@ System.out.println("product null");
 			e.printStackTrace();
 		}
 		
+
 //doAddProduct(remote);
 		doUpdateProduct(remote);
+
+		doAddProduct(remote);
+		doAddProduct(remote);
+		doAddProduct(remote);
+		doAddProduct(remote);
+		//doUpdateProduct(remote);
+
 //doDeleteProduct(remote);
 	}
 	
