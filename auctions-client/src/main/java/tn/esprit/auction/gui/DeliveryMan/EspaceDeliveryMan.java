@@ -24,6 +24,7 @@ public class EspaceDeliveryMan extends JFrame {
 	private JPanel contentPane;
 	JScrollPane scrollPane;
    EspaceAjoutOrder espaceAjoutOrder;
+   ManageOrder manageOrder;
 	/**
 	 * Launch the application.
 	 */
@@ -45,7 +46,9 @@ public class EspaceDeliveryMan extends JFrame {
 	 */
 	public EspaceDeliveryMan() {
 	espaceAjoutOrder=new EspaceAjoutOrder();
+	manageOrder=new ManageOrder();
 	scrollPane=new JScrollPane();
+	
 	   
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 575, 460);
@@ -59,8 +62,7 @@ public class EspaceDeliveryMan extends JFrame {
 		JMenuItem mntmMessage = new JMenuItem("Message");
 		mntmMessage.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				espaceAjoutOrder=new EspaceAjoutOrder();
-				scrollPane=new JScrollPane();
+				
 				
 			}
 		});
@@ -94,7 +96,8 @@ public class EspaceDeliveryMan extends JFrame {
 		scrollPane.setBounds(10, 11, 529, 364);
 		panel.add(scrollPane);
 		contentPane.setLayout(gl_contentPane);
-		 scrollPane.setViewportView(espaceAjoutOrder);
+		
+		 scrollPane.setViewportView(manageOrder);
 		
 	}
 }
