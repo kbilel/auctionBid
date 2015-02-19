@@ -21,8 +21,8 @@ public class Order implements Serializable {
 
 	
 	private OrderPK orderPK;
-	private Client client;
-	private Product produit;
+	private Integer idClient;
+	private Integer idProduit;
 	private Date dateLimit;
 	private Boolean cashPayement;
 	private Manager manager;
@@ -41,20 +41,20 @@ public class Order implements Serializable {
 		this.orderPK = orderPK;
 	}  
 	@Column(name="id_client")
-	public Client getClient() {
-		return this.client;
+	public Integer getClient() {
+		return this.idClient;
 	}
 
-	public void setClient(Client client) {
-		this.client = client;
+	public void setClient(Integer idClient) {
+		this.idClient = idClient;
 	}   
 	@Column(name="id_produit")
-	public Product getProduit() {
-		return this.produit;
+	public Integer getProduit() {
+		return this.idProduit;
 	}
 
-	public void setProduit(Product produit) {
-		this.produit = produit;
+	public void setProduit(Integer idProduit) {
+		this.idProduit = idProduit;
 	} 
 	@Column(name="date_limit")
 	public Date getDateLimit() {
