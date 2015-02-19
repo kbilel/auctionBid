@@ -40,7 +40,7 @@ public class Auction implements Serializable {
 		this.id = id;
 	}   
 	@Column (name="auction_starting_date")
-	@Temporal(TemporalType.TIME)
+	@Temporal (TemporalType.TIMESTAMP)
 	public Date getAuctionStartingDate() {
 		return this.auctionStartingDate;
 	}
@@ -57,7 +57,7 @@ public class Auction implements Serializable {
 		this.auctionStartingPrice = auctionStartingPrice;
 	}   
 	@Column (name="auction_end_date")
-	@Temporal (TemporalType.TIME)
+	@Temporal (TemporalType.TIMESTAMP)
 	public Date getAuctionEndDate() {
 		return this.auctionEndDate;
 	}
