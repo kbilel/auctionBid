@@ -1,5 +1,7 @@
 package tn.esprit.auction.delegate;
 
+import java.util.List;
+
 import tn.esprit.auction.domain.Order;
 import tn.esprit.auction.locator.ServiceLocator;
 import tn.esprit.auction.services.gestion.order.OrderServicesRemote;
