@@ -1,5 +1,6 @@
 package tn.esprit.auction;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.naming.Context;
@@ -20,6 +21,9 @@ public class TestGestionAuction {
 
 		EnglishAuction auction=new EnglishAuction();
 		auction.setAuctionStartingPrice(500);
+		Date date = null ;
+		date= new Date(2015-1000,10-1,1,4,3,2 );
+		auction.setAuctionStartingDate(date);
 		if(remote.addAuction(auction)){
 			System.out.println("OK");
 		}

@@ -27,23 +27,21 @@ import java.awt.event.ActionEvent;
 import javax.swing.DefaultComboBoxModel;
 
 import java.awt.Color;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import javax.swing.JSpinner;
+
+import CalendarBean.JCalendar;
+
+import javax.swing.UIManager;
+
+import CalendarBean.JDayChooser;
+import datechooser.beans.DateChooserCombo;
 
 public class AddAuction extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JLabel lblH;
-	private JLabel lblM;
-	private JLabel label;
-	private JLabel lblEndTime;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JLabel label_2;
-	private JLabel label_3;
-	private JLabel label_4;
 	private JLabel lblStartingPrice;
 	private JTextField txtfStartingPrice;
 	private JLabel lblTd;
@@ -54,6 +52,13 @@ public class AddAuction extends JFrame {
 	private JButton button_1;
 	private JLabel lblDataIsMissing;
 	static Auction auction;
+	private JSpinner spinner_1;
+	private JSpinner spinner_2;
+	private JSpinner spinner_3;
+	private JSpinner spinner_4;
+	private JSpinner spinner_5;
+	private DateChooserCombo dateChooserCombo;
+	DateChooserCombo dateChooserCombo_1;
 
 	/**
 	 * Launch the application.
@@ -84,89 +89,34 @@ public class AddAuction extends JFrame {
 		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBorder(new TitledBorder(null, "Add Auction", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel.setBounds(10, 72, 514, 139);
+		panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Start", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel.setBounds(10, 68, 258, 163);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Starting Time :");
-		lblNewLabel.setBounds(10, 36, 112, 14);
+		lblNewLabel.setBounds(10, 35, 77, 14);
 		panel.add(lblNewLabel);
 		
-		textField = new JTextField();
-		textField.setBounds(132, 33, 28, 20);
-		panel.add(textField);
-		textField.setColumns(10);
+		final JSpinner spinner = new JSpinner();
+		spinner.setBounds(86, 32, 39, 20);
+		panel.add(spinner);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(193, 33, 28, 20);
-		panel.add(textField_1);
+		spinner_1 = new JSpinner();
+		spinner_1.setBounds(132, 32, 39, 20);
+		panel.add(spinner_1);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(252, 33, 28, 20);
-		panel.add(textField_2);
+		spinner_2 = new JSpinner();
+		spinner_2.setBounds(181, 32, 39, 20);
+		panel.add(spinner_2);
 		
-		lblH = new JLabel("m   :");
-		lblH.setBounds(170, 33, 27, 20);
-		panel.add(lblH);
-		
-		lblM = new JLabel("s  :");
-		lblM.setBounds(229, 33, 27, 20);
-		panel.add(lblM);
-		
-		label = new JLabel("h   :");
-		label.setBounds(104, 33, 27, 20);
-		panel.add(label);
-		
-		lblEndTime = new JLabel("End Time :");
-		lblEndTime.setBounds(10, 72, 112, 14);
-		panel.add(lblEndTime);
-		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(132, 69, 28, 20);
-		panel.add(textField_3);
-		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(193, 69, 28, 20);
-		panel.add(textField_4);
-		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(252, 69, 28, 20);
-		panel.add(textField_5);
-		
-		label_2 = new JLabel("m   :");
-		label_2.setBounds(170, 69, 27, 20);
-		panel.add(label_2);
-		
-		label_3 = new JLabel("s  :");
-		label_3.setBounds(229, 69, 27, 20);
-		panel.add(label_3);
-		
-		label_4 = new JLabel("h   :");
-		label_4.setBounds(104, 69, 27, 20);
-		panel.add(label_4);
-		
-		lblStartingPrice = new JLabel("Starting Price :");
-		lblStartingPrice.setBounds(10, 100, 112, 14);
-		panel.add(lblStartingPrice);
-		
-		txtfStartingPrice = new JTextField();
-		txtfStartingPrice.setColumns(10);
-		txtfStartingPrice.setBounds(132, 97, 89, 20);
-		panel.add(txtfStartingPrice);
-		
-		lblTd = new JLabel("TD");
-		lblTd.setBounds(229, 100, 27, 20);
-		panel.add(lblTd);
+		 dateChooserCombo = new DateChooserCombo();
+		dateChooserCombo.setBounds(69, 83, 155, 20);
+		panel.add(dateChooserCombo);
 		
 		panel_1 = new JPanel();
 		panel_1.setBorder(new TitledBorder(null, "Auction Type", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel_1.setBounds(10, 250, 514, 65);
+		panel_1.setBounds(10, 268, 514, 65);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -212,12 +162,55 @@ public class AddAuction extends JFrame {
 					lblDataIsMissing.setVisible(true);
 					
 				}else {
+				// auctionStartingDate recuperation des valeurs
 				
+				SimpleDateFormat sdfYear = new SimpleDateFormat("yyyy");
+				Integer yearS = Integer.parseInt(sdfYear.format(dateChooserCombo.getSelectedDate().getTime()));
+				
+				SimpleDateFormat sdfMounth = new SimpleDateFormat("MM");
+				Integer mounthS = Integer.parseInt(sdfMounth.format(dateChooserCombo.getSelectedDate().getTime()));
+				
+				SimpleDateFormat sdfDay = new SimpleDateFormat("dd");
+				Integer dayS = Integer.parseInt(sdfDay.format(dateChooserCombo.getSelectedDate().getTime()));
+			
+				Integer hourS= (Integer) (spinner.getValue());
+				Integer minuteS= (Integer) (spinner_1.getValue());
+				Integer secondeS= (Integer) (spinner_2.getValue());
+				String s=yearS+","+mounthS+","+dayS+","+hourS+","+minuteS+","+secondeS;
+				
+	Date auctionStartingDate=new Date(yearS-1000, mounthS-1, dayS, hourS, minuteS, secondeS);
+				
+				System.out.println(s);
+				// **** End auctionStartingDate recuperation de s valeurs
+				
+// auctionEndDate recuperation des valeurs
+				
+				SimpleDateFormat sdfYearE = new SimpleDateFormat("yyyy");
+				Integer yearE = Integer.parseInt(sdfYearE.format(dateChooserCombo_1.getSelectedDate().getTime()));
+				
+				SimpleDateFormat sdfMounthE = new SimpleDateFormat("MM");
+				Integer mounthE = Integer.parseInt(sdfMounthE.format(dateChooserCombo_1.getSelectedDate().getTime()));
+				
+				SimpleDateFormat sdfDayE = new SimpleDateFormat("dd");
+				Integer dayE = Integer.parseInt(sdfDayE.format(dateChooserCombo_1.getSelectedDate().getTime()));
+			
+				Integer hourE= (Integer) (spinner_3.getValue());
+				Integer minuteE= (Integer) (spinner_4.getValue());
+				Integer secondeE= (Integer) (spinner_5.getValue());
+				String eND =yearE+","+mounthE+","+dayE+","+hourE+","+minuteE+","+secondeE;
+				
+	Date auctionEndDate=new Date(yearE-1000, mounthE-1, dayE, hourE, minuteE, secondeE);
+				
+				System.out.println(eND);
+				// **** End auctionEndDate recuperation de s valeurs
 				String selectedComboBox =(String) comboBox.getSelectedItem();
 				
 					if (selectedComboBox=="English Auction"){
 						auction =new EnglishAuction();
 						auction.setAuctionStartingPrice(Integer.parseInt(txtfStartingPrice.getText()));
+						 
+						auction.setAuctionStartingDate(auctionStartingDate);
+						auction.setAuctionEndDate(auctionEndDate);
 						auction.setProduct(product);
 						AddEnglishAuction frame = new AddEnglishAuction();
 						frame.setVisible(true);
@@ -258,6 +251,47 @@ public class AddAuction extends JFrame {
 		button_1.setBounds(435, 427, 89, 23);
 		contentPane.add(button_1);
 		
+		lblStartingPrice = new JLabel("Starting Price :");
+		lblStartingPrice.setBounds(24, 37, 112, 14);
+		contentPane.add(lblStartingPrice);
+		
+		txtfStartingPrice = new JTextField();
+		txtfStartingPrice.setBounds(162, 34, 89, 20);
+		contentPane.add(txtfStartingPrice);
+		txtfStartingPrice.setColumns(10);
+		
+		lblTd = new JLabel("TD");
+		lblTd.setBounds(261, 34, 27, 20);
+		contentPane.add(lblTd);
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setLayout(null);
+		panel_2.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "End", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_2.setBounds(266, 68, 258, 163);
+		contentPane.add(panel_2);
+		
+		JLabel lblEndtime = new JLabel("End Time :");
+		lblEndtime.setBounds(10, 35, 112, 14);
+		panel_2.add(lblEndtime);
+		
+		spinner_3 = new JSpinner();
+		spinner_3.setBounds(86, 32, 39, 20);
+		panel_2.add(spinner_3);
+		
+		spinner_4 = new JSpinner();
+		spinner_4.setBounds(132, 32, 39, 20);
+		panel_2.add(spinner_4);
+		
+		spinner_5 = new JSpinner();
+		spinner_5.setBounds(181, 32, 39, 20);
+		panel_2.add(spinner_5);
+		
+		 dateChooserCombo_1 = new DateChooserCombo();
+		dateChooserCombo_1.setBounds(68, 80, 155, 20);
+		panel_2.add(dateChooserCombo_1);
+		
 		
 	}
 }
+
+
