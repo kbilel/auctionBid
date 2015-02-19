@@ -23,13 +23,13 @@ import javax.swing.JButton;
 import tn.esprit.auction.delegate.GestionUserDelegate;
 import tn.esprit.auction.domain.User;
 import tn.esprit.auction.services.gestion.user.UserServicesRemote;
+import java.awt.Color;
+import javax.swing.JTable;
 
 public class EspaceDeliv extends JFrame {
 
 	private JPanel contentPane;
-	Delivpa delivpa;
-	private JTextField textField;
-	private JTextField textField_1;
+
 
 	/**
 	 * Launch the application.
@@ -56,54 +56,18 @@ public class EspaceDeliv extends JFrame {
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
-		
-		JMenuItem mntmHome = new JMenuItem("home");
-		menuBar.add(mntmHome);
-		
-		JMenuItem mntmProfile = new JMenuItem("profile");
-		mntmProfile.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-		
-				
-			}
-		});
-		menuBar.add(mntmProfile);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNom = new JLabel("Username");
-		lblNom.setBounds(24, 108, 61, 14);
-		contentPane.add(lblNom);
+		JLabel lblDz = new JLabel("Order Management");
+		lblDz.setForeground(Color.RED);
+		lblDz.setBounds(149, 41, 176, 47);
+		contentPane.add(lblDz);
 		
-		JLabel lblPassword = new JLabel("password");
-		lblPassword.setBounds(24, 158, 61, 14);
-		contentPane.add(lblPassword);
-		
-		textField = new JTextField();
-		textField.setBounds(115, 105, 86, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
-		
-		textField_1 = new JTextField();
-		textField_1.setBounds(115, 155, 86, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
-		
-		JButton btnAjouter = new JButton("ajouter");
-		btnAjouter.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				User user1=new User();
-				user1.setFullName(textField.getText());
-				user1.setPassword(textField_1.getText());
-				GestionUserDelegate.doAddUser(user1);
-			
-			
-				
-			}
-		});
-		btnAjouter.setBounds(112, 227, 89, 23);
-		contentPane.add(btnAjouter);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(79, 124, 295, 237);
+		contentPane.add(scrollPane);
 	}
 }
