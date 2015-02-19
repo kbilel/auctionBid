@@ -2,6 +2,7 @@ package tn.esprit.auction.gui.DeliveryMan;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.ScrollPane;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -14,11 +15,15 @@ import javax.swing.JScrollPane;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.xml.soap.SAAJResult;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class EspaceDeliveryMan extends JFrame {
 
 	private JPanel contentPane;
-
+	JScrollPane scrollPane;
+   EspaceAjoutOrder espaceAjoutOrder;
 	/**
 	 * Launch the application.
 	 */
@@ -39,8 +44,11 @@ public class EspaceDeliveryMan extends JFrame {
 	 * Create the frame.
 	 */
 	public EspaceDeliveryMan() {
+	espaceAjoutOrder=new EspaceAjoutOrder();
+	scrollPane=new JScrollPane();
+	   
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 529, 458);
+		setBounds(100, 100, 575, 460);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -49,6 +57,13 @@ public class EspaceDeliveryMan extends JFrame {
 		menuBar.add(mntmHome);
 		
 		JMenuItem mntmMessage = new JMenuItem("Message");
+		mntmMessage.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				espaceAjoutOrder=new EspaceAjoutOrder();
+				scrollPane=new JScrollPane();
+				
+			}
+		});
 		menuBar.add(mntmMessage);
 		
 		JMenuItem mntmProfile = new JMenuItem("Profile");
@@ -61,9 +76,7 @@ public class EspaceDeliveryMan extends JFrame {
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addComponent(panel, GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
-					.addGap(20))
+				.addComponent(panel, GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -73,25 +86,15 @@ public class EspaceDeliveryMan extends JFrame {
 		);
 		panel.setLayout(null);
 		
-		JButton btnAddOrder = new JButton("Add order");
-		btnAddOrder.setBounds(336, 286, 89, 23);
-		panel.add(btnAddOrder);
-		
-		JLabel lblNewLabel = new JLabel("order id");
-		lblNewLabel.setBounds(28, 41, 63, 23);
-		panel.add(lblNewLabel);
-		
-		JLabel lblNewLabel_1 = new JLabel("product id");
-		lblNewLabel_1.setBounds(28, 89, 46, 14);
-		panel.add(lblNewLabel_1);
-		
-		JLabel lblClientId = new JLabel("client id");
-		lblClientId.setBounds(28, 139, 46, 14);
-		panel.add(lblClientId);
-		
 		JLabel label = new JLabel("");
 		label.setBounds(28, 181, 46, 14);
 		panel.add(label);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 11, 529, 364);
+		panel.add(scrollPane);
 		contentPane.setLayout(gl_contentPane);
+		 scrollPane.setViewportView(espaceAjoutOrder);
+		
 	}
 }
