@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import org.jfree.chart.ChartFactory;
@@ -16,6 +18,8 @@ import org.jfree.data.general.DefaultPieDataset;
 
 import tn.esprit.auction.delegate.GestionProductDelegate;
 import tn.esprit.auction.domain.Product;
+
+import java.awt.Color;
 
 public class StatisticProductCategories extends JPanel {
 	
@@ -27,11 +31,15 @@ public class StatisticProductCategories extends JPanel {
 	 * Create the panel.
 	 */
 	public StatisticProductCategories() {
+		setBackground(new Color(255, 250, 240));
 	setLayout(null);
+	setBounds(0, 21, 1142, 791);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(10, 11, 716, 566);
+		panel.setBackground(new Color(255, 250, 240));
+		panel.setBounds(0, 21, 1142, 791);
 		add(panel);
+		
 		
 		/********Stat*******/
 		 List<Product> products=new ArrayList<Product>();
@@ -87,7 +95,12 @@ public class StatisticProductCategories extends JPanel {
      panel.setLayout(null);
      
      cp = new ChartPanel(graphe);
-     cp.setBounds(10, 11, 696, 533);
+     cp.setBounds(28, 21, 1092, 708);
+     cp.setLayout(null);
+     JLabel lblNewLabel = new JLabel("");
+     lblNewLabel.setIcon(new ImageIcon(StatisticAuctionCategories.class.getResource("/tn/esprit/auction/gui/client/statistic.png")));
+     lblNewLabel.setBounds(-15, 570, 200, 150);
+     cp.add(lblNewLabel);
      panel.add(cp);
      //tabbedPane.addTab("New tab", null, cp, null);
 		/********Stat Product*******/
