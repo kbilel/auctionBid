@@ -54,12 +54,21 @@ System.out.println("product null");
 			e.printStackTrace();
 		}
 		
-		doAddProduct(remote);
-		doAddProduct(remote);
-		doAddProduct(remote);
-		doAddProduct(remote);
+
+//doAddProduct(remote);
 		//doUpdateProduct(remote);
+
+		doAddProduct(remote);
+		//doAddProduct(remote);
+		//doAddProduct(remote);
+		//doAddProduct(remote);
+		//doUpdateProduct(remote);
+<<<<<<< HEAD
+//doDeleteProduct(remote);		
+=======
+
 //doDeleteProduct(remote);
+>>>>>>> branch 'master' of http://git.esprit.tn:2015/houda.baya/esprit14154b3t6.git
 	}
 	
 

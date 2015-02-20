@@ -24,6 +24,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 
+import org.jfree.ui.RefineryUtilities;
+
 import tn.esprit.auction.delegate.GestionConfigurationDelegate;
 import tn.esprit.auction.delegate.GestionUserDelegate;
 import tn.esprit.auction.domain.Client;
@@ -61,6 +63,7 @@ public class SubscribingSpace extends JFrame {
 			public void run() {
 				try {
 					SubscribingSpace frame = new SubscribingSpace();
+					RefineryUtilities.centerFrameOnScreen(frame);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -85,7 +88,7 @@ public class SubscribingSpace extends JFrame {
 		//user=new Client();
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1100, 600);
+		setBounds(0, 21, 1142, 839);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(205, 92, 92));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -95,7 +98,7 @@ public class SubscribingSpace extends JFrame {
 		final JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 255, 224));
 		panel.setBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(0, 0, 0)));
-		panel.setBounds(10, 11, 821, 762);
+		panel.setBounds(0, 21, 1142, 791);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		

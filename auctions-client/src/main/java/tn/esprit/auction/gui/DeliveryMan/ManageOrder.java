@@ -1,22 +1,28 @@
 package tn.esprit.auction.gui.DeliveryMan;
 
-import javax.persistence.criteria.Order;
+
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.TitledBorder;
 
+import tn.esprit.auction.delegate.GestionOrderDelegate;
+import tn.esprit.auction.domain.Order;
+
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ManageOrder extends JPanel {
 	private JTable table;
-
-	/**
-	 * Create the panel.
-	 */
+ List<Order> orders;
+	
 	public ManageOrder() {
-		List<Order> orders;
+		
+	//orders=new ArrayList<Order>();
+	//orders=GestionOrderDelegate.doFindAllOrders();
+		
+		
 		
 		setBorder(new TitledBorder(null, "affichage", TitledBorder.LEADING, TitledBorder.TOP, null, Color.RED));
 		setLayout(null);

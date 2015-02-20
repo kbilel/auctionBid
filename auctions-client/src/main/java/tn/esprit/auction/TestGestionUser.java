@@ -26,11 +26,11 @@ public class TestGestionUser {
 	public static void doAddUser(UserServicesRemote remote){
 
 		User user=new Manager();
-		user.setUserName("achref");
-		user.setAdress("achref");
-		user.setEmail("achref");
-		user.setFullName("achref");
-		user.setPassword("achref");
+		user.setUserName("amira");
+		user.setAdress("amira");
+		user.setEmail("amira");
+		user.setFullName("amira");
+		user.setPassword("amira");
 		
 		if(remote.addUser(user)){
 			System.out.println("OK");
@@ -42,9 +42,9 @@ public class TestGestionUser {
 	public static void doUpdateUser(UserServicesRemote remote){
 
 		User user=remote.findUserById(2);
-		user.setUserName("baya");
-		user.setFullName("houda");
-		user.setPassword("baya");
+		user.setUserName("ali");
+		user.setFullName("ali");
+		user.setPassword("ali");
 		if(remote.updateUser(user)){
 			System.out.println("OK");
 		}
