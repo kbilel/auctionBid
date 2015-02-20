@@ -40,12 +40,12 @@ public class EspaceDeliveryMan extends JFrame {
 	 */
 	public EspaceDeliveryMan() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 610, 510);
+		setBounds(100, 100, 882, 602);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		JMenu mnAdd = new JMenu("add");
+		JMenu mnAdd = new JMenu("show");
 		mnAdd.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -56,7 +56,7 @@ public class EspaceDeliveryMan extends JFrame {
 		
 		menuBar.add(mnAdd);
 		
-		JMenu mnSho = new JMenu("show");
+		JMenu mnSho = new JMenu("ajout");
 		mnSho.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {

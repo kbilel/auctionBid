@@ -3,10 +3,21 @@ package tn.esprit.auction.gui.DeliveryMan;
 import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.border.TitledBorder;
+
 import java.awt.Color;
+
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.UIManager;
+
+import tn.esprit.auction.delegate.GestionOrderDelegate;
+import tn.esprit.auction.delegate.GestionUserDelegate;
+import tn.esprit.auction.domain.Client;
+import tn.esprit.auction.domain.Order;
+import tn.esprit.auction.domain.User;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class PanelAjoutOrder extends JPanel {
 	private JTextField textField;
@@ -20,6 +31,16 @@ public class PanelAjoutOrder extends JPanel {
 		setLayout(null);
 		
 		JButton btnAdd = new JButton("add");
+		btnAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Order order=new Order();
+				order.setClient(Integer.parseInt(textField.getText()));
+				order.setProduit(Integer.parseInt(textField_1.getText()));
+				if(GestionOrderDelegate.doAddOrder(order))
+					System.out.println("ajout succés");
+				
+			}
+		});
 		btnAdd.setBounds(207, 193, 51, 23);
 		add(btnAdd);
 		

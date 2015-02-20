@@ -13,7 +13,16 @@ public class TestGestionProduct {
 
 		Product product=new Product();
 		product.setName("car");
-		if(remote.addProduct(product)){
+		
+		Product product2=new Product();
+		product.setName("phone");
+		
+		Product product3=new Product();
+		product.setName("keybord");
+		Product product5=new Product();
+		product.setName("puce");
+		
+		if(remote.addProduct(product5)){
 			System.out.println("Product added");
 		}
 		else
@@ -33,11 +42,11 @@ public class TestGestionProduct {
 	}
 	public static void doDeleteProduct(ProductServicesRemote remote){
 
-		Product product=remote.findProductById(1);
+		Product product=remote.findProductById(2);
 		if (product ==null)
 System.out.println("product null");
 		if(remote.deleteProduct(product)){
-			System.out.println("deleted");
+			System.out.println(" product deleted");
 		}
 		else
 			System.out.println("Erreur ...delete");
@@ -55,13 +64,13 @@ System.out.println("product null");
 		}
 		
 
-//doAddProduct(remote);
-		doUpdateProduct(remote);
+doAddProduct(remote);
+		//doUpdateProduct(remote);
 
+	/*	doAddProduct(remote);
 		doAddProduct(remote);
 		doAddProduct(remote);
-		doAddProduct(remote);
-		doAddProduct(remote);
+		doAddProduct(remote);*/
 		//doUpdateProduct(remote);
 
 //doDeleteProduct(remote);

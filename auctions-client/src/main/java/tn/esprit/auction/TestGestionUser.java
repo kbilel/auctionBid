@@ -12,8 +12,10 @@ import javax.naming.NamingException;
 
 
 
+
 import tn.esprit.auction.domain.Client;
 import tn.esprit.auction.domain.Configuration;
+import tn.esprit.auction.domain.DeliveryMan;
 import tn.esprit.auction.domain.Manager;
 import tn.esprit.auction.domain.User;
 import tn.esprit.auction.services.Configuration.ConfigurationServiceRemote;
@@ -25,14 +27,29 @@ public class TestGestionUser {
 	static UserServicesRemote remote;
 	public static void doAddUser(UserServicesRemote remote){
 
-		User user=new Manager();
-		user.setUserName("amira");
-		user.setAdress("amira");
-		user.setEmail("amira");
-		user.setFullName("amira");
-		user.setPassword("amira");
+		Manager user1=new Manager();
+		user1.setUserName("amiraaClien");
+		user1.setAdress("amira");
+		user1.setEmail("amira");
+		user1.setFullName("amira");
+		user1.setPassword("amira");
 		
-		if(remote.addUser(user)){
+		Client user2=new Client();
+		user2.setUserName("ali");
+		user2.setAdress("ali");
+		user2.setEmail("ali");
+		user2.setFullName("ali");
+		user2.setPassword("ali");
+		
+		DeliveryMan user3=new DeliveryMan();
+		user3.setUserName("max");
+		user3.setAdress("max");
+		user3.setEmail("max");
+		user3.setFullName("max");
+		user3.setPassword("max");
+		
+		
+		if(remote.addUser(user3)&remote.addUser(user1)&remote.addUser(user2)){
 			System.out.println("OK");
 		}
 		else
@@ -54,11 +71,13 @@ public class TestGestionUser {
 	}
 	public static void doDeleteUser(UserServicesRemote remote){
 
-		User user=remote.findUserById(1);
+		User user=remote.findUserById(6);
+		User user2=remote.findUserById(5);
+		
 		if (user ==null)
 System.out.println("user null");
-		if(remote.deleteUser(user)){
-			System.out.println("OK");
+		if(remote.deleteUser(user)&&remote.deleteUser(user2)){
+			System.out.println("OK user has been deleted");
 		}
 		else
 			System.out.println("Erreur ...delete");
@@ -88,7 +107,10 @@ User user= remote.authentificate("baya", "baya");
 		//Configuration configuration=new Configuration();
 
 		if(users!=null){
+			
 			System.out.println("OK find");
+			
+		
 		}
 		else
 			System.out.println("Erreur ...find Config");
@@ -105,9 +127,10 @@ User user= remote.authentificate("baya", "baya");
 		System.out.println("erreur jndi ... ");
 			e.printStackTrace();
 		}
-	doAddUser(remote);	
+	//doAddUser(remote);	
 //doFindAllUser(remote);
 		//doUpdateUser(remote);
 	//doDeleteUser(remote);
+	
 	}
 }

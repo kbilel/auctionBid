@@ -90,16 +90,16 @@ public class Order implements Serializable {
 	public void setDeliveryMan(DeliveryMan deliveryMan) {
 		this.deliveryMan = deliveryMan;
 	}
-	/*public Order(Client client, Product produit, Date dateLimit,
-			Boolean cashPayement, Manager manager, DeliveryMan deliveryMan) {
+	public Order(Integer idClient, Integer idProduit, Date dateLimit,
+			Boolean cashPayement,OrderPK orderPK) {
 		super();
-		this.client = client;
-		this.produit = produit;
+		this.idClient = idClient;
+		this.idProduit = idProduit;
 		this.dateLimit = dateLimit;
 		this.cashPayement = cashPayement;
 		this.manager = manager;
 		this.deliveryMan = deliveryMan;
-		this.orderPK=new OrderPK(manager.getId(), deliveryMan.getId());
-	}*/
+		this.orderPK=new OrderPK(manager.getId(),deliveryMan.getId());
+	}
    
 }
