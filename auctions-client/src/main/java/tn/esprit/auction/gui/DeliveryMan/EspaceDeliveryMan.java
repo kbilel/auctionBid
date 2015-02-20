@@ -2,21 +2,23 @@ package tn.esprit.auction.gui.DeliveryMan;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-import java.awt.ScrollPane;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JMenuBar;
-import javax.swing.JScrollPane;
 import javax.swing.JMenu;
+import javax.swing.JScrollPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class EspaceDeliveryMan extends JFrame {
 
 	private JPanel contentPane;
-	
-	JScrollPane scrollPane = new JScrollPane();
-	EspaceAjoutOrder espaceAjoutOrder=new EspaceAjoutOrder();
+	JScrollPane 	 scrollPane = new JScrollPane();
+
 	/**
 	 * Launch the application.
 	 */
@@ -37,27 +39,42 @@ public class EspaceDeliveryMan extends JFrame {
 	 * Create the frame.
 	 */
 	public EspaceDeliveryMan() {
-scrollPane.setViewportView(espaceAjoutOrder);
-	
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 631, 564);
+		setBounds(100, 100, 610, 510);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		JMenu mnAjout = new JMenu("Ajout");
-		menuBar.add(mnAjout);
+		JMenu mnAdd = new JMenu("add");
+		mnAdd.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				PanelShowOrder panelOrder=new PanelShowOrder();
+				scrollPane.setViewportView(panelOrder);
+			}
+		});
 		
-		JMenu mnWatch = new JMenu("watch");
-		menuBar.add(mnWatch);
+		menuBar.add(mnAdd);
+		
+		JMenu mnSho = new JMenu("show");
+		mnSho.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				PanelAjoutOrder panelAjoutOrder=new PanelAjoutOrder();
+				scrollPane.setViewportView(panelAjoutOrder);
+			}
+		});
+		menuBar.add(mnSho);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 11, 595, 483);
+	
+		scrollPane.setBounds(10, 11, 554, 429);
 		contentPane.add(scrollPane);
+		
+		
 	}
 
 }
