@@ -27,7 +27,7 @@ public class PanelAjoutOrder extends JPanel {
 	 * Create the panel.
 	 */
 	public PanelAjoutOrder() {
-		setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "show", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(255, 0, 0)));
+		setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "ajout", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(255, 0, 0)));
 		setLayout(null);
 		
 		JButton btnAdd = new JButton("add");

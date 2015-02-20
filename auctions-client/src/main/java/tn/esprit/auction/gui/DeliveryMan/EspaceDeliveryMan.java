@@ -9,15 +9,23 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JScrollPane;
+
+import tn.esprit.auction.domain.Order;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EspaceDeliveryMan extends JFrame {
 
 	private JPanel contentPane;
 	JScrollPane 	 scrollPane = new JScrollPane();
+	PanelShowOrder panelShowOrder;
+	PanelAjoutOrder panelAjoutOrder;
+	
 
 	/**
 	 * Launch the application.
@@ -49,8 +57,9 @@ public class EspaceDeliveryMan extends JFrame {
 		mnAdd.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				PanelShowOrder panelOrder=new PanelShowOrder();
-				scrollPane.setViewportView(panelOrder);
+				panelShowOrder=new PanelShowOrder();
+			
+				scrollPane.setViewportView(panelShowOrder);
 			}
 		});
 		
@@ -60,7 +69,7 @@ public class EspaceDeliveryMan extends JFrame {
 		mnSho.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				PanelAjoutOrder panelAjoutOrder=new PanelAjoutOrder();
+				 panelAjoutOrder=new PanelAjoutOrder();
 				scrollPane.setViewportView(panelAjoutOrder);
 			}
 		});
