@@ -62,7 +62,9 @@ public class GestionClient extends JPanel {
 		});
 	}
 	
+	
 	public GestionClient() {
+		setBounds(100, 100, 1158, 850);
 		 users=GestionUserDelegate.doFindAllUsers();
 		for (User user : users) {
 			if(user instanceof Client)
@@ -76,11 +78,12 @@ public class GestionClient extends JPanel {
 		
 		final JPanel panelClient = new JPanel();
 		panelClient.setBackground(new Color(250, 250, 210));
-		panelClient.setBounds(10, 11, 1031, 656);
+		panelClient.setBounds(0, 0, 1158, 850);
 		add(panelClient);
 		panelClient.setLayout(null);
 		
 		tableClients = new JTable();
+		tableClients.setModel(new ListClient());
 		tableClients.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -127,7 +130,7 @@ public class GestionClient extends JPanel {
 
 			      // detail.jLabelname.setText(name);
 			}
-		});
+		});  
 		tableClients.setFont(new Font("Tahoma", Font.BOLD, 15));
 		tableClients.setBackground(new Color(253, 245, 230));
 		tableClients.setBounds(394, 129, 586, 406);
@@ -213,10 +216,23 @@ public class GestionClient extends JPanel {
 					labelPassword.setText("------");
 					labelTokens.setText("------");
 					labelImage.setIcon(new ImageIcon(EspaceAdmin.class.getResource("/tn/esprit/auction/gui/authentification/User-icon.png")));
-					tableClients=new JTable();
-					
-					//tableClients.setModel(new ListClient());
-				    panelClient.add(tableClients);
+					//tableClients=new JTable();
+					/*users=GestionUserDelegate.doFindAllUsers();
+					for (User user : users) {
+						if(user instanceof Client)
+						{
+							clients.add((Client)user);	}
+						
+					}*/
+					tableClients =new JTable();
+					//initDataBindings();
+				//panelClient.add(tableClients);
+					System.out.println("tableauuuuuu chbii wèldiiih");
+					tableClients.setModel(null);
+					panelClient.add(tableClients);
+					//new GestionClient().setVisible(true);
+					//panelClient.add(tableClients);
+				    
 				}}
 				else 
 				{
@@ -230,13 +246,19 @@ public class GestionClient extends JPanel {
 		panelClient.add(btnDelete);
 		
 		JButton btnSendMail = new JButton("send Mail");
+		btnSendMail.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				new MailJFrame().setVisible(true);
+			}
+		});
 		btnSendMail.setBounds(284, 579, 89, 23);
 		panelClient.add(btnSendMail);
-		initDataBindings();
+		//initDataBindings();
 
 	}
 	 
-	protected void initDataBindings() {
+	/*protected void initDataBindings() {
 		JTableBinding<Client, List<Client>, JTable> jTableBinding = SwingBindings.createJTableBinding(UpdateStrategy.READ, clients, tableClients);
 		//
 		BeanProperty<Client, Integer> clientBeanProperty = BeanProperty.create("id");
@@ -249,5 +271,5 @@ public class GestionClient extends JPanel {
 		jTableBinding.addColumnBinding(clientBeanProperty_2).setColumnName("email");
 		//
 		jTableBinding.bind();
-	}
+	} */
 }
