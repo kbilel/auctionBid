@@ -72,13 +72,22 @@ public class PanelManageProducts extends JPanel {
 
 	}
 	protected void initDataBindings() {
-		JTableBinding<Product, List<Product>, JTable> jTableBinding = SwingBindings.createJTableBinding(UpdateStrategy.READ, products, table);
+		JTableBinding<Product, List<Product>, JTable> jTableBinding = SwingBindings.createJTableBinding(UpdateStrategy.READ, products, table, "listProducts");
 		//
 		BeanProperty<Product, Integer> productBeanProperty = BeanProperty.create("id");
 		jTableBinding.addColumnBinding(productBeanProperty).setColumnName("Id");
 		//
 		BeanProperty<Product, String> productBeanProperty_1 = BeanProperty.create("name");
 		jTableBinding.addColumnBinding(productBeanProperty_1).setColumnName("Name");
+		//
+		BeanProperty<Product, String> productBeanProperty_2 = BeanProperty.create("category");
+		jTableBinding.addColumnBinding(productBeanProperty_2).setColumnName("New Column");
+		//
+		BeanProperty<Product, Integer> productBeanProperty_3 = BeanProperty.create("price");
+		jTableBinding.addColumnBinding(productBeanProperty_3).setColumnName("New Column");
+		//
+		BeanProperty<Product, Integer> productBeanProperty_4 = BeanProperty.create("quantity");
+		jTableBinding.addColumnBinding(productBeanProperty_4).setColumnName("New Column");
 		//
 		jTableBinding.bind();
 	}
