@@ -6,6 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import tn.esprit.auction.delegate.GestionOrderDelegate;
 import tn.esprit.auction.domain.Order;
 
 import java.awt.event.ActionListener;
@@ -16,14 +17,22 @@ public class EspaceAjoutOrder extends JPanel {
 	private JTextField textField_3;
 
 	Order order1;
+	
 	public EspaceAjoutOrder() {
+		
+		
 		setLayout(null);
 		
 		JButton btnAddOrder = new JButton("add order");
 		btnAddOrder.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				order1=new Order();
-			  
+				order1.setClient(Integer.parseInt(textField_1.getText()));
+				order1.setProduit(Integer.parseInt(textField_3.getText()));
+				if(GestionOrderDelegate.doAddOrder(order1))
+					System.out.println("ajout avec succés ");
+				else
+					System.out.println(" ajout echoué");
 			}
 		});
 		btnAddOrder.setBounds(126, 232, 89, 23);
