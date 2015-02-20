@@ -77,6 +77,7 @@ public class OrderServices implements OrderServicesRemote, OrderServicesLocal {
 	public List<Order> findAllOrders() {
 		Query query=entityManager.createQuery("select o from Order o ");
 		return query.getResultList();
+	
 	}
 
 	

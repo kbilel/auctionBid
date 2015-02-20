@@ -21,10 +21,10 @@ public class TestGestionOrder {
 
 	public static void doAddOrder(OrderServicesRemote remote) {
 		
-		OrderPK orderPk = new OrderPK(1, 3);
+		OrderPK orderPk = new OrderPK(2, 1);
 		Order order = new Order();
 
-	order.setClient(3);
+	order.setClient(2);
 	order.setCashPayement(true);
 	order.setOrderPK(orderPk);
 
@@ -67,6 +67,9 @@ public class TestGestionOrder {
 		if(orders!=null){
 			
 			System.out.println("OK find");
+for(Order o :orders)
+	System.out.println(o.getClass());
+
 			
 		
 		}
@@ -86,9 +89,10 @@ public class TestGestionOrder {
 			e.printStackTrace();
 		}
 
-		//AddOrder(remote);
+		//doAddOrder(remote);
+		doFindAllOrder(remote);
 		// doUpdateOrder(remote);
 		// doDeleteOrder(remote);
-		doFindAllOrder(remote);
+		
 	}
 }

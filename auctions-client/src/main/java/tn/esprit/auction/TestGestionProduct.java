@@ -19,10 +19,9 @@ public class TestGestionProduct {
 		
 		Product product3=new Product();
 		product.setName("keybord");
-		Product product5=new Product();
-		product.setName("puce");
+	
 		
-		if(remote.addProduct(product5)){
+		if(remote.addProduct(product)&remote.addProduct(product2)&remote.addProduct(product3)){
 			System.out.println("Product added");
 		}
 		else
@@ -77,7 +76,7 @@ doAddProduct(remote);
 
 		//doUpdateProduct(remote);
 
-		doAddProduct(remote);
+		//doAddProduct(remote);
 		//doAddProduct(remote);
 		//doAddProduct(remote);
 		//doAddProduct(remote);
