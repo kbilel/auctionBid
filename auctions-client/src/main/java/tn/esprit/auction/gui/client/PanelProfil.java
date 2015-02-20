@@ -47,7 +47,14 @@ public class PanelProfil extends JPanel {
 	 */
 	public PanelProfil() {
 		client=new Client();
-		userConnected=Authentification.getUser();
+		userConnected= HomeClient.userConnected;
+		if(HomeClient.userConnected==null)
+		{
+			System.out.println("euuu chbiih fil profil null za3ma !!! ");
+		}
+		else
+			System.out.println("ouuh 3ala ayèmi ty haw mawjouud l user fil profil za7 !!! ");
+			
 		       if(userConnected==null)
 			   userConnected=SubscribingSpace.getUser();
 		setLayout(null);
@@ -304,6 +311,7 @@ public class PanelProfil extends JPanel {
 			        if(msg==0)	
 				{Client client1=(Client) userConnected;
                     client1.setId(userConnected.getId());
+                    System.out.println("id="+client1.getId());
 					 client1.setFullName(tfFullnameEdit.getText());
 					client1.setEmail(tfEmailEdit.getText());
 					client1.setAdress(tfAdresseEdit.getText());
@@ -394,7 +402,7 @@ public class PanelProfil extends JPanel {
 		tfPathImageUser.setColumns(10);
 		
 		if(userConnected!=null)
-		{
+		{ System.out.println("femma user chbbii weldiih ma y7ottouch");
 			if(userConnected instanceof Client)
 			{
 				client=(Client)userConnected ;
@@ -436,6 +444,11 @@ public class PanelProfil extends JPanel {
             labelImageUser.setIcon(icon);
 				
 		}
+		else 
+		{
+			System.out.println("ouuuuuh chbiiih userConnected null -_-");
+		}
+		
 
 	}
 }

@@ -90,7 +90,7 @@ public class Order implements Serializable {
 	public void setDeliveryMan(DeliveryMan deliveryMan) {
 		this.deliveryMan = deliveryMan;
 	}
-	public Order(Client client, Product produit, Date dateLimit,
+	/*public Order(Client client, Product produit, Date dateLimit,
 			Boolean cashPayement, Manager manager, DeliveryMan deliveryMan) {
 		super();
 		this.client = client;
@@ -100,6 +100,6 @@ public class Order implements Serializable {
 		this.manager = manager;
 		this.deliveryMan = deliveryMan;
 		this.orderPK=new OrderPK(manager.getId(), deliveryMan.getId());
-	}
+	}*/
    
 }
