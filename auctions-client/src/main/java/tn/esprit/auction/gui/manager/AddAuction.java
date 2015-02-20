@@ -32,12 +32,11 @@ import java.util.Date;
 
 import javax.swing.JSpinner;
 
-import CalendarBean.JCalendar;
+
 
 import javax.swing.UIManager;
 
-import CalendarBean.JDayChooser;
-import datechooser.beans.DateChooserCombo;
+
 
 public class AddAuction extends JFrame {
 
@@ -57,9 +56,8 @@ public class AddAuction extends JFrame {
 	private JSpinner spinner_3;
 	private JSpinner spinner_4;
 	private JSpinner spinner_5;
-	private DateChooserCombo dateChooserCombo;
-	DateChooserCombo dateChooserCombo_1;
-
+	com.toedter.calendar.JCalendar calendar = new com.toedter.calendar.JCalendar();
+	com.toedter.calendar.JCalendar calendar_1 = new com.toedter.calendar.JCalendar();
 	/**
 	 * Launch the application.
 	 */
@@ -90,7 +88,7 @@ public class AddAuction extends JFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Start", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel.setBounds(10, 68, 258, 163);
+		panel.setBounds(10, 39, 258, 258);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -110,13 +108,13 @@ public class AddAuction extends JFrame {
 		spinner_2.setBounds(181, 32, 39, 20);
 		panel.add(spinner_2);
 		
-		 dateChooserCombo = new DateChooserCombo();
-		dateChooserCombo.setBounds(69, 83, 155, 20);
-		panel.add(dateChooserCombo);
+		
+		calendar.setBounds(24, 92, 205, 153);
+		panel.add(calendar);
 		
 		panel_1 = new JPanel();
 		panel_1.setBorder(new TitledBorder(null, "Auction Type", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel_1.setBounds(10, 268, 514, 65);
+		panel_1.setBounds(10, 297, 514, 65);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -164,14 +162,14 @@ public class AddAuction extends JFrame {
 				}else {
 				// auctionStartingDate recuperation des valeurs
 				
-				SimpleDateFormat sdfYear = new SimpleDateFormat("yyyy");
-				Integer yearS = Integer.parseInt(sdfYear.format(dateChooserCombo.getSelectedDate().getTime()));
 				
-				SimpleDateFormat sdfMounth = new SimpleDateFormat("MM");
-				Integer mounthS = Integer.parseInt(sdfMounth.format(dateChooserCombo.getSelectedDate().getTime()));
+				Integer yearS = calendar.getYearChooser().getValue();
 				
-				SimpleDateFormat sdfDay = new SimpleDateFormat("dd");
-				Integer dayS = Integer.parseInt(sdfDay.format(dateChooserCombo.getSelectedDate().getTime()));
+			
+				Integer mounthS = calendar.getMonthChooser().getMonth();
+				
+				
+				Integer dayS = calendar.getDayChooser().getDay();
 			
 				Integer hourS= (Integer) (spinner.getValue());
 				Integer minuteS= (Integer) (spinner_1.getValue());
@@ -179,20 +177,20 @@ public class AddAuction extends JFrame {
 				String s=yearS+","+mounthS+","+dayS+","+hourS+","+minuteS+","+secondeS;
 				
 	Date auctionStartingDate=new Date(yearS-1000, mounthS-1, dayS, hourS, minuteS, secondeS);
-				
-				System.out.println(s);
+		
+				System.out.println("start"+s);
 				// **** End auctionStartingDate recuperation de s valeurs
 				
 // auctionEndDate recuperation des valeurs
 				
-				SimpleDateFormat sdfYearE = new SimpleDateFormat("yyyy");
-				Integer yearE = Integer.parseInt(sdfYearE.format(dateChooserCombo_1.getSelectedDate().getTime()));
+
+				Integer yearE = calendar_1.getYearChooser().getValue();
 				
-				SimpleDateFormat sdfMounthE = new SimpleDateFormat("MM");
-				Integer mounthE = Integer.parseInt(sdfMounthE.format(dateChooserCombo_1.getSelectedDate().getTime()));
+			
+				Integer mounthE = calendar_1.getMonthChooser().getMonth();
 				
-				SimpleDateFormat sdfDayE = new SimpleDateFormat("dd");
-				Integer dayE = Integer.parseInt(sdfDayE.format(dateChooserCombo_1.getSelectedDate().getTime()));
+				
+				Integer dayE = calendar_1.getDayChooser().getDay();
 			
 				Integer hourE= (Integer) (spinner_3.getValue());
 				Integer minuteE= (Integer) (spinner_4.getValue());
@@ -252,22 +250,22 @@ public class AddAuction extends JFrame {
 		contentPane.add(button_1);
 		
 		lblStartingPrice = new JLabel("Starting Price :");
-		lblStartingPrice.setBounds(24, 37, 112, 14);
+		lblStartingPrice.setBounds(20, 14, 112, 14);
 		contentPane.add(lblStartingPrice);
 		
 		txtfStartingPrice = new JTextField();
-		txtfStartingPrice.setBounds(162, 34, 89, 20);
+		txtfStartingPrice.setBounds(158, 11, 89, 20);
 		contentPane.add(txtfStartingPrice);
 		txtfStartingPrice.setColumns(10);
 		
 		lblTd = new JLabel("TD");
-		lblTd.setBounds(261, 34, 27, 20);
+		lblTd.setBounds(257, 11, 27, 20);
 		contentPane.add(lblTd);
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setLayout(null);
 		panel_2.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "End", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel_2.setBounds(266, 68, 258, 163);
+		panel_2.setBounds(266, 39, 258, 258);
 		contentPane.add(panel_2);
 		
 		JLabel lblEndtime = new JLabel("End Time :");
@@ -286,9 +284,9 @@ public class AddAuction extends JFrame {
 		spinner_5.setBounds(181, 32, 39, 20);
 		panel_2.add(spinner_5);
 		
-		 dateChooserCombo_1 = new DateChooserCombo();
-		dateChooserCombo_1.setBounds(68, 80, 155, 20);
-		panel_2.add(dateChooserCombo_1);
+		
+		calendar_1.setBounds(23, 91, 205, 153);
+		panel_2.add(calendar_1);
 		
 		
 	}
