@@ -28,25 +28,25 @@ public class TestGestionUser {
 	public static void doAddUser(UserServicesRemote remote){
 
 		Manager user1=new Manager();
-		user1.setUserName("amiraaClien");
-		user1.setAdress("amira");
-		user1.setEmail("amira");
-		user1.setFullName("amira");
-		user1.setPassword("amira");
+		user1.setUserName("alex");
+		user1.setAdress("alex");
+		user1.setEmail("alex");
+		user1.setFullName("alex");
+		user1.setPassword("alex");
 		
 		Client user2=new Client();
-		user2.setUserName("ali");
-		user2.setAdress("ali");
-		user2.setEmail("ali");
-		user2.setFullName("ali");
-		user2.setPassword("ali");
+		user2.setUserName("samir");
+		user2.setAdress("samir");
+		user2.setEmail("samir");
+		user2.setFullName("samir");
+		user2.setPassword("samir");
 		
 		DeliveryMan user3=new DeliveryMan();
-		user3.setUserName("max");
-		user3.setAdress("max");
-		user3.setEmail("max");
-		user3.setFullName("max");
-		user3.setPassword("max");
+		user3.setUserName("si");
+		user3.setAdress("si");
+		user3.setEmail("si");
+		user3.setFullName("si");
+		user3.setPassword("si");
 		
 		
 		if(remote.addUser(user3)&remote.addUser(user1)&remote.addUser(user2)){
@@ -127,7 +127,7 @@ User user= remote.authentificate("baya", "baya");
 		System.out.println("erreur jndi ... ");
 			e.printStackTrace();
 		}
-	//doAddUser(remote);	
+	doAddUser(remote);	
 //doFindAllUser(remote);
 		//doUpdateUser(remote);
 	//doDeleteUser(remote);

@@ -35,7 +35,7 @@ public class PanelShowOrder extends JPanel {
 		orders=new ArrayList<Order>();
 		orders=GestionOrderDelegate.doFindAllOrders();
 	
-		setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "add", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(255, 0, 0)));
+		setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Show orders", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(255, 0, 0)));
 		setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
