@@ -19,14 +19,19 @@ import tn.esprit.auction.domain.User;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.Date;
+
 import javax.swing.ImageIcon;
+import javax.transaction.Transactional.TxType;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class PanelAjoutOrder extends JPanel {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
-	private JTextField textField_4;
+	JComboBox comboBox;
 
 	/**
 	 * Create the panel.
@@ -71,9 +76,22 @@ public class PanelAjoutOrder extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 			Order order=new Order();
 			OrderPK orderPK=new OrderPK();
+			Date date=new Date();
+			date.getTime();
+			order.setDateLimit(date);
 			orderPK.setIdDeliveryMan(Integer.parseInt(textField_1.getText()));
 			orderPK.setIdManager(Integer.parseInt(textField_2.getText()));
 			order.setOrderPK(orderPK);
+			order.setClient(Integer.parseInt(textField.getText()));
+			order.setProduit(Integer.parseInt(textField_3.getText()));
+			
+			String selectedComboBox =(String) comboBox.getSelectedItem();
+			if (selectedComboBox=="Cash")
+				order.setCashPayement(true);
+			else order.setCashPayement(false);
+		
+		
+			
 		
 			System.out.println("variable chargé");
 			if(GestionOrderDelegate.doAddOrder(order))
@@ -99,14 +117,16 @@ public class PanelAjoutOrder extends JPanel {
 		add(textField_3);
 		textField_3.setColumns(10);
 		
-		JLabel lblDateOfPurchace = new JLabel("Date of purchace");
-		lblDateOfPurchace.setBounds(10, 103, 87, 14);
-		add(lblDateOfPurchace);
+		JLabel lblPayment = new JLabel("Payment ");
+		lblPayment.setBounds(22, 228, 46, 14);
+		add(lblPayment);
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(143, 97, 86, 20);
-		add(textField_4);
-		textField_4.setColumns(10);
+		 comboBox = new JComboBox();
+
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Paypal", "Cash"}));
+		comboBox.setBounds(143, 221, 75, 29);
+		add(comboBox);
+		
 
 	}
 }

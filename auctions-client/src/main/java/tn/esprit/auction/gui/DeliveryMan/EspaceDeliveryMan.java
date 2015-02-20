@@ -91,7 +91,7 @@ public class EspaceDeliveryMan extends JFrame {
 		contentPane.setLayout(null);
 		
 	
-		scrollPane.setBounds(134, 74, 554, 429);
+		scrollPane.setBounds(10, 74, 678, 429);
 		contentPane.add(scrollPane);
 		
 		JLabel lblDeliveryMan = new JLabel("Delivery Man");
