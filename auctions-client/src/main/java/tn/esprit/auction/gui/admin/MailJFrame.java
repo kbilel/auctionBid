@@ -123,6 +123,7 @@ public class MailJFrame extends JFrame {
 		        //String s = this.cleanUrl(url);
 		        mc.getMailMessage(mail);
 		        mc.SendMessage(); 
+		        setVisible(false);
 			}
 
 			private String cleanUrl(URL url) {

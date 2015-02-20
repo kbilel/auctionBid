@@ -75,14 +75,15 @@ GestionClient gestionClient;
 	public EspaceAdmin() {
 		gestionClient=new GestionClient();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1151, 696);
+		setBounds(0, 0, 1158, 850);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBounds(0, 0, 1158, 850);
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		final JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 39, 1135, 608);
+		scrollPane.setBounds(0, 50, 1158, 850);
 		contentPane.add(scrollPane);
 		
 		JMenuBar menuBar = new JMenuBar();

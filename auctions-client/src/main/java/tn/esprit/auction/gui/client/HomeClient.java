@@ -42,7 +42,7 @@ public class HomeClient extends JPanel {
 	 * Create the panel.
 	 */
 	public HomeClient() {
-		userConnected = HomeClient.userConnected;
+		//userConnected = HomeClient.userConnected;
 		if (userConnected == null)
 			userConnected = SubscribingPanel.userConnected;
 		setBounds(0, 21, 1142, 791);
@@ -116,6 +116,7 @@ public class HomeClient extends JPanel {
 		btnDisconnect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				userConnected=null;
+				SubscribingPanel.userConnected=null;
 				 new HomeClient().setVisible(true);
 				authentification.setBorder(new LineBorder(new Color(0, 0, 0), 3));
 				authentification.setBackground(new Color(100, 149, 237));

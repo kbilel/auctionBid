@@ -311,6 +311,7 @@ public class PanelProfil extends JPanel {
 			        if(msg==0)	
 				{Client client1=(Client) userConnected;
                     client1.setId(userConnected.getId());
+                    System.out.println("id="+client1.getId());
 					 client1.setFullName(tfFullnameEdit.getText());
 					client1.setEmail(tfEmailEdit.getText());
 					client1.setAdress(tfAdresseEdit.getText());
