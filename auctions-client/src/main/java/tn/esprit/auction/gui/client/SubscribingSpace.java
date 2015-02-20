@@ -88,7 +88,7 @@ public class SubscribingSpace extends JFrame {
 		//user=new Client();
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 21, 1142, 791);
+		setBounds(0, 21, 1142, 839);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(205, 92, 92));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

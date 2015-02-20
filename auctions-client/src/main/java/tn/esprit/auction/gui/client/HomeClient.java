@@ -42,26 +42,27 @@ public class HomeClient extends JPanel {
 	 * Create the panel.
 	 */
 	public HomeClient() {
-
-		
-		setLayout(null);
+		userConnected = HomeClient.userConnected;
+		if (userConnected == null)
+			userConnected = SubscribingPanel.userConnected;
 		setBounds(0, 21, 1142, 791);
+		setLayout(null);
 		
 		final JPanel panel = new JPanel();
-		panel.setBackground(new Color(173, 216, 230));
 		panel.setBounds(0, 0, 1142, 791);
+		panel.setBackground(new Color(173, 216, 230));
 		add(panel);
 		panel.setLayout(null);
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(HomeClient.class.getResource("/tn/esprit/auction/gui/client/logo10.png")));
 		label.setBounds(0, 0, 1142, 189);
+		label.setIcon(new ImageIcon(HomeClient.class.getResource("/tn/esprit/auction/gui/client/logo10.png")));
 		panel.add(label);
 		
 		final JPanel authentification = new JPanel();
+		authentification.setBounds(871, 188, 261, 313);
 		authentification.setBorder(new LineBorder(new Color(0, 0, 0), 3));
 		authentification.setBackground(new Color(100, 149, 237));
-		authentification.setBounds(871, 188, 261, 313);
 		panel.add(authentification);
 		authentification.setLayout(null);
 		//panel_1.setLayout(null);
@@ -97,8 +98,8 @@ public class HomeClient extends JPanel {
 		password=passwordField.getText();
 		
 		final JPanel connectRubriq = new JPanel();
-		connectRubriq.setBorder(new LineBorder(new Color(0, 0, 0), 4));
 		connectRubriq.setBounds(871, 512, 261, 268);
+		connectRubriq.setBorder(new LineBorder(new Color(0, 0, 0), 4));
 		panel.add(connectRubriq);
 		connectRubriq.setLayout(null);
 		
@@ -115,6 +116,13 @@ public class HomeClient extends JPanel {
 		btnDisconnect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				userConnected=null;
+				 new HomeClient().setVisible(true);
+				authentification.setBorder(new LineBorder(new Color(0, 0, 0), 3));
+				authentification.setBackground(new Color(100, 149, 237));
+				authentification.setBounds(871, 213, 261, 313);
+				panel.add(authentification);
+				authentification.setVisible(true);
+				connectRubriq.setVisible(false);
 			}
 		});
 		btnDisconnect.setBounds(79, 222, 136, 35);
