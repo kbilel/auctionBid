@@ -12,7 +12,7 @@ public class TestGestionProduct {
 	public static void doAddProduct(ProductServicesRemote remote){
 
 		Product product=new Product();
-		product.setName("car");
+		product.setName("iphone");
 		if(remote.addProduct(product)){
 			System.out.println("Product added");
 		}
@@ -63,12 +63,9 @@ System.out.println("product null");
 		//doAddProduct(remote);
 		//doAddProduct(remote);
 		//doUpdateProduct(remote);
-<<<<<<< HEAD
-//doDeleteProduct(remote);		
-=======
+
 
 //doDeleteProduct(remote);
->>>>>>> branch 'master' of http://git.esprit.tn:2015/houda.baya/esprit14154b3t6.git
 	}
 	
 
