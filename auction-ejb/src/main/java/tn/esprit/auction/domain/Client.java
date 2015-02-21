@@ -25,6 +25,7 @@ public class Client extends User implements Serializable {
 	private List<Message> messages;
 	private List<Review> reviews;
 	private List<Bid>bids;
+	private List<CategoryInterestedByClients>categoryInterestedByClients;
 	
 	
 	public Client() {
@@ -65,6 +66,14 @@ public class Client extends User implements Serializable {
 	}
 	public void setBids(List<Bid> bids) {
 		this.bids = bids;
+	}
+	@OneToMany (mappedBy="client")
+	public List<CategoryInterestedByClients> getCategoryInterestedByClients() {
+		return categoryInterestedByClients;
+	}
+	public void setCategoryInterestedByClients(
+			List<CategoryInterestedByClients> categoryInterestedByClients) {
+		this.categoryInterestedByClients = categoryInterestedByClients;
 	}
    
 }

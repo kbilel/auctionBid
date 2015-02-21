@@ -27,7 +27,7 @@ public class AddAgregateAuction extends JFrame {
 	private JButton button;
 	private JButton btnFinish;
 	private JLabel lblNewLabel_1;
-	private JLabel lblByClickingFinish;
+	private JLabel label;
 	/**
 	 * Launch the application.
 	 */
@@ -73,6 +73,8 @@ public class AddAgregateAuction extends JFrame {
 				AddAuction addAuction=new AddAuction();
 				AgregateAuction agregateAuction=(AgregateAuction) AddAuction.auction;
 				GestionAuctionDelegate.doAddAuction(agregateAuction);
+				ConfirmSendMail confirmSendMail=new ConfirmSendMail();
+				confirmSendMail.setVisible(true);
 				setVisible(false);
 			}
 		});
@@ -85,11 +87,11 @@ public class AddAgregateAuction extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNoMoreData = new JLabel("No more data to input  in Agregate Auction !");
-		lblNoMoreData.setBounds(45, 365, 322, 14);
+		lblNoMoreData.setBounds(10, 365, 322, 14);
 		contentPane.add(lblNoMoreData);
 		
-		lblByClickingFinish = new JLabel("By clicking Finish , an email will be send to notify interested clients in this category of auction!");
-		lblByClickingFinish.setBounds(45, 390, 461, 14);
-		contentPane.add(lblByClickingFinish);
+		label = new JLabel("By clicking Finish , a new auction will be created !");
+		label.setBounds(10, 390, 490, 14);
+		contentPane.add(label);
 	}
 }
