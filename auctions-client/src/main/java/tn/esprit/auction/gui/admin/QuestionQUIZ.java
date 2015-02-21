@@ -46,7 +46,7 @@ public class QuestionQUIZ extends JPanel {
 		JButton btnAddQuestion = new JButton("add Question");
 		btnAddQuestion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Gest
+	
 			}
 		});
 		btnAddQuestion.setFont(new Font("Tahoma", Font.BOLD, 18));

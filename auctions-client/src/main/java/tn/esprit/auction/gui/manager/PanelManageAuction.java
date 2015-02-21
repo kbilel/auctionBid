@@ -36,13 +36,10 @@ import tn.esprit.auction.domain.Client;
 import java.util.Date;
 
 import org.jdesktop.beansbinding.ObjectProperty;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 public class PanelManageAuction extends JPanel {
 	List<Auction> auctions;
 	private JTable table;
-	 static Auction auctionSelected;
 
 	/**
 	 * Create the panel.
@@ -96,16 +93,6 @@ public class PanelManageAuction extends JPanel {
 		add(button_2);
 		
 		JButton button_3 = new JButton("Delete selected Auction");
-		button_3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(auctionSelected!=null){
-				ConfirmDelete confirmDelete=new ConfirmDelete();
-				confirmDelete.setVisible(true);
-			}else {
-				ErreurSelection erreurSelection=new ErreurSelection();
-			    erreurSelection.setVisible(true);
-			}}
-		});
 		button_3.setBounds(0, 423, 190, 23);
 		add(button_3);
 		
@@ -119,13 +106,6 @@ public class PanelManageAuction extends JPanel {
 		add(scrollPane);
 		
 		table = new JTable();
-		table.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				 auctionSelected = new Auction();
-						auctionSelected=	auctions.get(table.getSelectedRow());
-			}
-		});
 		scrollPane.setViewportView(table);
 		
 		initDataBindings();

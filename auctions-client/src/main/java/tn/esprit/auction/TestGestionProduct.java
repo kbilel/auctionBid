@@ -12,7 +12,6 @@ public class TestGestionProduct {
 	public static void doAddProduct(ProductServicesRemote remote){
 
 		Product product=new Product();
-
 		product.setName("car");
 		
 		Product product2=new Product();

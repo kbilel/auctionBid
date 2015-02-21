@@ -35,18 +35,18 @@ public class PanelShowOrder extends JPanel {
 		orders=new ArrayList<Order>();
 		orders=GestionOrderDelegate.doFindAllOrders();
 	
-		setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Orders", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(255, 0, 0)));
+		setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Show orders", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(255, 0, 0)));
 		setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 50, 615, 237);
+		scrollPane.setBounds(40, 50, 396, 237);
 		add(scrollPane);
 		
 		table = new JTable();
 		scrollPane.setViewportView(table);
 		
 		JButton btnTakeOrder = new JButton("Take order");
-		btnTakeOrder.setBounds(251, 351, 137, 23);
+		btnTakeOrder.setBounds(497, 318, 89, 23);
 		add(btnTakeOrder);
 		initDataBindings();
 
@@ -54,20 +54,23 @@ public class PanelShowOrder extends JPanel {
 	protected void initDataBindings() {
 		JTableBinding<Order, List<Order>, JTable> jTableBinding = SwingBindings.createJTableBinding(UpdateStrategy.READ, orders, table);
 		//
-		BeanProperty<Order, Integer> orderBeanProperty = BeanProperty.create("client");
-		jTableBinding.addColumnBinding(orderBeanProperty).setColumnName("Client id");
+		BeanProperty<Order, Boolean> orderBeanProperty = BeanProperty.create("cashPayement");
+		jTableBinding.addColumnBinding(orderBeanProperty).setColumnName("cashpayment");
 		//
-		BeanProperty<Order, Integer> orderBeanProperty_1 = BeanProperty.create("produit");
-		jTableBinding.addColumnBinding(orderBeanProperty_1).setColumnName("Product id");
+		BeanProperty<Order, Integer> orderBeanProperty_1 = BeanProperty.create("client");
+		jTableBinding.addColumnBinding(orderBeanProperty_1).setColumnName("Client id");
 		//
-		BeanProperty<Order, Integer> orderBeanProperty_2 = BeanProperty.create("orderPK.idDeliveryMan");
-		jTableBinding.addColumnBinding(orderBeanProperty_2).setColumnName("Delivery id");
+		BeanProperty<Order, Date> orderBeanProperty_2 = BeanProperty.create("dateLimit");
+		jTableBinding.addColumnBinding(orderBeanProperty_2).setColumnName("dateLimit");
 		//
-		BeanProperty<Order, Integer> orderBeanProperty_3 = BeanProperty.create("orderPK.idManager");
-		jTableBinding.addColumnBinding(orderBeanProperty_3).setColumnName("Manager id");
+		BeanProperty<Order, Integer> orderBeanProperty_3 = BeanProperty.create("deliveryMan.id");
+		jTableBinding.addColumnBinding(orderBeanProperty_3).setColumnName("DeliveryMan id");
 		//
-		BeanProperty<Order, Boolean> orderBeanProperty_4 = BeanProperty.create("cashPayement");
-		jTableBinding.addColumnBinding(orderBeanProperty_4).setColumnName("PaymentCash");
+		BeanProperty<Order, Integer> orderBeanProperty_4 = BeanProperty.create("manager.id");
+		jTableBinding.addColumnBinding(orderBeanProperty_4).setColumnName("Manager id");
+		//
+		BeanProperty<Order, OrderPK> orderBeanProperty_5 = BeanProperty.create("orderPK");
+		jTableBinding.addColumnBinding(orderBeanProperty_5).setColumnName("New Column");
 		//
 		jTableBinding.bind();
 	}

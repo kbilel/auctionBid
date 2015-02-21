@@ -17,8 +17,6 @@ import javax.swing.ImageIcon;
 
 import tn.esprit.auction.delegate.GestionAuctionDelegate;
 import tn.esprit.auction.domain.EnglishAuction;
-import tn.esprit.auction.gui.admin.Mail;
-import tn.esprit.auction.gui.authentification.Authentification;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -30,7 +28,6 @@ public class AddEnglishAuction extends JFrame {
 	private JButton btnFinish;
 	private JLabel lblNewLabel_1;
 	private JLabel lblByClickingFinish;
-    private Mail mail = new Mail();
 	/**
 	 * Launch the application.
 	 */
@@ -76,9 +73,6 @@ public class AddEnglishAuction extends JFrame {
 				AddAuction addAuction=new AddAuction();
 				EnglishAuction englishAuction=(EnglishAuction) AddAuction.auction;
 				GestionAuctionDelegate.doAddAuction(englishAuction);
-				
-				ConfirmSendMail confirmSendMail=new ConfirmSendMail();
-				confirmSendMail.setVisible(true);
 				setVisible(false);
 			}
 		});
@@ -91,11 +85,11 @@ public class AddEnglishAuction extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNoMoreData = new JLabel("No more data to input  in English Auction !");
-		lblNoMoreData.setBounds(10, 365, 322, 14);
+		lblNoMoreData.setBounds(45, 365, 322, 14);
 		contentPane.add(lblNoMoreData);
 		
-		lblByClickingFinish = new JLabel("By clicking Finish , a new auction will be created !");
-		lblByClickingFinish.setBounds(10, 402, 490, 14);
+		lblByClickingFinish = new JLabel("By clicking Finish , an email will be send to notify interested clients in this category of auction!");
+		lblByClickingFinish.setBounds(45, 390, 461, 14);
 		contentPane.add(lblByClickingFinish);
 	}
 }

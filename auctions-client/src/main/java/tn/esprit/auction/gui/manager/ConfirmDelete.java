@@ -53,9 +53,9 @@ public class ConfirmDelete extends JFrame {
 				GestionAuctionDelegate gestionAuctionDelegate= new GestionAuctionDelegate();
 				PanelManageAuction panelManageAuction=new PanelManageAuction();
 				Auction auction=new Auction();
-				auction=PanelManageAuction.auctionSelected;
-				GestionAuctionDelegate.doDeleteAuction(auction);
-				PanelManageAuction.auctionSelected=null;
+//				auction=PanelManageAuction.auctionSelected;
+//				GestionAuctionDelegate.doDeleteAuction(auction);
+//				PanelManageAuction.auctionSelected=null;
 				setVisible(false);
 			}
 		});

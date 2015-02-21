@@ -91,13 +91,13 @@ public class EspaceClient extends JFrame {
 	public EspaceClient() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(EspaceClient.class.getResource("/tn/esprit/auction/gui/authentification/bid1.gif")));
 		client = new Client();
-		//statisticAuctions=new StatisticAuctionCategories();
-		//statisticProducts=new StatisticProductCategories();
-	//	statisticAuctionYear=new StatisticAuctionYear();
-		//statisticProductsBar= new StatisticProductCategoriesBar() ;
-		//statisticAuctionCategoryBar= new StatisticAuctionCategoryBar() ;
-		//statisticAuctionYearBar= new StatisticAuctionYearBar() ;
-	//	panelProfil=new PanelProfil();
+		statisticAuctions=new StatisticAuctionCategories();
+		statisticProducts=new StatisticProductCategories();
+		statisticAuctionYear=new StatisticAuctionYear();
+		statisticProductsBar= new StatisticProductCategoriesBar() ;
+		statisticAuctionCategoryBar= new StatisticAuctionCategoryBar() ;
+		statisticAuctionYearBar= new StatisticAuctionYearBar() ;
+		panelProfil=new PanelProfil();
 		userConnected = HomeClient.userConnected;
 		if (userConnected == null)
 			userConnected = SubscribingSpace.getUser();
@@ -155,7 +155,7 @@ public class EspaceClient extends JFrame {
 		JMenuItem mntmPieChart = new JMenuItem("Pie chart");
 		mntmPieChart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				scrollPane.setViewportView(new StatisticProductCategories());
+				scrollPane.setViewportView(statisticProducts);
 				System.out.println("otttk");
 			}
 		});
@@ -166,7 +166,7 @@ public class EspaceClient extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(statisticProductsBar==null)
 					System.out.println("nullll");
-				scrollPane.setViewportView(new StatisticProductCategoriesBar());
+				scrollPane.setViewportView(statisticProductsBar);
 				System.out.println("otttk Bar Product");
 				
 			}
@@ -179,7 +179,7 @@ public class EspaceClient extends JFrame {
 		JMenuItem mntmPieChart_1 = new JMenuItem("Pie Chart");
 		mntmPieChart_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				scrollPane.setViewportView(new StatisticAuctionCategories());
+				scrollPane.setViewportView(statisticAuctions);
 				System.out.println("otttk");
 			}
 		});
@@ -188,7 +188,7 @@ public class EspaceClient extends JFrame {
 		JMenuItem mntmBarChart_1 = new JMenuItem("Bar chart");
 		mntmBarChart_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				scrollPane.setViewportView(new StatisticAuctionCategoryBar());
+				scrollPane.setViewportView(statisticAuctionCategoryBar);
 				System.out.println("otttk Year");
 			}
 		});
@@ -201,7 +201,7 @@ public class EspaceClient extends JFrame {
 		mntmPieChart_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				scrollPane.setViewportView(new StatisticAuctionYear());
+				scrollPane.setViewportView(statisticAuctionYear);
 				System.out.println("otttk Year");
 			}
 		});
@@ -210,7 +210,7 @@ public class EspaceClient extends JFrame {
 		JMenuItem mntmBarChart_2 = new JMenuItem("Bar chart");
 		mntmBarChart_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				scrollPane.setViewportView(new StatisticAuctionYearBar());
+				scrollPane.setViewportView(statisticAuctionYearBar);
 				System.out.println("otttk Year");
 			}
 		});

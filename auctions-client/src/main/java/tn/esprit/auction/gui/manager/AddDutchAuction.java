@@ -30,12 +30,12 @@ public class AddDutchAuction extends JFrame {
 	private JButton button;
 	private JButton btnFinish;
 	private JLabel lblNewLabel_1;
+	private JLabel lblByClickingFinish;
 	private JLabel lblDecreaseValue;
 	private JLabel lblDecreaseTimeValue;
 	private JTextField textField;
 	private JTextField textField_1;
 	private JLabel lblNewLabel;
-	private JLabel label;
 	/**
 	 * Launch the application.
 	 */
@@ -91,8 +91,6 @@ public class AddDutchAuction extends JFrame {
 				dutchAuction.setDecreaseTimeValue(Integer.parseInt(textField_1.getText()));
 				dutchAuction.setDecreaseValue(Integer.parseInt(textField.getText()));
 				GestionAuctionDelegate.doAddAuction(dutchAuction);
-				ConfirmSendMail confirmSendMail=new ConfirmSendMail();
-				confirmSendMail.setVisible(true);
 				setVisible(false);
 			}}
 		});
@@ -108,27 +106,27 @@ public class AddDutchAuction extends JFrame {
 		lblNoMoreData.setBounds(45, 222, 322, 14);
 		contentPane.add(lblNoMoreData);
 		
+		lblByClickingFinish = new JLabel("By clicking Finish , an email will be send to notify interested clients in this category of auction!");
+		lblByClickingFinish.setBounds(10, 350, 461, 14);
+		contentPane.add(lblByClickingFinish);
+		
 		lblDecreaseValue = new JLabel("Decrease value :");
-		lblDecreaseValue.setBounds(45, 269, 103, 14);
+		lblDecreaseValue.setBounds(45, 262, 103, 14);
 		contentPane.add(lblDecreaseValue);
 		
 		lblDecreaseTimeValue = new JLabel("Decrease time value :");
-		lblDecreaseTimeValue.setBounds(45, 294, 161, 20);
+		lblDecreaseTimeValue.setBounds(45, 294, 145, 14);
 		contentPane.add(lblDecreaseTimeValue);
 		
 		textField = new JTextField();
-		textField.setBounds(216, 262, 86, 20);
+		textField.setBounds(156, 259, 86, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(216, 294, 86, 20);
+		textField_1.setBounds(156, 291, 86, 20);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
-		
-		label = new JLabel("By clicking Finish , a new auction will be created !");
-		label.setBounds(10, 384, 490, 14);
-		contentPane.add(label);
 		
 		
 	}
