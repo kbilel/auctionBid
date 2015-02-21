@@ -93,19 +93,19 @@ public class AddAuction extends JFrame {
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Starting Time :");
-		lblNewLabel.setBounds(10, 35, 77, 14);
+		lblNewLabel.setBounds(10, 35, 99, 14);
 		panel.add(lblNewLabel);
 		
 		final JSpinner spinner = new JSpinner();
-		spinner.setBounds(86, 32, 39, 20);
+		spinner.setBounds(114, 35, 39, 20);
 		panel.add(spinner);
 		
 		spinner_1 = new JSpinner();
-		spinner_1.setBounds(132, 32, 39, 20);
+		spinner_1.setBounds(160, 35, 39, 20);
 		panel.add(spinner_1);
 		
 		spinner_2 = new JSpinner();
-		spinner_2.setBounds(181, 32, 39, 20);
+		spinner_2.setBounds(209, 35, 39, 20);
 		panel.add(spinner_2);
 		
 		
@@ -129,7 +129,10 @@ public class AddAuction extends JFrame {
 		
 		button = new JButton("Back");
 		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {setVisible(false);
+			public void actionPerformed(ActionEvent e) {
+				ConvertProductToAuction.productSelected=null;
+
+				setVisible(false);
 				ConvertProductToAuction convertProductToAuction=new ConvertProductToAuction();
 				convertProductToAuction.setVisible(true);
 				
@@ -151,9 +154,10 @@ public class AddAuction extends JFrame {
 				// *** end label data is missing
 				
 				// recuperatio de produit
-				ConvertProductToAuction convertProductToAuction=new ConvertProductToAuction();
-			Product product=new Product();
-			product = convertProductToAuction.productSelected;
+				
+				Product product=new Product();
+				product = ConvertProductToAuction.productSelected;
+				ConvertProductToAuction.productSelected=null;
 				// ** end recuperation produit
 			
 				if (txtfStartingPrice.getText().equals("") ){

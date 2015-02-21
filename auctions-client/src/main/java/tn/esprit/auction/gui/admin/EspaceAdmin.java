@@ -37,6 +37,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JScrollPane;
+import javax.swing.JMenuItem;
 
 public class EspaceAdmin extends JFrame {
 
@@ -75,15 +76,15 @@ GestionClient gestionClient;
 	public EspaceAdmin() {
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 1158, 750);
+		setBounds(0, 0, 1158, 800);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setBounds(0, 0, 1158, 750);
+		contentPane.setBounds(0, 0, 1158, 800);
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		final JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 50, 1158, 850);
+		scrollPane.setBounds(0, 50, 1158, 800);
 		contentPane.add(scrollPane);
 		scrollPane.setViewportView(new HomeAdmin());
 		
@@ -128,6 +129,18 @@ GestionClient gestionClient;
 			}
 		});
 		menuBar.add(mnConfiguration);
+		
+		JMenu mnQuiz = new JMenu("QUIZ");
+		menuBar.add(mnQuiz);
+		
+		JMenuItem mntmQuestions = new JMenuItem("questions");
+		mntmQuestions.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				scrollPane.setViewportView(new QuestionQUIZ());
+				
+			}
+		});
+		mnQuiz.add(mntmQuestions);
 		
 		
 		

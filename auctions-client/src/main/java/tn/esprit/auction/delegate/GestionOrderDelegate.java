@@ -8,7 +8,8 @@ import tn.esprit.auction.services.gestion.order.OrderServicesRemote;
 
 public class GestionOrderDelegate {
 	static OrderServicesRemote remote;
-	private static final String jndi="auction-ejb/OrderServices!tn.esprit.auction.services.gestion.Order.OrderServicesRemote"; 
+	private static final String jndi="auction-ejb/OrderServices!tn.esprit.auction.services.gestion.order.OrderServicesRemote"; 
+	                                  
                                       
 	private static OrderServicesRemote getProxy(){
 		return (OrderServicesRemote) ServiceLocator.getInstance().getProxy(jndi);

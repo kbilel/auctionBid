@@ -28,9 +28,10 @@ public class OrderServices implements OrderServicesRemote, OrderServicesLocal {
 	public Boolean addOrder(Order order) {
 		try {
 			entityManager.persist(order);
-			
+			System.out.println("ok ejb");
 			return true;
 		} catch (Exception e) {
+			System.out.println("erreur ejb");
 			return false;
 		}
 		
@@ -76,6 +77,7 @@ public class OrderServices implements OrderServicesRemote, OrderServicesLocal {
 	public List<Order> findAllOrders() {
 		Query query=entityManager.createQuery("select o from Order o ");
 		return query.getResultList();
+	
 	}
 
 	

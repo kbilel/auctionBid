@@ -3,6 +3,7 @@ package tn.esprit.auction.domain;
 import java.io.Serializable;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -26,6 +27,7 @@ public class User implements Serializable {
 	private String adress;
 	private byte[] imageByte;
 	private String imageUrl;
+	
 	private static final long serialVersionUID = 1L;
 
 	public User() {
@@ -91,5 +93,6 @@ public class User implements Serializable {
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
 	}
+	
    
 }

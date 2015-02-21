@@ -24,7 +24,7 @@ public class Panel implements Serializable {
 
 	public Panel() {
 		super();
-	}   
+	}    
 	public Float getTotalPrice() {
 		return this.totalPrice;
 	}

@@ -2,29 +2,38 @@ package tn.esprit.auction.gui.DeliveryMan;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-import java.awt.ScrollPane;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
+import javax.swing.JMenu;
 import javax.swing.JScrollPane;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.xml.soap.SAAJResult;
+
+import tn.esprit.auction.domain.Order;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JLabel;
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.JButton;
+import javax.swing.border.TitledBorder;
+import java.awt.SystemColor;
 
 public class EspaceDeliveryMan extends JFrame {
 
 	private JPanel contentPane;
-	JScrollPane scrollPane;
-   EspaceAjoutOrder espaceAjoutOrder;
-   ManageOrder manageOrder;
+	JScrollPane 	 scrollPane = new JScrollPane();
+	PanelShowOrder panelShowOrder;
+	PanelAjoutOrder panelAjoutOrder=new PanelAjoutOrder();
+	
+	
+
 	/**
 	 * Launch the application.
 	 */
@@ -45,59 +54,69 @@ public class EspaceDeliveryMan extends JFrame {
 	 * Create the frame.
 	 */
 	public EspaceDeliveryMan() {
-	espaceAjoutOrder=new EspaceAjoutOrder();
-	manageOrder=new ManageOrder();
-	scrollPane=new JScrollPane();
 	
-	   
+		
+		
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 575, 460);
+		setBounds(100, 100, 882, 602);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		JMenuItem mntmHome = new JMenuItem("Order Management");
-		menuBar.add(mntmHome);
-		
-		JMenuItem mntmMessage = new JMenuItem("Message");
-		mntmMessage.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				
+		JMenu mnAdd = new JMenu("show");
+		mnAdd.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				panelShowOrder=new PanelShowOrder();
+			
+				scrollPane.setViewportView(panelShowOrder);
 			}
 		});
-		menuBar.add(mntmMessage);
 		
-		JMenuItem mntmProfile = new JMenuItem("Profile");
-		menuBar.add(mntmProfile);
+		menuBar.add(mnAdd);
+		
+		JMenu mnSho = new JMenu("ajout");
+		mnSho.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				 panelAjoutOrder=new PanelAjoutOrder();
+				scrollPane.setViewportView(panelAjoutOrder);
+			}
+		});
+		menuBar.add(mnSho);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+	
+		scrollPane.setBounds(10, 74, 678, 429);
+		contentPane.add(scrollPane);
+		
+		JLabel lblDeliveryMan = new JLabel("Delivery Man");
+		lblDeliveryMan.setFont(new Font("Rockwell Condensed", Font.ITALIC, 39));
+		lblDeliveryMan.setForeground(new Color(255, 102, 51));
+		lblDeliveryMan.setBounds(322, 21, 316, 34);
+		contentPane.add(lblDeliveryMan);
+		
+		JButton btnLogout = new JButton("Logout");
+		btnLogout.setBounds(736, 480, 89, 23);
+		contentPane.add(btnLogout);
 		
 		JPanel panel = new JPanel();
-		GroupLayout gl_contentPane = new GroupLayout(contentPane);
-		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addComponent(panel, GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
-		);
-		gl_contentPane.setVerticalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 386, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-		);
+		panel.setForeground(SystemColor.textHighlight);
+		panel.setBorder(new TitledBorder(null, "DeliveryMan", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel.setBounds(710, 179, 146, 272);
+		contentPane.add(panel);
 		panel.setLayout(null);
 		
-		JLabel label = new JLabel("");
-		label.setBounds(28, 181, 46, 14);
-		panel.add(label);
+		JLabel lblNewLabel = new JLabel("Username");
+		lblNewLabel.setBounds(10, 223, 65, 14);
+		panel.add(lblNewLabel);
+	
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 11, 529, 364);
-		panel.add(scrollPane);
-		contentPane.setLayout(gl_contentPane);
-		
-		 scrollPane.setViewportView(manageOrder);
 		
 	}
+
 }
