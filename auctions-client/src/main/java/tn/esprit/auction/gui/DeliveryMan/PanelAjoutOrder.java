@@ -71,7 +71,6 @@ public class PanelAjoutOrder extends JPanel {
 		textField_2.setColumns(10);
 		
 		JButton btnAdd = new JButton("");
-		btnAdd.setIcon(new ImageIcon(PanelAjoutOrder.class.getResource("/tn/esprit/auction/gui/manager/téléchargement.jpg")));
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			Order order=new Order();
