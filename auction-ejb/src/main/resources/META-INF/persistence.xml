@@ -3,11 +3,15 @@
 	<persistence-unit name="auction-ejb">
 		<jta-data-source>java:/auctionJNDI</jta-data-source>
 		<class>tn.esprit.auction.domain.Admin</class>
+		<class>tn.esprit.auction.domain.AgregateAuction</class>
 		<class>tn.esprit.auction.domain.Answer</class>
 		<class>tn.esprit.auction.domain.Auction</class>
 		<class>tn.esprit.auction.domain.Bid</class>
 		<class>tn.esprit.auction.domain.BidPK</class>
 		<class>tn.esprit.auction.domain.BookKeeper</class>
+		<class>tn.esprit.auction.domain.Category</class>
+		<class>tn.esprit.auction.domain.CategoryInterestedByClients</class>
+		<class>tn.esprit.auction.domain.CategoryInterestedByClientsPK</class>
 		<class>tn.esprit.auction.domain.Client</class>
 		<class>tn.esprit.auction.domain.Configuration</class>
 		<class>tn.esprit.auction.domain.DeliveryMan</class>

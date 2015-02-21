@@ -52,17 +52,16 @@ public class PanelManageProducts extends JPanel {
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, gl_panel.createSequentialGroup()
+				.addGroup(gl_panel.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
 					.addContainerGap())
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, gl_panel.createSequentialGroup()
+				.addGroup(gl_panel.createSequentialGroup()
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 246, GroupLayout.PREFERRED_SIZE)
-					.addGap(106))
+					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 352, GroupLayout.PREFERRED_SIZE))
 		);
 		
 		table = new JTable();
@@ -75,17 +74,20 @@ public class PanelManageProducts extends JPanel {
 	protected void initDataBindings() {
 		JTableBinding<Product, List<Product>, JTable> jTableBinding = SwingBindings.createJTableBinding(UpdateStrategy.READ, products, table, "listProducts");
 		//
+		BeanProperty<Product, Integer> productBeanProperty = BeanProperty.create("id");
+		jTableBinding.addColumnBinding(productBeanProperty).setColumnName("Id");
+		//
 		BeanProperty<Product, String> productBeanProperty_1 = BeanProperty.create("name");
 		jTableBinding.addColumnBinding(productBeanProperty_1).setColumnName("Name");
 		//
 		BeanProperty<Product, String> productBeanProperty_2 = BeanProperty.create("category");
-		jTableBinding.addColumnBinding(productBeanProperty_2).setColumnName("Category");
+		jTableBinding.addColumnBinding(productBeanProperty_2).setColumnName("New Column");
 		//
 		BeanProperty<Product, Integer> productBeanProperty_3 = BeanProperty.create("price");
-		jTableBinding.addColumnBinding(productBeanProperty_3).setColumnName("Price");
+		jTableBinding.addColumnBinding(productBeanProperty_3).setColumnName("New Column");
 		//
 		BeanProperty<Product, Integer> productBeanProperty_4 = BeanProperty.create("quantity");
-		jTableBinding.addColumnBinding(productBeanProperty_4).setColumnName("Quantity");
+		jTableBinding.addColumnBinding(productBeanProperty_4).setColumnName("New Column");
 		//
 		jTableBinding.bind();
 	}
