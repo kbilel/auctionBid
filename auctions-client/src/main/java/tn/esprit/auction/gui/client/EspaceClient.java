@@ -242,7 +242,7 @@ public class EspaceClient extends JFrame {
 		menuBar.add(mnAboutUs);
 		
 		 scrollPane = new JScrollPane();
-		 scrollPane.setBounds(0, 21, 1142, 791);
+		 scrollPane.setBounds(0, 21, 1158, 850);
 		contentPane.add(scrollPane);
 		HomeClient homeClient = new HomeClient();
 		scrollPane.setViewportView(homeClient);

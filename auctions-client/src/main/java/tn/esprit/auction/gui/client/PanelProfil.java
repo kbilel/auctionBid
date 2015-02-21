@@ -42,10 +42,12 @@ public class PanelProfil extends JPanel {
 		private JTextField tfAdresseEdit;
 		private JTextField tfPathImageUser;
 
-	/**
+	
+		/**
 	 * Create the panel.
 	 */
 	public PanelProfil() {
+		setBounds(0, 0, 1158, 850);
 		client=new Client();
 		userConnected= HomeClient.userConnected;
 		if(HomeClient.userConnected==null)
@@ -62,7 +64,7 @@ public class PanelProfil extends JPanel {
 		final JPanel panelProfile = new JPanel();
 		panelProfile.setBackground(new Color(253, 245, 230));
 		panelProfile.setForeground(Color.BLACK);
-		panelProfile.setBounds(10, 11, 974, 759);
+		panelProfile.setBounds(0, 0, 1142, 791);
 		add(panelProfile);
 		panelProfile.setLayout(null);
 		final JLabel labelImageUser = new JLabel("");
@@ -400,6 +402,11 @@ public class PanelProfil extends JPanel {
 		tfPathImageUser.setVisible(false);
 		panelProfile.add(tfPathImageUser);
 		tfPathImageUser.setColumns(10);
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(PanelProfil.class.getResource("/tn/esprit/auction/gui/authentification/back1.jpg")));
+		label.setBounds(0, 0, 1158, 850);
+		panelProfile.add(label);
 		
 		if(userConnected!=null)
 		{ System.out.println("femma user chbbii weldiih ma y7ottouch");

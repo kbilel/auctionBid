@@ -22,6 +22,7 @@ public class ListClient extends AbstractTableModel{
 				clients.add((Client)user);	}
 			
 		}
+		System.out.println("nombre client="+clients.size());
 	} @Override
     public String getColumnName(int column) {
         return header[column];

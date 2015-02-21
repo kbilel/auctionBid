@@ -73,24 +73,31 @@ GestionClient gestionClient;
 	 * Create the frame.
 	 */
 	public EspaceAdmin() {
-		gestionClient=new GestionClient();
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 1158, 850);
+		setBounds(0, 0, 1158, 750);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setBounds(0, 0, 1158, 850);
+		contentPane.setBounds(0, 0, 1158, 750);
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		final JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(0, 50, 1158, 850);
 		contentPane.add(scrollPane);
+		scrollPane.setViewportView(new HomeAdmin());
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(0, 0, 1135, 41);
 		contentPane.add(menuBar);
 		
 		JMenu mnHome = new JMenu("Home");
+		mnHome.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				scrollPane.setViewportView(new HomeAdmin());
+			}
+		});
 		menuBar.add(mnHome);
 		
 		JMenu mnManager = new JMenu("Manager");
@@ -106,12 +113,21 @@ GestionClient gestionClient;
 		mnClient.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				scrollPane.setViewportView(gestionClient);
+				scrollPane.setViewportView(new AdminClient());
 				System.out.println("otttk");
 			}
 		});
 		
 		menuBar.add(mnClient);
+		
+		JMenu mnConfiguration = new JMenu("configuration");
+		mnConfiguration.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				scrollPane.setViewportView(new ConfigurationPanel(scrollPane));
+			}
+		});
+		menuBar.add(mnConfiguration);
 		
 		
 		

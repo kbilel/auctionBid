@@ -244,6 +244,11 @@ public class SubscribingPanel extends JPanel {
 		button.setBounds(376, 305, 46, 44);
 		panel.add(button);
 		
+		JLabel label_8 = new JLabel("");
+		label_8.setIcon(new ImageIcon(SubscribingPanel.class.getResource("/tn/esprit/auction/gui/authentification/back1.jpg")));
+		label_8.setBounds(0, 0, 1142, 791);
+		panel.add(label_8);
+		
 		
 
 	}

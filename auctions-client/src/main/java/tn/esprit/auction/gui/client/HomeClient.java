@@ -34,7 +34,7 @@ import java.io.FileInputStream;
 public class HomeClient extends JPanel {
 	private JTextField loginTF;
 	private JPasswordField passwordField;
-	static User userConnected;
+	public static User userConnected;
 	String password="";
 	String login="";
 	
@@ -45,11 +45,11 @@ public class HomeClient extends JPanel {
 		//userConnected = HomeClient.userConnected;
 		if (userConnected == null)
 			userConnected = SubscribingPanel.userConnected;
-		setBounds(0, 21, 1142, 791);
+		setBounds(0, 0, 1158, 850);
 		setLayout(null);
 		
 		final JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 1142, 791);
+		panel.setBounds(0, 0, 1158, 850);
 		panel.setBackground(new Color(173, 216, 230));
 		add(panel);
 		panel.setLayout(null);
@@ -128,6 +128,11 @@ public class HomeClient extends JPanel {
 		});
 		btnDisconnect.setBounds(79, 222, 136, 35);
 		connectRubriq.add(btnDisconnect);
+		
+		JLabel label_1 = new JLabel("");
+		label_1.setIcon(new ImageIcon(HomeClient.class.getResource("/tn/esprit/auction/gui/authentification/back1.jpg")));
+		label_1.setBounds(0, 0, 1158, 850);
+		//panel.add(label_1);
 		
 		
 		btnConnect.addActionListener(new ActionListener() {
