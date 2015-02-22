@@ -6,12 +6,16 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.ImageIcon;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JScrollPane;
 
 import tn.esprit.auction.delegate.GestionOrderDelegate;
 import tn.esprit.auction.domain.Order;
+import tn.esprit.auction.gui.client.EspaceClient;
+import tn.esprit.auction.gui.client.HomeClient;
+import tn.esprit.auction.gui.stockManager.EspaceStockManager;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -31,10 +35,13 @@ import javax.swing.border.TitledBorder;
 import java.awt.SystemColor;
 
 import javax.swing.JTable;
+
 import org.jdesktop.swingbinding.JTableBinding;
 import org.jdesktop.swingbinding.SwingBindings;
 import org.jdesktop.beansbinding.AutoBinding.UpdateStrategy;
 import org.jdesktop.beansbinding.BeanProperty;
+
+import javax.swing.border.BevelBorder;
 
 public class EspaceDeliveryMan extends JFrame {
 
@@ -73,7 +80,7 @@ public class EspaceDeliveryMan extends JFrame {
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 882, 602);
+		setBounds(100, 100, 1056, 660);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -112,6 +119,43 @@ public class EspaceDeliveryMan extends JFrame {
 		lblDeliveryMan.setFont(new Font("Rockwell Condensed", Font.ITALIC, 39));
 		lblDeliveryMan.setForeground(new Color(255, 102, 51));
 		contentPane.add(lblDeliveryMan);
+		
+		JPanel panel = new JPanel();
+		panel.setLayout(null);
+		panel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		panel.setBounds(831, 144, 199, 258);
+		contentPane.add(panel);
+		
+		JLabel label = new JLabel("Manager");
+		label.setForeground(new Color(0, 0, 139));
+		label.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		label.setBounds(59, 11, 100, 41);
+		panel.add(label);
+		
+		JLabel label_1 = new JLabel("User Name :");
+		label_1.setBounds(20, 173, 69, 14);
+		panel.add(label_1);
+		
+		JButton button = new JButton("Log out");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EspaceClient frame=new EspaceClient();
+				frame.setVisible(true);
+				setVisible(false);
+			}
+		});
+		button.setBounds(68, 211, 121, 36);
+		panel.add(button);
+		
+		JLabel label_2 = new JLabel("");
+		//label_2.setIcon(new ImageIcon(EspaceDeliveryMan.class.getResource(HomeClient.getUser().getImageUrl())));
+		label_2.setBounds(79, 63, 100, 96);
+		panel.add(label_2);
+		
+		JLabel label_3 = new JLabel((String) null);
+		//label_3.setText(HomeClient.getUser().getUserName());
+		label_3.setBounds(89, 173, 100, 14);
+		panel.add(label_3);
 		initDataBindings();
 	
 		
