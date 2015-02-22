@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JScrollPane;
 import javax.swing.border.TitledBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
@@ -169,12 +170,13 @@ public class UpdateAuction extends JFrame {
 				Integer secondeE= (Integer) (spinner_5.getValue());
 				String eND =yearE+","+mounthE+","+dayE+","+hourE+","+minuteE+","+secondeE;
 				
-	Date auctionEndDate=new Date(yearS-1900, mounthS, dayS, hourS, minuteS, secondeS);
+	Date auctionEndDate=new Date(yearE-1900, mounthE, dayE, hourE, minuteE, secondeE);
 				
-				System.out.println(eND);
+				System.out.println("end="+eND);
 				// **** End auctionEndDate recuperation de s valeurs
 			
-				
+				if (auctionEndDate.after(auctionStartingDate)){
+					System.out.println("d5al");
 					if (PanelManageAuction.auctionSelected instanceof EnglishAuction){
 						auction =new EnglishAuction();
 						auction.setAuctionStartingPrice(Integer.parseInt(txtfStartingPrice.getText()));
@@ -223,7 +225,8 @@ public class UpdateAuction extends JFrame {
 		setVisible(false);
 }
 					
-					}
+					}else 	JOptionPane.showMessageDialog(null, "Be carefull ! Date Start comes after Date End !!");
+				}
 			}
 		});
 		button_1.setBounds(435, 427, 89, 23);
