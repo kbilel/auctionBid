@@ -34,7 +34,7 @@ public class PanelShowOrder extends JPanel {
 	List<Order>orders;
 	List<Order> ordersTodeliver;
 	Order orderTodeliver;
-	Order orderState;
+	Order orderState =new Order();
 	private JTable table;
 	private JTable table_1;
 
@@ -90,24 +90,29 @@ public class PanelShowOrder extends JPanel {
 		});
 		scrollPane_1.setViewportView(table_1);
 		
-		JButton btnConfirm = new JButton("Confirm ");
+		JButton btnConfirm = new JButton("delete");
 		btnConfirm.addActionListener(new ActionListener() {
+			
+			//action performed of confirm
 			public void actionPerformed(ActionEvent e) {
-				orderState.setState("delivred");
-						
-				if(GestionOrderDelegate.doUpdateOrder(orderState)){
-					System.out.println("update with succes");
+				System.out.println("entred to button ");
+				
+				
+				//ordersTodeliver.add(orderTodeliver);
+				
+				System.out.println("order added to list");
 					
-					ordersTodeliver=GestionOrderDelegate.doFindAllOrders();
-					System.out.println("initiat binding not passed");
-					initDataBindings();
-					System.out.println("initiat binding passed");
-					
-					
+				if(GestionOrderDelegate.doDeleteOrder(orderState))
+				{
+				
+					System.out.println("deleted with succes");
 				}
-				else{
-					
-				}
+				else
+				{
+					System.out.println("delete failed");
+				}	
+				
+			
 			}
 		});
 		btnConfirm.setBounds(498, 412, 89, 23);

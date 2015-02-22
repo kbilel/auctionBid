@@ -62,15 +62,21 @@ public class OrderServices implements OrderServicesRemote, OrderServicesLocal {
 	}
 
 	@Override
-	public Order findOrderById(Integer idClient) {
+	public Order findOrderById(Integer idProduct) {
+		
 		Order order=null;
 		try {
-			order=entityManager.find(Order.class, idClient);
-		
-		} catch (Exception e) {
+			Query query=entityManager.createQuery("select o from Order o where o.idProduct=: idp  ");
+			query.setParameter("ipd", idProduct);
+		order=	 (Order) query.getSingleResult();
 			
+		} catch (Exception e) {
+			return null;
 		}
-		return order;
+		
+	return order;
+			
+
 	}
 
 	@Override
@@ -86,7 +92,6 @@ public class OrderServices implements OrderServicesRemote, OrderServicesLocal {
 		return null;
 	}
 
-	
 	
 
 

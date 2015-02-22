@@ -11,7 +11,7 @@ public interface OrderServicesLocal {
 	Boolean addOrder(Order order );
 	Boolean updateOrder(Order order);
 	Boolean deleteOrder(Order order);
-	Order findOrderById(Integer idOrder);
+	Order findOrderById(Integer idProduct);
 	Order findOrderByClientId(Integer idClient);
 	List<Order>findAllOrders();
 	
