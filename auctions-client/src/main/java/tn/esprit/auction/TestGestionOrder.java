@@ -24,7 +24,7 @@ public class TestGestionOrder {
 		OrderPK orderPk = new OrderPK(2, 1);
 		Order order = new Order();
 
-	order.setClient(2);
+	//order.setClient(2);
 	order.setCashPayement(true);
 	order.setOrderPK(orderPk);
 
@@ -41,7 +41,7 @@ public class TestGestionOrder {
 		Manager manager = new Manager();
 		manager.setUserName("Le ManagerR");
 		Order order = remote.findOrderById(2);
-		order.setManager(manager);
+		//order.setManager(manager);
 		if (remote.updateOrder(order)) {
 			System.out.println("OK");
 		} else

@@ -30,7 +30,6 @@ public class PanelAjoutOrder extends JPanel {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
-	private JTextField textField_3;
 	JComboBox comboBox;
 	private JTextField textField_4;
 
@@ -43,15 +42,15 @@ public class PanelAjoutOrder extends JPanel {
 		setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "add an order", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(255, 0, 0)));
 		setLayout(null);
 		
-		JLabel lblClient = new JLabel("Client");
+		JLabel lblClient = new JLabel("DeliveryMan");
 		lblClient.setBounds(10, 41, 87, 14);
 		add(lblClient);
 		
-		JLabel lblDeliveryman = new JLabel("Delivery Man");
+		JLabel lblDeliveryman = new JLabel("Client");
 		lblDeliveryman.setBounds(10, 150, 87, 14);
 		add(lblDeliveryman);
 		
-		JLabel lblManager = new JLabel("Manager");
+		JLabel lblManager = new JLabel("Product");
 		lblManager.setBounds(10, 186, 75, 14);
 		add(lblManager);
 		
@@ -79,11 +78,10 @@ public class PanelAjoutOrder extends JPanel {
 			Date date=new Date();
 			date.getTime();
 			order.setDateLimit(date);
-			orderPK.setIdDeliveryMan(Integer.parseInt(textField_1.getText()));
-			orderPK.setIdManager(Integer.parseInt(textField_2.getText()));
+			orderPK.setIdClient(Integer.parseInt(textField_1.getText()));
+			orderPK.setIdProduct(Integer.parseInt(textField_2.getText()));
 			order.setOrderPK(orderPK);
-			order.setClient(Integer.parseInt(textField.getText()));
-			order.setProduit(Integer.parseInt(textField_3.getText()));
+			order.setIdDeliveryMan(Integer.parseInt(textField.getText()));
 			order.setAdressClient(textField_4.getText());
 			order.setState("not delivred yet");
 			
@@ -104,15 +102,6 @@ public class PanelAjoutOrder extends JPanel {
 		});
 		btnAdd.setBounds(291, 261, 122, 29);
 		add(btnAdd);
-		
-		JLabel lblProduit = new JLabel("Produit");
-		lblProduit.setBounds(10, 78, 46, 14);
-		add(lblProduit);
-		
-		textField_3 = new JTextField();
-		textField_3.setBounds(143, 69, 86, 20);
-		add(textField_3);
-		textField_3.setColumns(10);
 		
 		JLabel lblPayment = new JLabel("Payment ");
 		lblPayment.setBounds(10, 268, 46, 14);
