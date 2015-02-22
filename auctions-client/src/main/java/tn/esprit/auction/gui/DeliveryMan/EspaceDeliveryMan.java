@@ -49,6 +49,7 @@ public class EspaceDeliveryMan extends JFrame {
 	JScrollPane 	 scrollPane = new JScrollPane();
 	PanelShowOrder panelShowOrder;
 	PanelAjoutOrder panelAjoutOrder=new PanelAjoutOrder();
+	PanelProfile panelProfile=new PanelProfile();
 	// List<Order>orderForDeliveryMan;
 	
 	
@@ -85,7 +86,7 @@ public class EspaceDeliveryMan extends JFrame {
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		JMenu mnAdd = new JMenu("show");
+		JMenu mnAdd = new JMenu("Orders");
 		mnAdd.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -97,7 +98,7 @@ public class EspaceDeliveryMan extends JFrame {
 		
 		menuBar.add(mnAdd);
 		
-		JMenu mnSho = new JMenu("ajout");
+		JMenu mnSho = new JMenu("Add order");
 		mnSho.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -106,6 +107,15 @@ public class EspaceDeliveryMan extends JFrame {
 			}
 		});
 		menuBar.add(mnSho);
+		
+		JMenu mnProfile = new JMenu("Profile");
+		mnProfile.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				scrollPane.setViewportView(panelProfile);
+			}
+		});
+		menuBar.add(mnProfile);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -153,6 +163,7 @@ public class EspaceDeliveryMan extends JFrame {
 		panel.add(label_2);
 		
 		JLabel label_3 = new JLabel((String) null);
+		label_3.setForeground(Color.RED);
 		label_3.setFont(new Font("Comic Sans MS", Font.BOLD, 13));
 		label_3.setText(" "+ HomeClient.getUser().getUserName());
 		label_3.setBounds(89, 184, 100, 14);

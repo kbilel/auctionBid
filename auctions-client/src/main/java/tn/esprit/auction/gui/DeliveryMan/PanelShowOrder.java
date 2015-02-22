@@ -126,6 +126,7 @@ public class PanelShowOrder extends JPanel {
 				order.setState("Delivred");
 				GestionOrderDelegate.doUpdateOrder(order);
 				initDataBindings();
+				
 			
 			}
 		});
