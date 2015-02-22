@@ -98,6 +98,7 @@ public class EspaceManager extends JFrame {
 		mntmAuctions.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				PanelManageAuction.auctionSelected=null;
 				PanelManageAuction panelManageAuction=new PanelManageAuction();
 				scrollPane.setViewportView(panelManageAuction);
 			}
