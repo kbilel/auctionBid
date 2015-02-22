@@ -62,10 +62,10 @@ public class OrderServices implements OrderServicesRemote, OrderServicesLocal {
 	}
 
 	@Override
-	public Order findOrderById(Integer idOrder) {
+	public Order findOrderById(Integer idClient) {
 		Order order=null;
 		try {
-			order=entityManager.find(Order.class, idOrder);
+			order=entityManager.find(Order.class, idClient);
 		
 		} catch (Exception e) {
 			
@@ -80,6 +80,13 @@ public class OrderServices implements OrderServicesRemote, OrderServicesLocal {
 	
 	}
 
+	@Override
+	public Order findOrderByClientId(Integer idClient) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 	
 
 

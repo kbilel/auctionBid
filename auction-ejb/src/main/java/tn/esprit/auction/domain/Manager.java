@@ -18,18 +18,11 @@ public class Manager extends User implements Serializable {
 
 	
 	private static final long serialVersionUID = 1L;
-	private List<Order> orders;
+	
 
 	public Manager() {
 		super();
 	}
-@OneToMany(mappedBy="manager")
-	public List<Order> getOrders() {
-		return orders;
-	}
 
-	public void setOrders(List<Order> list) {
-		this.orders = list;
-	}
    
 }
