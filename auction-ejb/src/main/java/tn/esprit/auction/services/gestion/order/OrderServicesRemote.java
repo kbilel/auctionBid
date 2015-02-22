@@ -12,6 +12,7 @@ public interface OrderServicesRemote {
 	Boolean updateOrder(Order order);
 	Boolean deleteOrder(Order order);
 	Order findOrderById(Integer idOrder);
+	Order findOrderByClientId(Integer idClient);
 	List<Order>findAllOrders();
 	
 }
