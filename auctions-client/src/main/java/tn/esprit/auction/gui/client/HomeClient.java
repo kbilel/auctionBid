@@ -22,10 +22,12 @@ import tn.esprit.auction.domain.Admin;
 import tn.esprit.auction.domain.Client;
 import tn.esprit.auction.domain.DeliveryMan;
 import tn.esprit.auction.domain.Manager;
+import tn.esprit.auction.domain.StockManager;
 import tn.esprit.auction.domain.User;
 import tn.esprit.auction.gui.DeliveryMan.EspaceDeliveryMan;
 import tn.esprit.auction.gui.admin.EspaceAdmin;
 import tn.esprit.auction.gui.manager.EspaceManager;
+import tn.esprit.auction.gui.stockManager.EspaceStockManager;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -198,6 +200,11 @@ public class HomeClient extends JPanel {
 				 else if(userConnected instanceof DeliveryMan)
 				 {
 					 new EspaceDeliveryMan().setVisible(true);
+					 setVisible(false);
+				 }
+				 else if(userConnected instanceof StockManager)
+				 {
+					 new EspaceStockManager().setVisible(true);
 					 setVisible(false);
 				 }
 				 

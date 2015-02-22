@@ -141,6 +141,12 @@ public class EspaceClient extends JFrame {
 		menuBar.add(mnAuctions);
 		
 		JMenu mnProducts = new JMenu("Products");
+		mnProducts.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				scrollPane.setViewportView(new PanelProductList());
+				
+			}
+		});
 		menuBar.add(mnProducts);
 		
 		JMenu mnStatistic = new JMenu("Statistic");

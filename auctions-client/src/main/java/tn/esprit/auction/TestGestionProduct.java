@@ -66,6 +66,9 @@ System.out.println("product null");
 
 
 doAddProduct(remote);
+doAddProduct(remote);
+doAddProduct(remote);
+doAddProduct(remote);
 //doDeleteProduct(remote);
 
 	}
