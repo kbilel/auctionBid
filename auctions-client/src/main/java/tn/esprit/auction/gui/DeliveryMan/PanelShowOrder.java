@@ -113,7 +113,7 @@ public class PanelShowOrder extends JPanel {
 				initDataBindings();
 				}
 		});
-		btnTakeOrder.setBounds(223, 225, 163, 23);
+		btnTakeOrder.setBounds(223, 225, 163, 29);
 		add(btnTakeOrder);
 		
 		JButton btnDeliver = new JButton("Deliver");
@@ -124,9 +124,10 @@ public class PanelShowOrder extends JPanel {
 				order.setState("Delivred");
 				GestionOrderDelegate.doUpdateOrder(order);
 				initDataBindings();
+			
 			}
 		});
-		btnDeliver.setBounds(249, 411, 89, 23);
+		btnDeliver.setBounds(230, 399, 156, 29);
 		add(btnDeliver);
 		initDataBindings();
 
