@@ -90,7 +90,7 @@ public class ConfigurationPanel extends JPanel {
 					}
 					GestionConfigurationDelegate.doAddConfiguration(configuration);
 					JOptionPane.showMessageDialog(panel, "goood");
-					scrollPane.setViewportView(new HomeAdmin());
+					scrollPane.setViewportView(new HomeAdmin( scrollPane));
 					
 				}
 			}

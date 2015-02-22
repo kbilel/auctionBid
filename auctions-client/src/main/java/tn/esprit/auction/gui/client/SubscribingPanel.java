@@ -178,7 +178,11 @@ public class SubscribingPanel extends JPanel {
 			client1.setNumberTockens(configuration.getNbrTokenParInscription());
 				if(GestionUserDelegate.doAddUser(client1))
 				 {
-					 userConnected=client1;
+					List<User> clients=GestionUserDelegate.doFindAllUsers();
+					Client client2=(Client)clients.get((clients.size()-1));
+					 userConnected=client2;
+					new HomeClient().userConnected=userConnected;
+					 System.out.println("ouiiiiiiiiiiii inscri mrigla");
 					 new HomeClient().setVisible(true);
 					 setVisible(false);
 					 System.out.println("ouiiiiiiiiiiii inscri mrigla");

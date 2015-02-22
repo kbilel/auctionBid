@@ -53,8 +53,8 @@ public class TestGestionAnswer {
 			e.printStackTrace();
 		}
 		
-doAddAnswer(remote);
+//doAddAnswer(remote);
 		//doUpdateAnswer(remote);
-		//doDeleteAnswer(remote);
+	doDeleteAnswer(remote);
 	}
 }

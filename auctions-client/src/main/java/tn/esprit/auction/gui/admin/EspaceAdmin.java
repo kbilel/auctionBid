@@ -51,7 +51,7 @@ public class EspaceAdmin extends JFrame {
 	JLabel labelEmail;
 	JLabel labelTokens;
 	Client client=null;
-GestionClient gestionClient;
+
 	
 
 	/**
@@ -86,7 +86,7 @@ GestionClient gestionClient;
 		final JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(0, 50, 1158, 800);
 		contentPane.add(scrollPane);
-		scrollPane.setViewportView(new HomeAdmin());
+		scrollPane.setViewportView(new HomeAdmin(scrollPane));
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(0, 0, 1135, 41);
@@ -96,7 +96,7 @@ GestionClient gestionClient;
 		mnHome.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				scrollPane.setViewportView(new HomeAdmin());
+				scrollPane.setViewportView(new HomeAdmin(scrollPane));
 			}
 		});
 		menuBar.add(mnHome);
@@ -133,14 +133,24 @@ GestionClient gestionClient;
 		JMenu mnQuiz = new JMenu("QUIZ");
 		menuBar.add(mnQuiz);
 		
-		JMenuItem mntmQuestions = new JMenuItem("questions");
-		mntmQuestions.addActionListener(new ActionListener() {
+		JMenu mnQuestion = new JMenu("Question");
+		mnQuiz.add(mnQuestion);
+		
+		JMenuItem mntmAdd = new JMenuItem("add");
+		mntmAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				scrollPane.setViewportView(new QuestionQUIZ());
-				
+				scrollPane.setViewportView(new QuestionQUIZ(scrollPane));
 			}
 		});
-		mnQuiz.add(mntmQuestions);
+		mnQuestion.add(mntmAdd);
+		
+		JMenuItem mntmDelete = new JMenuItem("delete");
+		mntmDelete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				scrollPane.setViewportView(new ListQuestionPanel());
+			}
+		});
+		mnQuestion.add(mntmDelete);
 		
 		
 		

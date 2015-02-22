@@ -106,7 +106,7 @@ public class AdminClient extends JPanel {
 		panelClient.add(tableClients);
 		
 		 labelImage = new JLabel("");
-		labelImage.setIcon(new ImageIcon(EspaceAdmin.class.getResource("/tn/esprit/auction/gui/authentification/User-icon.png")));
+		labelImage.setIcon(new ImageIcon(AdminClient.class.getResource("/tn/esprit/auction/gui/authentification/User-icon.png")));
 		labelImage.setBounds(117, 29, 267, 221);
 		panelClient.add(labelImage);
 		
@@ -209,7 +209,6 @@ public class AdminClient extends JPanel {
 		panelClient.add(btnSendMail);
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(GestionClient.class.getResource("/tn/esprit/auction/gui/authentification/back1.jpg")));
 		label.setBounds(0, 0, 1158, 850);
 		panelClient.add(label);
 

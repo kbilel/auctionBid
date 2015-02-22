@@ -8,6 +8,7 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
+import javax.swing.JScrollPane;
 
 import tn.esprit.auction.domain.User;
 import tn.esprit.auction.gui.client.EspaceClient;
@@ -22,7 +23,7 @@ public class HomeAdmin extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public HomeAdmin() {
+	public HomeAdmin(JScrollPane scrollPane) {
 		userConnected = HomeClient.userConnected;
 				
 		setBounds(0, 50, 1158, 750);

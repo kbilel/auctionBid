@@ -17,6 +17,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import javax.swing.JPasswordField;
+import javax.swing.ImageIcon;
+import java.awt.Font;
 
 public class MailJFrame extends JFrame {
 
@@ -61,18 +63,22 @@ public class MailJFrame extends JFrame {
 		panel.setLayout(null);
 		
 		JLabel lblSender = new JLabel("sender");
+		lblSender.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblSender.setBounds(10, 11, 78, 22);
 		panel.add(lblSender);
 		
 		JLabel label = new JLabel("reciever");
+		label.setFont(new Font("Tahoma", Font.BOLD, 15));
 		label.setBounds(10, 44, 78, 22);
 		panel.add(label);
 		
 		JLabel label_1 = new JLabel("subject");
+		label_1.setFont(new Font("Tahoma", Font.BOLD, 15));
 		label_1.setBounds(10, 106, 78, 22);
 		panel.add(label_1);
 		
 		JLabel label_2 = new JLabel("body");
+		label_2.setFont(new Font("Tahoma", Font.BOLD, 15));
 		label_2.setBounds(10, 139, 78, 22);
 		panel.add(label_2);
 		
@@ -95,7 +101,8 @@ public class MailJFrame extends JFrame {
 		tFsender.setBounds(96, 12, 250, 20);
 		panel.add(tFsender);
 		JLabel lblPassword = new JLabel("password");
-		lblPassword.setBounds(10, 77, 46, 14);
+		lblPassword.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblPassword.setBounds(10, 77, 78, 14);
 		panel.add(lblPassword);
 		
 		passwordField = new JPasswordField();
@@ -103,6 +110,7 @@ public class MailJFrame extends JFrame {
 		panel.add(passwordField);
 		
 		JButton btnSend = new JButton("send");
+		btnSend.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnSend.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 		        mail.setMailAddressRecipient(tFreciever.getText());
@@ -143,6 +151,11 @@ public class MailJFrame extends JFrame {
 		});
 		btnSend.setBounds(162, 253, 89, 23);
 		panel.add(btnSend);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(MailJFrame.class.getResource("/tn/esprit/auction/gui/admin/backMail1.jpg")));
+		lblNewLabel.setBounds(-12, -11, 437, 308);
+		panel.add(lblNewLabel);
 		
 		
 	}

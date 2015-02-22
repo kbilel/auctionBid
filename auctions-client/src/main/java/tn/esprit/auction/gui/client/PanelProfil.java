@@ -57,8 +57,9 @@ public class PanelProfil extends JPanel {
 		else
 			System.out.println("ouuh 3ala ayèmi ty haw mawjouud l user fil profil za7 !!! ");
 			
-		       if(userConnected==null)
-			   userConnected=SubscribingSpace.getUser();
+		      if(userConnected==null)
+		    	  userConnected = SubscribingPanel.userConnected;
+		     System.out.println("ouuuuuuuuuuuuh ouh ="+new HomeClient().userConnected.getUserName()); 
 		setLayout(null);
 		
 		final JPanel panelProfile = new JPanel();
@@ -248,7 +249,7 @@ public class PanelProfil extends JPanel {
 
 				if(userConnected!=null)
 				{
-					
+					System.out.println("userConnected fil afichage ta3 profil id="+userConnected.getId());
 					tfFullnameEdit.setText(userConnected.getFullName());
 					
 					tfLoginEdit.setText(userConnected.getUserName());
@@ -313,7 +314,7 @@ public class PanelProfil extends JPanel {
 			        if(msg==0)	
 				{Client client1=(Client) userConnected;
                     client1.setId(userConnected.getId());
-                    System.out.println("id="+client1.getId());
+                    System.out.println("ouuuh il user id="+client1.getId());
 					 client1.setFullName(tfFullnameEdit.getText());
 					client1.setEmail(tfEmailEdit.getText());
 					client1.setAdress(tfAdresseEdit.getText());
