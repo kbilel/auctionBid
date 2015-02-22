@@ -64,7 +64,7 @@ System.out.println("product null");
 		
 
 
-doAddProduct(remote);
+doUpdateProduct(remote);
 
 	}
 	

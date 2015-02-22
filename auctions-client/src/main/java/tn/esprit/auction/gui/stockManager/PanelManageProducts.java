@@ -17,6 +17,7 @@ import tn.esprit.auction.delegate.GestionProductDelegate;
 import tn.esprit.auction.domain.Auction;
 import tn.esprit.auction.domain.Product;
 import tn.esprit.auction.gui.manager.PanelManageAuction;
+import tn.esprit.auction.services.gestion.productRecommended.ProductRecommendedServicesRemote;
 
 import org.jdesktop.swingbinding.JTableBinding;
 import org.jdesktop.swingbinding.SwingBindings;
@@ -27,13 +28,16 @@ import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 import org.jdesktop.beansbinding.AutoBinding;
 import org.jdesktop.beansbinding.Bindings;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JSpinner;
 import javax.swing.JTextArea;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -41,7 +45,7 @@ public class PanelManageProducts extends JPanel {
     List <Product> products;
    
     Product productSelected =new Product();
-    GestionProductDelegate gestionProductDelegate;
+    
     private JTable table;
     private JTextField idProd;
     private JTextField ProdName;
@@ -147,15 +151,36 @@ public class PanelManageProducts extends JPanel {
 		JButton btnUpdate = new JButton("Update");
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				  productSelected=products.get(table.getSelectedRow());
-				GestionProductDelegate.doUpdateProduct(productSelected);
-				GestionProductDelegate.doFindAllProducts();
-				initDataBindings();
+				productSelected=products.get(table.getSelectedRow());
+				System.out.println(productSelected.getId());
+				Product product=new Product();				
+				product=productSelected;
+				product.setName(ProdName.getText());
+				product.setCategory(Category.getText());
+				product.setQuantity(Integer.parseInt(Quantity.getText().toString()));
+				product.setPrice(Integer.parseInt(Quantity.getText().toString()));
+				product.setDescription(Category.getText());
+				System.out.println(product.getId());
+				GestionProductDelegate.doUpdateProduct(product);
+					
+				
+				
 				
 			}
 		});
 		
 		JButton btnDelete = new JButton("Delete");
+		btnDelete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				productSelected=products.get(table.getSelectedRow());
+				GestionProductDelegate.doDeleteProduct(productSelected);
+				productSelected=new Product();
+				GestionProductDelegate.doFindAllProducts();
+				initDataBindings();
+				
+				
+			}
+		});
 		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
 		gl_panel_1.setHorizontalGroup(
 			gl_panel_1.createParallelGroup(Alignment.LEADING)
