@@ -20,9 +20,9 @@ import javax.swing.border.TitledBorder;
 import javax.swing.UIManager;
 
 import tn.esprit.auction.delegate.GestionStaffDelegate;
-import tn.esprit.auction.domain.Manager;
+import tn.esprit.auction.domain.BookKeeper;
 
-public class AddManager extends JPanel {
+public class AddBookKeeper extends JPanel {
 	private JTextField tfLogin;
 	private JTextField passwordField;
 	private JTextField tfEmail;
@@ -32,7 +32,7 @@ public class AddManager extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public AddManager() {
+	public AddBookKeeper() {
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
@@ -97,14 +97,14 @@ public class AddManager extends JPanel {
 		lblName.setFont(new Font("Tahoma", Font.ITALIC, 20));
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Manager manager= new Manager();
-				manager.setFullName(tfName.getText());
-				manager.setEmail(tfEmail.getText());
-				manager.setAdress(tfAdresse.getText());
-				manager.setUserName(tfLogin.getText());
-				manager.setPassword(new String(passwordField.getText()));
+				BookKeeper bookKeeper= new BookKeeper();
+				bookKeeper.setFullName(tfName.getText());
+				bookKeeper.setEmail(tfEmail.getText());
+				bookKeeper.setAdress(tfAdresse.getText());
+				bookKeeper.setUserName(tfLogin.getText());
+				bookKeeper.setPassword(new String(passwordField.getText()));
 				
-				if(GestionStaffDelegate.doAddManager(manager))
+				if(GestionStaffDelegate.doAddBookKeeper(bookKeeper))
 				 {JOptionPane.showMessageDialog(null, "ok...");
 			}
 				else {}

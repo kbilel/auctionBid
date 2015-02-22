@@ -20,9 +20,9 @@ import javax.swing.border.TitledBorder;
 import javax.swing.UIManager;
 
 import tn.esprit.auction.delegate.GestionStaffDelegate;
-import tn.esprit.auction.domain.Manager;
+import tn.esprit.auction.domain.StockManager;
 
-public class AddManager extends JPanel {
+public class AddStockManager extends JPanel {
 	private JTextField tfLogin;
 	private JTextField passwordField;
 	private JTextField tfEmail;
@@ -32,7 +32,7 @@ public class AddManager extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public AddManager() {
+	public AddStockManager() {
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
@@ -97,14 +97,14 @@ public class AddManager extends JPanel {
 		lblName.setFont(new Font("Tahoma", Font.ITALIC, 20));
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Manager manager= new Manager();
-				manager.setFullName(tfName.getText());
-				manager.setEmail(tfEmail.getText());
-				manager.setAdress(tfAdresse.getText());
-				manager.setUserName(tfLogin.getText());
-				manager.setPassword(new String(passwordField.getText()));
+				StockManager stockManager= new StockManager();
+				stockManager.setFullName(tfName.getText());
+				stockManager.setEmail(tfEmail.getText());
+				stockManager.setAdress(tfAdresse.getText());
+				stockManager.setUserName(tfLogin.getText());
+				stockManager.setPassword(new String(passwordField.getText()));
 				
-				if(GestionStaffDelegate.doAddManager(manager))
+				if(GestionStaffDelegate.doAddStockManager(stockManager))
 				 {JOptionPane.showMessageDialog(null, "ok...");
 			}
 				else {}

@@ -22,7 +22,7 @@ import javax.swing.UIManager;
 import tn.esprit.auction.delegate.GestionStaffDelegate;
 import tn.esprit.auction.domain.Manager;
 
-public class AddManager extends JPanel {
+public class AddDeliveryMan extends JPanel {
 	private JTextField tfLogin;
 	private JTextField passwordField;
 	private JTextField tfEmail;
@@ -32,7 +32,7 @@ public class AddManager extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public AddManager() {
+	public AddDeliveryMan() {
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
