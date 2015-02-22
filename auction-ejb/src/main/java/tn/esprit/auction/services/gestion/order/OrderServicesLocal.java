@@ -14,5 +14,7 @@ public interface OrderServicesLocal {
 	Order findOrderById(Integer idProduct);
 	Order findOrderByClientId(Integer idClient);
 	List<Order>findAllOrders();
+	List<Order>findOrdersByIdDeliveryMan(Integer idDeliveryMan);
+
 	
 }

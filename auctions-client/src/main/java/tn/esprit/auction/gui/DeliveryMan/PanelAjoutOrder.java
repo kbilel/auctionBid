@@ -27,7 +27,6 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
 public class PanelAjoutOrder extends JPanel {
-	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
 	JComboBox comboBox;
@@ -42,10 +41,6 @@ public class PanelAjoutOrder extends JPanel {
 		setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "add an order", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(255, 0, 0)));
 		setLayout(null);
 		
-		JLabel lblClient = new JLabel("DeliveryMan");
-		lblClient.setBounds(10, 41, 87, 14);
-		add(lblClient);
-		
 		JLabel lblDeliveryman = new JLabel("Client");
 		lblDeliveryman.setBounds(10, 150, 87, 14);
 		add(lblDeliveryman);
@@ -53,11 +48,6 @@ public class PanelAjoutOrder extends JPanel {
 		JLabel lblManager = new JLabel("Product");
 		lblManager.setBounds(10, 186, 75, 14);
 		add(lblManager);
-		
-		textField = new JTextField();
-		textField.setBounds(143, 38, 86, 20);
-		add(textField);
-		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
 		textField_1.setBounds(143, 147, 86, 20);
@@ -81,7 +71,7 @@ public class PanelAjoutOrder extends JPanel {
 			orderPK.setIdClient(Integer.parseInt(textField_1.getText()));
 			orderPK.setIdProduct(Integer.parseInt(textField_2.getText()));
 			order.setOrderPK(orderPK);
-			order.setIdDeliveryMan(Integer.parseInt(textField.getText()));
+			//order.setIdDeliveryMan(Integer.parseInt(textField.getText()));
 			order.setAdressClient(textField_4.getText());
 			order.setState("not delivred yet");
 			

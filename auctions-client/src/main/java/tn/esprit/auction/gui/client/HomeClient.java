@@ -20,8 +20,10 @@ import javax.swing.JPasswordField;
 import tn.esprit.auction.delegate.GestionUserDelegate;
 import tn.esprit.auction.domain.Admin;
 import tn.esprit.auction.domain.Client;
+import tn.esprit.auction.domain.DeliveryMan;
 import tn.esprit.auction.domain.Manager;
 import tn.esprit.auction.domain.User;
+import tn.esprit.auction.gui.DeliveryMan.EspaceDeliveryMan;
 import tn.esprit.auction.gui.admin.EspaceAdmin;
 import tn.esprit.auction.gui.manager.EspaceManager;
 
@@ -193,6 +195,12 @@ public class HomeClient extends JPanel {
 					 new EspaceAdmin().setVisible(true);
 					 setVisible(false);
 				 }
+				 else if(userConnected instanceof DeliveryMan)
+				 {
+					 new EspaceDeliveryMan().setVisible(true);
+					 setVisible(false);
+				 }
+				 
 				 
 			 }
 		        else 

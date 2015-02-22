@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import tn.esprit.auction.domain.Auction;
 import tn.esprit.auction.domain.Order;
 
 /**
@@ -90,6 +91,23 @@ public class OrderServices implements OrderServicesRemote, OrderServicesLocal {
 	public Order findOrderByClientId(Integer idClient) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public List<Order> findOrdersByIdDeliveryMan(Integer idDeliveryMan) {
+
+		List<Order> orders =null;
+		try {
+			Query query=entityManager.createQuery("select o from Order o where o.idDeliveryMan=:iddm ");
+			query.setParameter("iddm", idDeliveryMan);
+		orders=	  query.getResultList();
+			
+		} catch (Exception e) {
+			return null;
+		}
+		
+	return orders;
+			
 	}
 
 	
