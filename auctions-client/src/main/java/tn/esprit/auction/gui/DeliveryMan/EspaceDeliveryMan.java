@@ -81,7 +81,7 @@ public class EspaceDeliveryMan extends JFrame {
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1056, 660);
+		setBounds(100, 100, 1101, 662);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -120,12 +120,12 @@ public class EspaceDeliveryMan extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		scrollPane.setBounds(53, 74, 748, 458);
+		scrollPane.setBounds(10, 77, 748, 458);
 
 		contentPane.add(scrollPane);
 		
 		JLabel lblDeliveryMan = new JLabel("Delivery Man");
-		lblDeliveryMan.setBounds(322, 21, 316, 34);
+		lblDeliveryMan.setBounds(237, 32, 316, 34);
 		lblDeliveryMan.setFont(new Font("Rockwell Condensed", Font.ITALIC, 39));
 		lblDeliveryMan.setForeground(new Color(255, 102, 51));
 		contentPane.add(lblDeliveryMan);
@@ -133,17 +133,17 @@ public class EspaceDeliveryMan extends JFrame {
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
 		panel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		panel.setBounds(831, 144, 199, 258);
+		panel.setBounds(811, 74, 264, 352);
 		contentPane.add(panel);
 		
-		JLabel label = new JLabel("Manager");
-		label.setForeground(new Color(0, 0, 139));
-		label.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		label.setBounds(59, 11, 100, 41);
-		panel.add(label);
+		JLabel lblDeliveryman = new JLabel("DeliveryMan");
+		lblDeliveryman.setForeground(new Color(0, 0, 139));
+		lblDeliveryman.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		lblDeliveryman.setBounds(28, 11, 149, 41);
+		panel.add(lblDeliveryman);
 		
 		JLabel lblUsername = new JLabel("Username :");
-		lblUsername.setBounds(10, 186, 69, 14);
+		lblUsername.setBounds(10, 256, 69, 14);
 		panel.add(lblUsername);
 		
 		JButton button = new JButton("Log out");
@@ -154,19 +154,19 @@ public class EspaceDeliveryMan extends JFrame {
 				setVisible(false);
 			}
 		});
-		button.setBounds(68, 211, 121, 36);
+		button.setBounds(68, 281, 121, 36);
 		panel.add(button);
 		
 		JLabel label_2 = new JLabel("");
 		label_2.setIcon(new ImageIcon(EspaceDeliveryMan.class.getResource(HomeClient.getUser().getImageUrl())));
-		label_2.setBounds(38, 63, 141, 96);
+		label_2.setBounds(29, 63, 225, 185);
 		panel.add(label_2);
 		
 		JLabel label_3 = new JLabel((String) null);
 		label_3.setForeground(Color.RED);
 		label_3.setFont(new Font("Comic Sans MS", Font.BOLD, 13));
 		label_3.setText(" "+ HomeClient.getUser().getUserName());
-		label_3.setBounds(89, 184, 100, 14);
+		label_3.setBounds(89, 254, 100, 14);
 		panel.add(label_3);
 		initDataBindings();
 	
