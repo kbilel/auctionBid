@@ -41,6 +41,7 @@ public class ConfirmDelete extends JFrame {
 	 * Create the frame.
 	 */
 	public ConfirmDelete() {
+		
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -53,9 +54,9 @@ public class ConfirmDelete extends JFrame {
 				GestionAuctionDelegate gestionAuctionDelegate= new GestionAuctionDelegate();
 				PanelManageAuction panelManageAuction=new PanelManageAuction();
 				Auction auction=new Auction();
-//				auction=PanelManageAuction.auctionSelected;
-//				GestionAuctionDelegate.doDeleteAuction(auction);
-//				PanelManageAuction.auctionSelected=null;
+				auction=PanelManageAuction.auctionSelected;
+				GestionAuctionDelegate.doDeleteAuction(auction);
+				PanelManageAuction.auctionSelected=null;
 				setVisible(false);
 			}
 		});

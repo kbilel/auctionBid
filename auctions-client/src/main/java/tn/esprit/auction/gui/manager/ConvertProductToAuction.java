@@ -7,11 +7,13 @@ import java.awt.Window;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JButton;
 
+import tn.esprit.auction.delegate.GestionAuctionDelegate;
 import tn.esprit.auction.delegate.GestionProductDelegate;
 import tn.esprit.auction.domain.Product;
 
@@ -93,10 +95,12 @@ public class ConvertProductToAuction extends JFrame {
 				lblYouNeedTo.setBounds(40, 401, 301, 14);
 				lblYouNeedTo.setVisible(false);
 				contentPane.add(lblYouNeedTo);
-				if (productSelected!=null){
+				if (productSelected!=null ){
+					if(GestionAuctionDelegate.doFindAllAuctionsByProduct(productSelected).size()==0){
 				AddAuction frame = new AddAuction();
 				frame.setVisible(true);
 				setVisible(false);
+				}else JOptionPane.showMessageDialog(null, "Product already in an auction !");
 				}else lblYouNeedTo.setVisible(true);
 			}
 		});

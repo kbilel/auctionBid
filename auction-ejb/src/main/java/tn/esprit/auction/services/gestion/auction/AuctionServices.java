@@ -10,6 +10,7 @@ import javax.persistence.Query;
 
 import tn.esprit.auction.domain.Auction;
 import tn.esprit.auction.domain.EnglishAuction;
+import tn.esprit.auction.domain.Product;
 
 /**
  * Session Bean implementation class AuctionServices
@@ -86,6 +87,15 @@ public class AuctionServices implements AuctionServicesRemote, AuctionServicesLo
 		System.out.println("ejb find english auction is not null");
 		return query.getResultList();
 		
+	}
+
+	@Override
+	public List<Auction> findAllAuctionsByProduct(Product product) {
+		Query query=entityManager.createQuery("select a from Auction a where a.product=:p ");
+		query.setParameter("p", product);
+		if (query.getResultList()!=null)
+		System.out.println("ejb find  auction by product is not null");
+		return query.getResultList();
 	}
 
 }
