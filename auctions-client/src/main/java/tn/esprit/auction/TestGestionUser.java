@@ -13,6 +13,8 @@ import javax.naming.NamingException;
 
 
 
+
+import tn.esprit.auction.domain.Admin;
 import tn.esprit.auction.domain.Client;
 import tn.esprit.auction.domain.Configuration;
 import tn.esprit.auction.domain.DeliveryMan;
@@ -48,8 +50,15 @@ public class TestGestionUser {
 		user3.setFullName("si");
 		user3.setPassword("si");
 		
+		Admin user4=new Admin();
+		user4.setUserName("admin");
+		user4.setAdress("admin");
+		user4.setEmail("admin@mail.fr");
+		user4.setFullName("admin");
+		user4.setPassword("admin");
 		
-		if(remote.addUser(user3)&remote.addUser(user1)&remote.addUser(user2)){
+		
+		if(remote.addUser(user3)&remote.addUser(user1)&remote.addUser(user2)&remote.addUser(user4)){
 			System.out.println("OK");
 		}
 		else

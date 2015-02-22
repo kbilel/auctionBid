@@ -42,10 +42,12 @@ public class PanelProfil extends JPanel {
 		private JTextField tfAdresseEdit;
 		private JTextField tfPathImageUser;
 
-	/**
+	
+		/**
 	 * Create the panel.
 	 */
 	public PanelProfil() {
+		setBounds(0, 0, 1158, 850);
 		client=new Client();
 		userConnected= HomeClient.userConnected;
 		if(HomeClient.userConnected==null)
@@ -55,14 +57,15 @@ public class PanelProfil extends JPanel {
 		else
 			System.out.println("ouuh 3ala ayèmi ty haw mawjouud l user fil profil za7 !!! ");
 			
-		       if(userConnected==null)
-			   userConnected=SubscribingSpace.getUser();
+		      if(userConnected==null)
+		    	  userConnected = SubscribingPanel.userConnected;
+		     System.out.println("ouuuuuuuuuuuuh ouh ="+new HomeClient().userConnected.getUserName()); 
 		setLayout(null);
 		
 		final JPanel panelProfile = new JPanel();
 		panelProfile.setBackground(new Color(253, 245, 230));
 		panelProfile.setForeground(Color.BLACK);
-		panelProfile.setBounds(10, 11, 974, 759);
+		panelProfile.setBounds(0, 0, 1142, 791);
 		add(panelProfile);
 		panelProfile.setLayout(null);
 		final JLabel labelImageUser = new JLabel("");
@@ -246,7 +249,7 @@ public class PanelProfil extends JPanel {
 
 				if(userConnected!=null)
 				{
-					
+					System.out.println("userConnected fil afichage ta3 profil id="+userConnected.getId());
 					tfFullnameEdit.setText(userConnected.getFullName());
 					
 					tfLoginEdit.setText(userConnected.getUserName());
@@ -311,7 +314,7 @@ public class PanelProfil extends JPanel {
 			        if(msg==0)	
 				{Client client1=(Client) userConnected;
                     client1.setId(userConnected.getId());
-                    System.out.println("id="+client1.getId());
+                    System.out.println("ouuuh il user id="+client1.getId());
 					 client1.setFullName(tfFullnameEdit.getText());
 					client1.setEmail(tfEmailEdit.getText());
 					client1.setAdress(tfAdresseEdit.getText());
@@ -400,6 +403,11 @@ public class PanelProfil extends JPanel {
 		tfPathImageUser.setVisible(false);
 		panelProfile.add(tfPathImageUser);
 		tfPathImageUser.setColumns(10);
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(PanelProfil.class.getResource("/tn/esprit/auction/gui/authentification/back1.jpg")));
+		label.setBounds(0, 0, 1158, 850);
+		panelProfile.add(label);
 		
 		if(userConnected!=null)
 		{ System.out.println("femma user chbbii weldiih ma y7ottouch");

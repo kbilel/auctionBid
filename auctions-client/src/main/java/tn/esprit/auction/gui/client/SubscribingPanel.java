@@ -178,7 +178,11 @@ public class SubscribingPanel extends JPanel {
 			client1.setNumberTockens(configuration.getNbrTokenParInscription());
 				if(GestionUserDelegate.doAddUser(client1))
 				 {
-					 userConnected=client1;
+					List<User> clients=GestionUserDelegate.doFindAllUsers();
+					Client client2=(Client)clients.get((clients.size()-1));
+					 userConnected=client2;
+					new HomeClient().userConnected=userConnected;
+					 System.out.println("ouiiiiiiiiiiii inscri mrigla");
 					 new HomeClient().setVisible(true);
 					 setVisible(false);
 					 System.out.println("ouiiiiiiiiiiii inscri mrigla");
@@ -243,6 +247,11 @@ public class SubscribingPanel extends JPanel {
 		button.setIcon(new ImageIcon(SubscribingPanel.class.getResource("/tn/esprit/auction/gui/authentification/add.png")));
 		button.setBounds(376, 305, 46, 44);
 		panel.add(button);
+		
+		JLabel label_8 = new JLabel("");
+		label_8.setIcon(new ImageIcon(SubscribingPanel.class.getResource("/tn/esprit/auction/gui/authentification/back1.jpg")));
+		label_8.setBounds(0, 0, 1142, 791);
+		panel.add(label_8);
 		
 		
 

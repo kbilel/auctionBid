@@ -6,6 +6,7 @@ import javax.ejb.Local;
 
 import tn.esprit.auction.domain.Auction;
 import tn.esprit.auction.domain.EnglishAuction;
+import tn.esprit.auction.domain.Product;
 
 @Local
 public interface AuctionServicesLocal {
@@ -15,4 +16,5 @@ public interface AuctionServicesLocal {
 	Auction findAuctionById(Integer idAuction);
 	List<Auction>findAllAuctions();
 	List<EnglishAuction>findAllEnglishAuctions();
+	List<Auction>findAllAuctionsByProduct(Product product);
 }

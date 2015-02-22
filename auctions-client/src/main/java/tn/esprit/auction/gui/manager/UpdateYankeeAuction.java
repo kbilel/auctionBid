@@ -19,22 +19,20 @@ import tn.esprit.auction.delegate.GestionAuctionDelegate;
 import tn.esprit.auction.domain.AgregateAuction;
 import tn.esprit.auction.domain.DutchAuction;
 import tn.esprit.auction.domain.EnglishAuction;
-import tn.esprit.auction.domain.NegociatedAuction;
+import tn.esprit.auction.domain.YankeeAuction;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 
-public class AddNegociatedAuction extends JFrame {
+public class UpdateYankeeAuction extends JFrame {
 
 	private JPanel contentPane;
 	private JButton button;
 	private JButton btnFinish;
 	private JLabel lblNewLabel_1;
-	private JLabel lblDecreaseValue;
-	private JTextField textField;
 	private JLabel lblNewLabel;
-	private JLabel label;
+	private JLabel lblByClickingFinish;
 	/**
 	 * Launch the application.
 	 */
@@ -42,7 +40,7 @@ public class AddNegociatedAuction extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AddNegociatedAuction frame = new AddNegociatedAuction();
+					UpdateYankeeAuction frame = new UpdateYankeeAuction();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -54,8 +52,8 @@ public class AddNegociatedAuction extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public AddNegociatedAuction() {
-		setTitle("Add Negociated Auction");
+	public UpdateYankeeAuction() {
+		setTitle("Update Yankee Auction");
 		setBounds(100, 100, 550, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -66,8 +64,8 @@ public class AddNegociatedAuction extends JFrame {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				AddAuction addAuction=new AddAuction();
-				addAuction.setVisible(true);
+				UpdateAuction updateAuction=new UpdateAuction();
+				updateAuction.setVisible(true);
 				setVisible(false);
 			}
 		});
@@ -77,48 +75,31 @@ public class AddNegociatedAuction extends JFrame {
 		btnFinish = new JButton("Finish");
 		btnFinish.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				lblNewLabel = new JLabel("Data is wrong or missing !");
-				lblNewLabel.setForeground(Color.RED);
-				lblNewLabel.setBounds(55, 375, 187, 14);
-				lblNewLabel.setVisible(false);
-				contentPane.add(lblNewLabel);
-				if(textField.getText().equals("") ){
-					lblNewLabel.setVisible(true);
-				}else{
-				AddAuction addAuction=new AddAuction();
-				NegociatedAuction negociatedAuction=(NegociatedAuction) AddAuction.auction;
-				negociatedAuction.setFixedMinimumPrice(Integer.parseInt(textField.getText()));
 				
-				GestionAuctionDelegate.doAddAuction(negociatedAuction);
+			
+				YankeeAuction yankeeAuction=(YankeeAuction) UpdateAuction.auction;
+				yankeeAuction.setId(PanelManageAuction.auctionSelected.getId());
+				GestionAuctionDelegate.doUpdateAuction(yankeeAuction);
 				ConfirmSendMail confirmSendMail=new ConfirmSendMail();
 				confirmSendMail.setVisible(true);
 				setVisible(false);
-			}}
+			}
 		});
 		btnFinish.setBounds(435, 427, 89, 23);
 		contentPane.add(btnFinish);
 		
 		lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(AddNegociatedAuction.class.getResource("/tn/esprit/auction/gui/manager/negociated.jpg")));
-		lblNewLabel_1.setBounds(94, 11, 412, 200);
+		lblNewLabel_1.setIcon(new ImageIcon(UpdateYankeeAuction.class.getResource("/tn/esprit/auction/gui/manager/yankees.jpg")));
+		lblNewLabel_1.setBounds(123, 11, 372, 149);
 		contentPane.add(lblNewLabel_1);
 		
-		JLabel lblNoMoreData = new JLabel(" Negociated Auction !");
-		lblNoMoreData.setBounds(10, 217, 322, 14);
+		JLabel lblNoMoreData = new JLabel("No more Data to add in Yankee Auction !");
+		lblNoMoreData.setBounds(45, 222, 322, 14);
 		contentPane.add(lblNoMoreData);
 		
-		lblDecreaseValue = new JLabel("Fixed minimum price :");
-		lblDecreaseValue.setBounds(10, 262, 136, 14);
-		contentPane.add(lblDecreaseValue);
-		
-		textField = new JTextField();
-		textField.setBounds(223, 259, 86, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
-		
-		label = new JLabel("By clicking Finish , a new auction will be created !");
-		label.setBounds(10, 309, 490, 14);
-		contentPane.add(label);
+		lblByClickingFinish = new JLabel("By clicking Finish , a new auction will be updated !");
+		lblByClickingFinish.setBounds(0, 276, 490, 14);
+		contentPane.add(lblByClickingFinish);
 		
 		
 	}

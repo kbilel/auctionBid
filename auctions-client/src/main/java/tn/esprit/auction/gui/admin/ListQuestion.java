@@ -5,24 +5,22 @@ import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
+import tn.esprit.auction.delegate.GestionQuestionDelegate;
 import tn.esprit.auction.delegate.GestionUserDelegate;
 import tn.esprit.auction.domain.Client;
+import tn.esprit.auction.domain.Question;
 import tn.esprit.auction.domain.User;
 
-public class ListClient extends AbstractTableModel{
-	String [] header={"id","name","email"};
+public class ListQuestion extends AbstractTableModel{
+	String [] header={"id","Text"};
 	
-    List<Client> clients=new ArrayList<Client>();
+    List<Question> questions=new ArrayList<Question>();
 
-	public ListClient() {
-		List<User> users=GestionUserDelegate.doFindAllUsers();
-		for (User user : users) {
-			if(user instanceof Client)
-			{
-				clients.add((Client)user);	}
-			
-		}
-		System.out.println("nombre client="+clients.size());
+	public ListQuestion() {
+		questions=GestionQuestionDelegate.doFindAllQuestions();
+		
+		
+		System.out.println("nombre client="+questions.size());
 	} @Override
     public String getColumnName(int column) {
         return header[column];
@@ -30,7 +28,7 @@ public class ListClient extends AbstractTableModel{
 
 	@Override
 	public int getRowCount() {
-		 return clients.size();
+		 return questions.size();
 	}
 
 	@Override
@@ -42,12 +40,10 @@ public class ListClient extends AbstractTableModel{
 	public Object getValueAt(int rowIndex, int columnIndex) {
 		switch(columnIndex){
         case 0: 
-            return clients.get(rowIndex).getId();
+            return questions.get(rowIndex).getId();
         case 1: 
-            return clients.get(rowIndex).getFullName();
+            return questions.get(rowIndex).getText();
   
-        case 2: 
-            return clients.get(rowIndex).getEmail();
             
         default:
             return null;

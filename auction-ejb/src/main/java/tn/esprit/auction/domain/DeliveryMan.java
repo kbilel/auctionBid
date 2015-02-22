@@ -15,20 +15,12 @@ import tn.esprit.auction.domain.User;
 @Table(name="t_delivery_man")
 
 public class DeliveryMan extends User implements Serializable {
-	private List <Order>orders;
-	
+
 	private static final long serialVersionUID = 1L;
 
 	public DeliveryMan() {
 		super();
 	}
-@OneToMany(mappedBy="deliveryMan")
-	public List <Order> getOrders() {
-		return orders;
-	}
 
-	public void setOrders(List <Order> orders) {
-		this.orders = orders;
-	}
    
 }

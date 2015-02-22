@@ -6,33 +6,33 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 @Embeddable
 public class OrderPK implements Serializable {
-	private Integer idManager;
-	private Integer idDeliveryMan;
+	private Integer idClient;
+	private Integer idProduct;
 	public OrderPK() {
 		// TODO Auto-generated constructor stub
 	}
-	@Column(name="id_manager")
-	public Integer getIdManager() {
-		return idManager;
+	@Column(name="id_client")
+	public Integer getIdClient() {
+		return idClient;
 	}
-	public void setIdManager(Integer idManager) {
-		this.idManager = idManager;
+	public void setIdClient(Integer idClient) {
+		this.idClient = idClient;
 	}
-	@Column(name="id_delivery_man")
-	public Integer getIdDeliveryMan() {
-		return idDeliveryMan;
+	@Column(name="id_product")
+	public Integer getIdProduct() {
+		return idProduct;
 	}
-	public void setIdDeliveryMan(Integer idDeliveryMan) {
-		this.idDeliveryMan = idDeliveryMan;
+	public void setIdProduct(Integer idProduct) {
+		this.idProduct = idProduct;
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result
-				+ ((idDeliveryMan == null) ? 0 : idDeliveryMan.hashCode());
+				+ ((idProduct == null) ? 0 : idProduct.hashCode());
 		result = prime * result
-				+ ((idManager == null) ? 0 : idManager.hashCode());
+				+ ((idClient == null) ? 0 : idClient.hashCode());
 		return result;
 	}
 	@Override
@@ -44,22 +44,22 @@ public class OrderPK implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		OrderPK other = (OrderPK) obj;
-		if (idDeliveryMan == null) {
-			if (other.idDeliveryMan != null)
+		if (idProduct == null) {
+			if (other.idProduct != null)
 				return false;
-		} else if (!idDeliveryMan.equals(other.idDeliveryMan))
+		} else if (!idProduct.equals(other.idProduct))
 			return false;
-		if (idManager == null) {
-			if (other.idManager != null)
+		if (idClient == null) {
+			if (other.idClient != null)
 				return false;
-		} else if (!idManager.equals(other.idManager))
+		} else if (!idClient.equals(other.idClient))
 			return false;
 		return true;
 	}
-	public OrderPK(Integer idManager, Integer idDeliveryMan) {
+	public OrderPK(Integer idClient, Integer idProduct) {
 		super();
-		this.idManager = idManager;
-		this.idDeliveryMan = idDeliveryMan;
+		this.idClient = idClient;
+		this.idProduct = idProduct;
 	}
 	
 }

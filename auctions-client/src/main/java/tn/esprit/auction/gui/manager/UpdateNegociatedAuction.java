@@ -25,7 +25,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 
-public class AddNegociatedAuction extends JFrame {
+public class UpdateNegociatedAuction extends JFrame {
 
 	private JPanel contentPane;
 	private JButton button;
@@ -34,7 +34,7 @@ public class AddNegociatedAuction extends JFrame {
 	private JLabel lblDecreaseValue;
 	private JTextField textField;
 	private JLabel lblNewLabel;
-	private JLabel label;
+	private JLabel lblByClickingFinish;
 	/**
 	 * Launch the application.
 	 */
@@ -42,7 +42,7 @@ public class AddNegociatedAuction extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AddNegociatedAuction frame = new AddNegociatedAuction();
+					UpdateNegociatedAuction frame = new UpdateNegociatedAuction();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -54,8 +54,8 @@ public class AddNegociatedAuction extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public AddNegociatedAuction() {
-		setTitle("Add Negociated Auction");
+	public UpdateNegociatedAuction() {
+		setTitle("Update Negociated Auction");
 		setBounds(100, 100, 550, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -66,8 +66,8 @@ public class AddNegociatedAuction extends JFrame {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				AddAuction addAuction=new AddAuction();
-				addAuction.setVisible(true);
+				UpdateAuction updateAuction=new UpdateAuction();
+				updateAuction.setVisible(true);
 				setVisible(false);
 			}
 		});
@@ -85,11 +85,11 @@ public class AddNegociatedAuction extends JFrame {
 				if(textField.getText().equals("") ){
 					lblNewLabel.setVisible(true);
 				}else{
-				AddAuction addAuction=new AddAuction();
-				NegociatedAuction negociatedAuction=(NegociatedAuction) AddAuction.auction;
-				negociatedAuction.setFixedMinimumPrice(Integer.parseInt(textField.getText()));
 				
-				GestionAuctionDelegate.doAddAuction(negociatedAuction);
+				NegociatedAuction negociatedAuction=(NegociatedAuction) UpdateAuction.auction;
+				negociatedAuction.setFixedMinimumPrice(Integer.parseInt(textField.getText()));
+				negociatedAuction.setId(PanelManageAuction.auctionSelected.getId());
+				GestionAuctionDelegate.doUpdateAuction(negociatedAuction);
 				ConfirmSendMail confirmSendMail=new ConfirmSendMail();
 				confirmSendMail.setVisible(true);
 				setVisible(false);
@@ -99,12 +99,12 @@ public class AddNegociatedAuction extends JFrame {
 		contentPane.add(btnFinish);
 		
 		lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(AddNegociatedAuction.class.getResource("/tn/esprit/auction/gui/manager/negociated.jpg")));
+		lblNewLabel_1.setIcon(new ImageIcon(UpdateNegociatedAuction.class.getResource("/tn/esprit/auction/gui/manager/negociated.jpg")));
 		lblNewLabel_1.setBounds(94, 11, 412, 200);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNoMoreData = new JLabel(" Negociated Auction !");
-		lblNoMoreData.setBounds(10, 217, 322, 14);
+		lblNoMoreData.setBounds(45, 222, 322, 14);
 		contentPane.add(lblNoMoreData);
 		
 		lblDecreaseValue = new JLabel("Fixed minimum price :");
@@ -116,9 +116,9 @@ public class AddNegociatedAuction extends JFrame {
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		label = new JLabel("By clicking Finish , a new auction will be created !");
-		label.setBounds(10, 309, 490, 14);
-		contentPane.add(label);
+		lblByClickingFinish = new JLabel("By clicking Finish , a new auction will be updated !");
+		lblByClickingFinish.setBounds(10, 301, 490, 14);
+		contentPane.add(lblByClickingFinish);
 		
 		
 	}

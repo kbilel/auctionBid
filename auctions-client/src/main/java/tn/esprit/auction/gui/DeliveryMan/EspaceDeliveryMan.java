@@ -10,6 +10,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JScrollPane;
 
+import tn.esprit.auction.delegate.GestionOrderDelegate;
 import tn.esprit.auction.domain.Order;
 
 import java.awt.event.ActionListener;
@@ -18,12 +19,22 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.swing.JLabel;
+
 import java.awt.Color;
 import java.awt.Font;
+
 import javax.swing.JButton;
 import javax.swing.border.TitledBorder;
+
 import java.awt.SystemColor;
+
+import javax.swing.JTable;
+import org.jdesktop.swingbinding.JTableBinding;
+import org.jdesktop.swingbinding.SwingBindings;
+import org.jdesktop.beansbinding.AutoBinding.UpdateStrategy;
+import org.jdesktop.beansbinding.BeanProperty;
 
 public class EspaceDeliveryMan extends JFrame {
 
@@ -31,6 +42,7 @@ public class EspaceDeliveryMan extends JFrame {
 	JScrollPane 	 scrollPane = new JScrollPane();
 	PanelShowOrder panelShowOrder;
 	PanelAjoutOrder panelAjoutOrder=new PanelAjoutOrder();
+	// List<Order>orderForDeliveryMan;
 	
 	
 
@@ -54,6 +66,8 @@ public class EspaceDeliveryMan extends JFrame {
 	 * Create the frame.
 	 */
 	public EspaceDeliveryMan() {
+	
+		
 	
 		
 		
@@ -89,34 +103,21 @@ public class EspaceDeliveryMan extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-	
-		scrollPane.setBounds(134, 74, 554, 429);
+		scrollPane.setBounds(53, 74, 748, 458);
+
 		contentPane.add(scrollPane);
 		
 		JLabel lblDeliveryMan = new JLabel("Delivery Man");
+		lblDeliveryMan.setBounds(322, 21, 316, 34);
 		lblDeliveryMan.setFont(new Font("Rockwell Condensed", Font.ITALIC, 39));
 		lblDeliveryMan.setForeground(new Color(255, 102, 51));
-		lblDeliveryMan.setBounds(322, 21, 316, 34);
 		contentPane.add(lblDeliveryMan);
-		
-		JButton btnLogout = new JButton("Logout");
-		btnLogout.setBounds(736, 480, 89, 23);
-		contentPane.add(btnLogout);
-		
-		JPanel panel = new JPanel();
-		panel.setForeground(SystemColor.textHighlight);
-		panel.setBorder(new TitledBorder(null, "DeliveryMan", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel.setBounds(710, 179, 146, 272);
-		contentPane.add(panel);
-		panel.setLayout(null);
-		
-		JLabel lblNewLabel = new JLabel("Username");
-		lblNewLabel.setBounds(10, 223, 65, 14);
-		panel.add(lblNewLabel);
+		initDataBindings();
 	
 		
 		
 	}
+	protected void initDataBindings() {
 
+	}
 }

@@ -21,17 +21,20 @@ public class Order implements Serializable {
 
 	
 	private OrderPK orderPK;
-	private Integer idClient;
-	private Integer idProduit;
+
 	private Date dateLimit;
 	private Boolean cashPayement;
-	private Manager manager;
-	private DeliveryMan deliveryMan;
+	
+	private String adressClient ;
+	private String state="Not Delivred";
 	private static final long serialVersionUID = 1L;
+	private Client client;
+	private Product product;
 
 	public Order() {
 		super();
 	} 
+	
 	@EmbeddedId
 	public OrderPK getOrderPK() {
 		return this.orderPK;
@@ -39,67 +42,68 @@ public class Order implements Serializable {
 
 	public void setOrderPK(OrderPK orderPK) {
 		this.orderPK = orderPK;
-	}  
-	@Column(name="id_client")
-	public Integer getClient() {
-		return this.idClient;
 	}
 
-	public void setClient(Integer idClient) {
-		this.idClient = idClient;
-	}   
-	@Column(name="id_produit")
-	public Integer getProduit() {
-		return this.idProduit;
-	}
-
-	public void setProduit(Integer idProduit) {
-		this.idProduit = idProduit;
-	} 
-	@Column(name="date_limit")
 	public Date getDateLimit() {
-		return this.dateLimit;
+		return dateLimit;
 	}
-	
+
 	public void setDateLimit(Date dateLimit) {
 		this.dateLimit = dateLimit;
-	}   
-	@Column(name="cash_payement")
+	}
+
 	public Boolean getCashPayement() {
-		return this.cashPayement;
+		return cashPayement;
 	}
 
 	public void setCashPayement(Boolean cashPayement) {
 		this.cashPayement = cashPayement;
 	}
-	@ManyToOne
-	@JoinColumn(name="id_manager",referencedColumnName="id",insertable=false,updatable=false)
 
-	public Manager getManager() {
-		return manager;
+	public String getAdressClient() {
+		return adressClient;
 	}
-	public void setManager(Manager manager) {
-		this.manager = manager;
+
+	public void setAdressClient(String adressClient) {
+		this.adressClient = adressClient;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
 	}
 	@ManyToOne
-	@JoinColumn(name="id_delivery_man",referencedColumnName="id",insertable=false,updatable=false)
+	@JoinColumn(name="id_client",referencedColumnName="id",insertable=false,updatable=false)
+	public Client getClient() {
+		return client;
+	}
 
-	public DeliveryMan getDeliveryMan() {
-		return deliveryMan;
+	public void setClient(Client client) {
+		this.client = client;
 	}
-	public void setDeliveryMan(DeliveryMan deliveryMan) {
-		this.deliveryMan = deliveryMan;
+	@ManyToOne
+	@JoinColumn(name="id_product",referencedColumnName="id",insertable=false,updatable=false)
+	public Product getProduct() {
+		return product;
 	}
-	public Order(Integer idClient, Integer idProduit, Date dateLimit,
-			Boolean cashPayement,OrderPK orderPK) {
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
+	public Order( Date dateLimit, Boolean cashPayement,
+			String adressClient, String state, Client client, Product product) {
 		super();
-		this.idClient = idClient;
-		this.idProduit = idProduit;
+		this.orderPK = new OrderPK(client.getId(),product.getId());
 		this.dateLimit = dateLimit;
 		this.cashPayement = cashPayement;
-		this.manager = manager;
-		this.deliveryMan = deliveryMan;
-		this.orderPK=new OrderPK(manager.getId(),deliveryMan.getId());
-	}
+		this.adressClient = adressClient;
+		this.state = state;
+		this.client = client;
+		this.product = product;
+	}  
    
 }
