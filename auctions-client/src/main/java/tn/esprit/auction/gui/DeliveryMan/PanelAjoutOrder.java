@@ -6,6 +6,7 @@ import javax.swing.border.TitledBorder;
 
 import java.awt.Color;
 
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.UIManager;
@@ -63,6 +64,8 @@ public class PanelAjoutOrder extends JPanel {
 		btnAdd.setIcon(new ImageIcon(PanelAjoutOrder.class.getResource("/tn/esprit/auction/gui/DeliveryMan/téléchargement.jpg")));
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				
 			Order order=new Order();
 			OrderPK orderPK=new OrderPK();
 			Date date=new Date();
@@ -86,6 +89,7 @@ public class PanelAjoutOrder extends JPanel {
 			System.out.println("variable chargé");
 			if(GestionOrderDelegate.doAddOrder(order))
 			System.out.println("ajout avec succés");
+			 JOptionPane.showMessageDialog(null, "Order is added to the order ! " );
 		
 		
 			}

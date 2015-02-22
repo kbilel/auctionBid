@@ -132,9 +132,9 @@ public class EspaceDeliveryMan extends JFrame {
 		label.setBounds(59, 11, 100, 41);
 		panel.add(label);
 		
-		JLabel label_1 = new JLabel("User Name :");
-		label_1.setBounds(20, 173, 69, 14);
-		panel.add(label_1);
+		JLabel lblUsername = new JLabel("Username :");
+		lblUsername.setBounds(10, 186, 69, 14);
+		panel.add(lblUsername);
 		
 		JButton button = new JButton("Log out");
 		button.addActionListener(new ActionListener() {
@@ -148,13 +148,14 @@ public class EspaceDeliveryMan extends JFrame {
 		panel.add(button);
 		
 		JLabel label_2 = new JLabel("");
-		//label_2.setIcon(new ImageIcon(EspaceDeliveryMan.class.getResource(HomeClient.getUser().getImageUrl())));
-		label_2.setBounds(79, 63, 100, 96);
+		label_2.setIcon(new ImageIcon(EspaceDeliveryMan.class.getResource(HomeClient.getUser().getImageUrl())));
+		label_2.setBounds(38, 63, 141, 96);
 		panel.add(label_2);
 		
 		JLabel label_3 = new JLabel((String) null);
-		//label_3.setText(HomeClient.getUser().getUserName());
-		label_3.setBounds(89, 173, 100, 14);
+		label_3.setFont(new Font("Comic Sans MS", Font.BOLD, 13));
+		label_3.setText(" "+ HomeClient.getUser().getUserName());
+		label_3.setBounds(89, 184, 100, 14);
 		panel.add(label_3);
 		initDataBindings();
 	

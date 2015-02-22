@@ -40,6 +40,8 @@ import org.jdesktop.beansbinding.ObjectProperty;
 import tn.esprit.auction.domain.Product;
 import tn.esprit.auction.gui.authentification.Authentification;
 import tn.esprit.auction.gui.client.HomeClient;
+import java.awt.Font;
+import javax.swing.ImageIcon;
 
 public class PanelShowOrder extends JPanel {
 	List<Order>orders;
@@ -86,7 +88,7 @@ public class PanelShowOrder extends JPanel {
 				orderState=ordersTodeliver.get(table_1.getSelectedRow());
 			}
 		});
-		scrollPane_1.setBounds(10, 284, 609, 74);
+		scrollPane_1.setBounds(10, 295, 527, 74);
 		add(scrollPane_1);
 		
 		table_1 = new JTable();
@@ -113,7 +115,7 @@ public class PanelShowOrder extends JPanel {
 				initDataBindings();
 				}
 		});
-		btnTakeOrder.setBounds(223, 225, 163, 29);
+		btnTakeOrder.setBounds(230, 211, 163, 29);
 		add(btnTakeOrder);
 		
 		JButton btnDeliver = new JButton("Deliver");
@@ -129,6 +131,13 @@ public class PanelShowOrder extends JPanel {
 		});
 		btnDeliver.setBounds(230, 399, 156, 29);
 		add(btnDeliver);
+		
+		JLabel lblMyOrders = new JLabel("My orders");
+		lblMyOrders.setBackground(Color.WHITE);
+		lblMyOrders.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblMyOrders.setForeground(Color.BLUE);
+		lblMyOrders.setBounds(10, 248, 90, 14);
+		add(lblMyOrders);
 		initDataBindings();
 
 	}
