@@ -38,4 +38,8 @@ public class GestionOrderDelegate {
 	{
 		return getProxy().findAllOrders();
 	}
+	public  static List<Order> doFindAllOrdersByIdDeliveryMan(Integer idDeliveryMan)
+	{
+		return getProxy().findOrdersByIdDeliveryMan(idDeliveryMan);
+	}
 }

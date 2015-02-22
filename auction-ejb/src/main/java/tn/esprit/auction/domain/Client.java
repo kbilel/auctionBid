@@ -68,7 +68,7 @@ public class Client extends User implements Serializable {
 	public void setBids(List<Bid> bids) {
 		this.bids = bids;
 	}
-	@OneToMany (mappedBy="client")
+	@OneToMany (mappedBy="client",fetch=FetchType.EAGER)
 	public List<CategoryInterestedByClients> getCategoryInterestedByClients() {
 		return categoryInterestedByClients;
 	}

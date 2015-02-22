@@ -25,7 +25,6 @@ import java.util.List;
 public class ConfirmSendMail extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
-	private JPasswordField passwordField;
 
 	/**
 	 * Launch the application.
@@ -54,14 +53,6 @@ public class ConfirmSendMail extends JDialog {
 		JLabel lblAnEmailWill = new JLabel("An email will be send to notify interested clients in \r\nthis category of auctions .\r\n");
 		lblAnEmailWill.setBounds(10, 38, 445, 58);
 		contentPanel.add(lblAnEmailWill);
-		
-		JLabel lblPleaseInsertYour = new JLabel("Please insert your Email password .");
-		lblPleaseInsertYour.setBounds(37, 119, 254, 14);
-		contentPanel.add(lblPleaseInsertYour);
-		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(37, 185, 192, 32);
-		contentPanel.add(passwordField);
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
@@ -70,20 +61,25 @@ public class ConfirmSendMail extends JDialog {
 				JButton okButton = new JButton("OK");
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						Mail mail = new Mail();
+						/*Mail mail = new Mail();
 						Authentification authentification=new Authentification();
 						Client client =new Client();
 						List<User>users=GestionUserDelegate.doFindAllUsers();
 						for (User user : users) {
+							System.out.println(user.getId());
 							if (user instanceof Client)
 								
 							{	client=(Client) user;
-							if( client.getCategoryInterestedByClients().contains(ConvertProductToAuction.productSelected)){}
+							System.out.println(client.getCategoryInterestedByClients().size());
+							
+							//if( client.getCategoryInterestedByClients().contains(ConvertProductToAuction.productSelected)){
 						
 							
 							mail.setMailAddressRecipient(client.getEmail());
 					        mail.setPwd(passwordField.getText());
 					        mail.setMailAddressSender(authentification.getUser().getEmail());
+					        System.out.println(authentification.getUser().getEmail());
+					        System.out.println(ConvertProductToAuction.productSelected.getName());
 					        mail.setMailSubject("Notfication :New Auction added in category : "+ConvertProductToAuction.productSelected.getCategory());
 					        
 					        String msg="A new auction, belongs to a category you are interested in:"+ConvertProductToAuction.productSelected.getCategory()+" ,has been added , please connect and check it out !";
@@ -97,8 +93,9 @@ public class ConfirmSendMail extends JDialog {
 					        //String s = this.cleanUrl(url);
 					        mc.getMailMessage(mail);
 					        mc.SendMessage(); 
-						}}
-						  
+						}}//}*/
+						  MailJFrame frame=new MailJFrame();
+						  frame.setVisible(true);
 					        setVisible(false);
 					}
 				});

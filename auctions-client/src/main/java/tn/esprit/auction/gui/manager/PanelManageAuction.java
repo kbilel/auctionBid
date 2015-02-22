@@ -139,6 +139,16 @@ public class PanelManageAuction extends JPanel {
 		});
 		scrollPane.setViewportView(table);
 		
+		JButton btnRefreshTable = new JButton("Refresh Table");
+		btnRefreshTable.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+			}
+			
+		});
+		btnRefreshTable.setBounds(467, 154, 126, 23);
+		add(btnRefreshTable);
+		
 		initDataBindings();
 
 	}

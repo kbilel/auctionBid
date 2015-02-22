@@ -22,15 +22,15 @@ public class Order implements Serializable {
 	
 	private OrderPK orderPK;
 
-	private Date dateLimit;
-	private Boolean cashPayement;
-	
-	private String adressClient ;
-	private String state="Not Delivred";
-	private static final long serialVersionUID = 1L;
+	 private Date dateLimit;
+	 private Boolean cashPayement;
+     private String adressClient ;
+	 private String state="Not Delivred";
+	 private Integer idDeliveryMan;
+
 	private Client client;
 	private Product product;
-
+	private static final long serialVersionUID = 1L;
 	public Order() {
 		super();
 	} 
@@ -95,7 +95,7 @@ public class Order implements Serializable {
 	}
 
 	public Order( Date dateLimit, Boolean cashPayement,
-			String adressClient, String state, Client client, Product product) {
+			String adressClient, String state, Client client, Product product ,Integer idDeliveryMan) {
 		super();
 		this.orderPK = new OrderPK(client.getId(),product.getId());
 		this.dateLimit = dateLimit;
@@ -104,6 +104,15 @@ public class Order implements Serializable {
 		this.state = state;
 		this.client = client;
 		this.product = product;
+		this.idDeliveryMan=idDeliveryMan;
+	}
+
+	public Integer getIdDeliveryMan() {
+		return idDeliveryMan;
+	}
+
+	public void setIdDeliveryMan(Integer idDeliveryMan) {
+		this.idDeliveryMan = idDeliveryMan;
 	}  
    
 }
