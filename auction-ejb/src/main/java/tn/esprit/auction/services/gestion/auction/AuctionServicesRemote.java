@@ -17,4 +17,5 @@ public interface AuctionServicesRemote {
 	List<Auction>findAllAuctions();
 	List<EnglishAuction>findAllEnglishAuctions();
 	List<Auction>findAllAuctionsByProduct(Product product);
+	List<Auction>findAllAuctionsByProductName(String productName);
 }

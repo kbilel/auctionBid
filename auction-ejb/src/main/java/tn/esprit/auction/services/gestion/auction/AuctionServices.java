@@ -98,4 +98,13 @@ public class AuctionServices implements AuctionServicesRemote, AuctionServicesLo
 		return query.getResultList();
 	}
 
+	@Override
+	public List<Auction> findAllAuctionsByProductName(String productName) {
+		Query query=entityManager.createQuery("select a from Auction a where a.product.name=:p ");
+		query.setParameter("p", productName);
+		if (query.getResultList()!=null)
+		System.out.println("ejb find  auction by product is not null");
+		return query.getResultList();
+	}
+
 }
