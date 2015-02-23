@@ -99,7 +99,8 @@ public class EspaceClient extends JFrame {
 		userConnected = HomeClient.userConnected;
 		if (userConnected == null)
 			userConnected = SubscribingSpace.getUser();
-		JMenu mnSubscribe = new JMenu("subscribe");
+		JMenu mnSubscribe = new JMenu("");
+		mnSubscribe.setIcon(new ImageIcon(EspaceClient.class.getResource("/tn/esprit/auction/gui/client/boutonSubscribe.png")));
 		if(userConnected!=null)
 		{
 			mnSubscribe.setVisible(false);
@@ -109,7 +110,7 @@ public class EspaceClient extends JFrame {
 			mnSubscribe.setVisible(true);
 		}
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1158, 850);
+		setBounds(100, 100, 1800, 850);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 250, 240));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -117,18 +118,21 @@ public class EspaceClient extends JFrame {
 		contentPane.setLayout(null);
 		
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, 0, 1222, 21);
+		menuBar.setBounds(0, 0, 1800, 50);
 		contentPane.add(menuBar);
 		
-		JMenu mnProfil = new JMenu("Profil");
-		mnProfil.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		JMenu mnProfil = new JMenu("");
+		mnProfil.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
 				scrollPane.setViewportView(new PanelProfil());
-				
 			}
 		});
+		mnProfil.setIcon(new ImageIcon(EspaceClient.class.getResource("/tn/esprit/auction/gui/client/boutonProfil.png")));
 		
-		JMenu mnNewMenu = new JMenu("home");
+		
+		JMenu mnNewMenu = new JMenu("");
+		mnNewMenu.setIcon(new ImageIcon(EspaceClient.class.getResource("/tn/esprit/auction/gui/client/boutonHome.png")));
 		mnNewMenu.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -138,10 +142,13 @@ public class EspaceClient extends JFrame {
 		});
 		menuBar.add(mnNewMenu);
 		
-		JMenu mnAuctions = new JMenu("Auctions");
+		JMenu mnAuctions = new JMenu("");
+		mnAuctions.setIcon(new ImageIcon(EspaceClient.class.getResource("/tn/esprit/auction/gui/client/boutonAuction.png")));
 		menuBar.add(mnAuctions);
 		
+
 		JMenu mnProducts = new JMenu("Products");
+		mnProducts.setSelectedIcon(new ImageIcon(EspaceClient.class.getResource("/tn/esprit/auction/gui/client/boutonProduct.png")));
 		mnProducts.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -149,9 +156,12 @@ public class EspaceClient extends JFrame {
 			}
 		});
 		
+
 		menuBar.add(mnProducts);
 		
-		JMenu mnStatistic = new JMenu("Statistic");
+		JMenu mnStatistic = new JMenu("");
+		mnStatistic.setIcon(new ImageIcon(EspaceClient.class.getResource("/tn/esprit/auction/gui/client/boutonStat.png")));
+		mnStatistic.setSelectedIcon(new ImageIcon(EspaceClient.class.getResource("/tn/esprit/auction/gui/client/boutonStat.png")));
 		menuBar.add(mnStatistic);
 		
 		JMenu mnProductByCategories = new JMenu("Product by Category");
@@ -238,16 +248,6 @@ public class EspaceClient extends JFrame {
 		mnAuctionByYear.add(mntmBarChart_2);
 		menuBar.add(mnProfil);
 		
-		JMenuItem mntmGestionProfil = new JMenuItem("Gestion Profil");
-		mntmGestionProfil.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				scrollPane.setViewportView(new PanelProfil());
-				System.out.println("otttk");
-			}
-		});
-		mnProfil.add(mntmGestionProfil);
-		
 		
 		mnSubscribe.addMouseListener(new MouseAdapter() {
 			@Override
@@ -259,11 +259,12 @@ public class EspaceClient extends JFrame {
 		});
 		menuBar.add(mnSubscribe);
 		
-		JMenu mnAboutUs = new JMenu("About us");
+		JMenu mnAboutUs = new JMenu("");
+		mnAboutUs.setIcon(new ImageIcon(EspaceClient.class.getResource("/tn/esprit/auction/gui/client/boutonAboutUs.png")));
 		menuBar.add(mnAboutUs);
 		
 		 scrollPane = new JScrollPane();
-		 scrollPane.setBounds(0, 21, 1158, 850);
+		 scrollPane.setBounds(0, 50, 1800, 750);
 		contentPane.add(scrollPane);
 		HomeClient homeClient = new HomeClient();
 		scrollPane.setViewportView(homeClient);

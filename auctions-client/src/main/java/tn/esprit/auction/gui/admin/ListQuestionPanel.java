@@ -32,14 +32,14 @@ public class ListQuestionPanel extends JPanel {
 	 * Create the panel.
 	 */
 	public ListQuestionPanel() {
-		setBounds(0, 0, 1158, 750);
+		setBounds(0, 0, 1800, 750);
 		
 		setBackground(new Color(248, 248, 255));
 		setLayout(null);
 		
 		final JPanel panelquestion = new JPanel();
 		panelquestion.setBackground(new Color(250, 250, 210));
-		panelquestion.setBounds(0, 0, 1158, 750);
+		panelquestion.setBounds(0, 0, 1800, 750);
 		add(panelquestion);
 		panelquestion.setLayout(null);
 		
@@ -96,8 +96,8 @@ public class ListQuestionPanel extends JPanel {
 		
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(ListQuestionPanel.class.getResource("/tn/esprit/auction/gui/admin/backQuiz.jpg")));
-		label.setBounds(0, 0, 1158, 850);
+		label.setIcon(new ImageIcon(ListQuestionPanel.class.getResource("/tn/esprit/auction/gui/client/back.jpg")));
+		label.setBounds(0, 0, 1800,750);
 		panelquestion.add(label);
 
 	}

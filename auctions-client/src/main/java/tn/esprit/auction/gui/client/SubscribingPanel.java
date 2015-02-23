@@ -50,19 +50,20 @@ public class SubscribingPanel extends JPanel {
 	public SubscribingPanel() {
 		setLayout(null);
 		final User user=HomeClient.userConnected;
-		setBounds(0, 0, 1142, 791);
+		setBounds(0, 0, 1800, 750);
 		
 		final JPanel panel = new JPanel();
 		panel.setLayout(null);
 		panel.setBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(0, 0, 0)));
 		panel.setBackground(new Color(255, 255, 224));
-		panel.setBounds(0, 0, 1142, 791);
+		panel.setBounds(0, 0, 1800, 750);
 		add(panel);
 		
 		JLabel label = new JLabel("Register For Free Now !!");
+		label.setForeground(new Color(245, 222, 179));
 		label.setFont(new Font("Tahoma", Font.BOLD, 35));
 		label.setBackground(new Color(210, 105, 30));
-		label.setBounds(171, 7, 484, 89);
+		label.setBounds(426, 0, 484, 89);
 		panel.add(label);
 		
 		JLabel label_1 = new JLabel("");
@@ -95,8 +96,9 @@ public class SubscribingPanel extends JPanel {
 		panel.add(label_6);
 		
 		final JLabel label_7 = new JLabel("");
-		label_7.setIcon(new ImageIcon(SubscribingPanel.class.getResource("/tn/esprit/auction/gui/authentification/User-icon.png")));
-		label_7.setBounds(274, 94, 218, 200);
+		label_7.setBackground(Color.WHITE);
+		label_7.setIcon(new ImageIcon(SubscribingPanel.class.getResource("/tn/esprit/auction/gui/client/profilClient.png")));
+		label_7.setBounds(518, 73, 218, 225);
 		panel.add(label_7);
 		tfUsername = new JTextField();
 		tfUsername.setColumns(10);
@@ -198,7 +200,7 @@ public class SubscribingPanel extends JPanel {
 		
 		tfPathImage = new JTextField();
 		tfPathImage.setColumns(10);
-		tfPathImage.setBounds(453, 318, 247, 20);
+		tfPathImage.setBounds(638, 328, 247, 20);
 		panel.add(tfPathImage);
 		
 		JButton button = new JButton("");
@@ -245,12 +247,12 @@ public class SubscribingPanel extends JPanel {
 			}
 		});
 		button.setIcon(new ImageIcon(SubscribingPanel.class.getResource("/tn/esprit/auction/gui/authentification/add.png")));
-		button.setBounds(376, 305, 46, 44);
+		button.setBounds(541, 309, 46, 44);
 		panel.add(button);
 		
 		JLabel label_8 = new JLabel("");
-		label_8.setIcon(new ImageIcon(SubscribingPanel.class.getResource("/tn/esprit/auction/gui/authentification/back1.jpg")));
-		label_8.setBounds(0, 0, 1142, 791);
+		label_8.setIcon(new ImageIcon(SubscribingPanel.class.getResource("/tn/esprit/auction/gui/client/back.jpg")));
+		label_8.setBounds(0, 0, 1800, 750);
 		panel.add(label_8);
 		
 		

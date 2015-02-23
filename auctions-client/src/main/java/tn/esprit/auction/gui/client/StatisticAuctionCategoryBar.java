@@ -41,10 +41,10 @@ public class StatisticAuctionCategoryBar extends JPanel {
 	public StatisticAuctionCategoryBar() {
 		setBackground(new Color(255, 250, 240));
 		setLayout(null);
-		setBounds(0, 21, 1142, 791);
+		setBounds(0, 21, 1800, 750);
 		 JPanel panel = new JPanel();
 		 panel.setBackground(new Color(255, 250, 240));
-		 panel.setBounds(10, 21, 1132, 791);
+		 panel.setBounds(10, 21, 1800, 750);
 		 add(panel);
 		 //panel.setLayout(null);
 		
@@ -57,7 +57,7 @@ public class StatisticAuctionCategoryBar extends JPanel {
 			graphe = createChart(dataset);
 			panel.setLayout(null);
 			chartPanel = new ChartPanel(graphe);
-			 chartPanel.setBounds(40, 26, 1092, 708);
+			 chartPanel.setBounds(40, 26, 1800, 708);
 			 chartPanel.setPreferredSize(new java.awt.Dimension(400, 400));
 			 panel.add(chartPanel);
 			 if(panel!=null)

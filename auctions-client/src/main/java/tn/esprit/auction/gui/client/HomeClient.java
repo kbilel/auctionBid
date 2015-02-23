@@ -49,11 +49,11 @@ public class HomeClient extends JPanel {
 		//userConnected = HomeClient.userConnected;
 		if (userConnected == null)
 			userConnected = SubscribingPanel.userConnected;
-		setBounds(0, 0, 1158, 850);
+		setBounds(0, 0, 1158, 750);
 		setLayout(null);
 		
 		final JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 1158, 850);
+		panel.setBounds(0, 0, 1800, 750);
 		panel.setBackground(new Color(173, 216, 230));
 		add(panel);
 		panel.setLayout(null);

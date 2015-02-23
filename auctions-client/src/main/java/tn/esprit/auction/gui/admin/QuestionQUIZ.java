@@ -40,11 +40,11 @@ public class QuestionQUIZ extends JPanel {
 	 * Create the panel.
 	 */
 	public QuestionQUIZ(final JScrollPane scrollPane) {
-		setBounds(0, 0, 1158, 800);
+		setBounds(0, 0, 1800, 750);
 		setLayout(null);
 		
 		final JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 1158, 800);
+		panel.setBounds(0, 0, 1800, 750);
 		add(panel);
 		panel.setLayout(null);
 		
@@ -221,8 +221,8 @@ public class QuestionQUIZ extends JPanel {
 		panel_2.add(label_1);
 		
 		JLabel label_2 = new JLabel("");
-		label_2.setIcon(new ImageIcon(QuestionQUIZ.class.getResource("/tn/esprit/auction/gui/admin/backQuiz.jpg")));
-		label_2.setBounds(0, 0, 1158, 750);
+		label_2.setIcon(new ImageIcon(QuestionQUIZ.class.getResource("/tn/esprit/auction/gui/client/back.jpg")));
+		label_2.setBounds(0, 0, 1800, 750);
 		panel.add(label_2);
 
 	}

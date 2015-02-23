@@ -20,6 +20,7 @@ public interface UserServicesRemote {
 	Boolean updateUser(User user);
 	Boolean deleteUser(User user);
 	User findUserById(Integer idUser);
+	User findUserByUsername(String name);
 	List<User>findAllUsers();
 	User authentificate(String login,String pwd);
 

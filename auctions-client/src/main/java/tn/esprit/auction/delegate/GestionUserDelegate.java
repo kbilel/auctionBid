@@ -43,4 +43,7 @@ public class GestionUserDelegate {
 	public static User doAuthentificate(String login,String pwd){
 		return getProxy().authentificate(login, pwd);
 	}
+	public static User doFindUserByUsername(String name){
+		return getProxy().findUserByUsername(name);
+	}
 }

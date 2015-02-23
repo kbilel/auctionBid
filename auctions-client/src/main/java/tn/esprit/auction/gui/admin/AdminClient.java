@@ -22,6 +22,7 @@ import javax.swing.JButton;
 
 import tn.esprit.auction.delegate.GestionUserDelegate;
 import tn.esprit.auction.domain.Client;
+import javax.swing.JTextField;
 
 public class AdminClient extends JPanel {
 	private JTable table;
@@ -34,24 +35,47 @@ public class AdminClient extends JPanel {
 	JLabel labelEmail;
 	JLabel labelTokens;
 	Client client=null;
+	private String username;
+	private JTextField usernameSearch;
 
 	/**
 	 * Create the panel.
 	 */
 	public AdminClient() {
-		setBounds(0, 0, 1158, 750);
+		setBounds(0, 0, 1800, 750);
 		
 		setBackground(new Color(248, 248, 255));
 		setLayout(null);
 		
 		final JPanel panelClient = new JPanel();
 		panelClient.setBackground(new Color(250, 250, 210));
-		panelClient.setBounds(0, 0, 1158, 750);
+		panelClient.setBounds(0, 0, 1800, 750);
 		add(panelClient);
 		panelClient.setLayout(null);
-		
-		
 		tableClients = new JTable();
+		usernameSearch = new JTextField();
+		usernameSearch.setBounds(728, 29, 199, 31);
+		panelClient.add(usernameSearch);
+		usernameSearch.setColumns(10);
+		tableClients.setModel(new ListClient());
+		
+		JButton btnSearch = new JButton("search");
+		btnSearch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				username=usernameSearch.getText();
+				if(username!=null)
+					tableClients.setModel(new ListClient(username));	
+				else
+					tableClients.setModel(new ListClient());
+					
+				
+			}
+		});
+		btnSearch.setBounds(954, 33, 89, 23);
+		panelClient.add(btnSearch);
+		
+		
+		
 		tableClients.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -102,7 +126,7 @@ public class AdminClient extends JPanel {
 		tableClients.setFont(new Font("Tahoma", Font.BOLD, 15));
 		tableClients.setBackground(new Color(253, 245, 230));
 		tableClients.setBounds(544, 122, 586, 406);
-		tableClients.setModel(new ListClient());
+		//tableClients.setModel(new ListClient());
 		panelClient.add(tableClients);
 		
 		 labelImage = new JLabel("");
@@ -111,61 +135,73 @@ public class AdminClient extends JPanel {
 		panelClient.add(labelImage);
 		
 		JLabel lblName = new JLabel("name");
+		lblName.setForeground(new Color(245, 222, 179));
 		lblName.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblName.setBounds(182, 276, 79, 31);
 		panelClient.add(lblName);
 		
 		 labelname = new JLabel("---------");
+		 labelname.setForeground(new Color(245, 222, 179));
 		labelname.setFont(new Font("Tahoma", Font.BOLD, 15));
 		labelname.setBounds(307, 281, 141, 23);
 		panelClient.add(labelname);
 		
 		JLabel lblUsername = new JLabel("userName");
+		lblUsername.setForeground(new Color(245, 222, 179));
 		lblUsername.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblUsername.setBounds(182, 329, 115, 31);
 		panelClient.add(lblUsername);
 		
 		JLabel lblPassword = new JLabel("password");
+		lblPassword.setForeground(new Color(245, 222, 179));
 		lblPassword.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblPassword.setBounds(182, 379, 115, 31);
 		panelClient.add(lblPassword);
 		
 		JLabel lblEmail = new JLabel("email");
+		lblEmail.setForeground(new Color(245, 222, 179));
 		lblEmail.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblEmail.setBounds(182, 432, 79, 31);
 		panelClient.add(lblEmail);
 		
 		JLabel lblAdresse = new JLabel("adresse");
+		lblAdresse.setForeground(new Color(255, 248, 220));
 		lblAdresse.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblAdresse.setBounds(182, 484, 79, 31);
 		panelClient.add(lblAdresse);
 		
 		 labelUsername = new JLabel("---------");
+		 labelUsername.setForeground(new Color(245, 222, 179));
 		labelUsername.setFont(new Font("Tahoma", Font.BOLD, 15));
 		labelUsername.setBounds(307, 337, 141, 23);
 		panelClient.add(labelUsername);
 		
 		 labelPassword = new JLabel("---------");
+		 labelPassword.setForeground(new Color(245, 222, 179));
 		labelPassword.setFont(new Font("Tahoma", Font.BOLD, 15));
 		labelPassword.setBounds(307, 384, 141, 23);
 		panelClient.add(labelPassword);
 		
 		 labelEmail = new JLabel("---------");
+		 labelEmail.setForeground(new Color(245, 222, 179));
 		labelEmail.setFont(new Font("Tahoma", Font.BOLD, 15));
 		labelEmail.setBounds(307, 437, 141, 23);
 		panelClient.add(labelEmail);
 		
 		 labelAdresse = new JLabel("---------");
+		 labelAdresse.setForeground(new Color(245, 222, 179));
 		labelAdresse.setFont(new Font("Tahoma", Font.BOLD, 15));
 		labelAdresse.setBounds(307, 489, 141, 23);
 		panelClient.add(labelAdresse);
 		
 		JLabel lblNombreToken = new JLabel("tokens");
+		lblNombreToken.setForeground(new Color(255, 248, 220));
 		lblNombreToken.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblNombreToken.setBounds(182, 542, 79, 31);
 		panelClient.add(lblNombreToken);
 		
 		 labelTokens = new JLabel("---------");
+		 labelTokens.setForeground(new Color(245, 222, 179));
 		labelTokens.setFont(new Font("Tahoma", Font.BOLD, 15));
 		labelTokens.setBounds(307, 545, 141, 23);
 		panelClient.add(labelTokens);
@@ -208,10 +244,12 @@ public class AdminClient extends JPanel {
 		btnSendMail.setBounds(284, 579, 89, 23);
 		panelClient.add(btnSendMail);
 		
+		
+		
 		JLabel label = new JLabel("");
-		label.setBounds(0, 0, 1158, 850);
+		label.setIcon(new ImageIcon(AdminClient.class.getResource("/tn/esprit/auction/gui/client/back.jpg")));
+		label.setBounds(0, 0, 1800, 750);
 		panelClient.add(label);
 
 	}
-
 }
