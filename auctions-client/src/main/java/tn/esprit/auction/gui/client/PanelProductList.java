@@ -40,25 +40,10 @@ public class PanelProductList extends JPanel {
 		panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Products List", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(255, 0, 0)));
 		
 		JScrollPane scrollPane = new JScrollPane();
-		GroupLayout gl_panel = new GroupLayout(panel);
-		gl_panel.setHorizontalGroup(
-			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 707, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(69, Short.MAX_VALUE))
-		);
-		gl_panel.setVerticalGroup(
-			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 331, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(24, Short.MAX_VALUE))
-		);
+		scrollPane.setBounds(16, 27, 707, 331);
 		
 		table = new JTable();
 		scrollPane.setViewportView(table);
-		panel.setLayout(gl_panel);
 		GroupLayout groupLayout = new GroupLayout(this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -73,8 +58,13 @@ public class PanelProductList extends JPanel {
 					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 366, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(69, Short.MAX_VALUE))
 		);
+		panel.setLayout(null);
+		panel.add(scrollPane);
 		setLayout(groupLayout);
 		initDataBindings();
+		setVisible(true);
+		panel.setVisible(true);
+		scrollPane.setVisible(true);
 
 	}
 	protected void initDataBindings() {
