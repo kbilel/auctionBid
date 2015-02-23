@@ -111,61 +111,73 @@ public class AdminClient extends JPanel {
 		panelClient.add(labelImage);
 		
 		JLabel lblName = new JLabel("name");
+		lblName.setForeground(new Color(245, 222, 179));
 		lblName.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblName.setBounds(182, 276, 79, 31);
 		panelClient.add(lblName);
 		
 		 labelname = new JLabel("---------");
+		 labelname.setForeground(new Color(245, 222, 179));
 		labelname.setFont(new Font("Tahoma", Font.BOLD, 15));
 		labelname.setBounds(307, 281, 141, 23);
 		panelClient.add(labelname);
 		
 		JLabel lblUsername = new JLabel("userName");
+		lblUsername.setForeground(new Color(245, 222, 179));
 		lblUsername.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblUsername.setBounds(182, 329, 115, 31);
 		panelClient.add(lblUsername);
 		
 		JLabel lblPassword = new JLabel("password");
+		lblPassword.setForeground(new Color(245, 222, 179));
 		lblPassword.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblPassword.setBounds(182, 379, 115, 31);
 		panelClient.add(lblPassword);
 		
 		JLabel lblEmail = new JLabel("email");
+		lblEmail.setForeground(new Color(245, 222, 179));
 		lblEmail.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblEmail.setBounds(182, 432, 79, 31);
 		panelClient.add(lblEmail);
 		
 		JLabel lblAdresse = new JLabel("adresse");
+		lblAdresse.setForeground(new Color(255, 248, 220));
 		lblAdresse.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblAdresse.setBounds(182, 484, 79, 31);
 		panelClient.add(lblAdresse);
 		
 		 labelUsername = new JLabel("---------");
+		 labelUsername.setForeground(new Color(245, 222, 179));
 		labelUsername.setFont(new Font("Tahoma", Font.BOLD, 15));
 		labelUsername.setBounds(307, 337, 141, 23);
 		panelClient.add(labelUsername);
 		
 		 labelPassword = new JLabel("---------");
+		 labelPassword.setForeground(new Color(245, 222, 179));
 		labelPassword.setFont(new Font("Tahoma", Font.BOLD, 15));
 		labelPassword.setBounds(307, 384, 141, 23);
 		panelClient.add(labelPassword);
 		
 		 labelEmail = new JLabel("---------");
+		 labelEmail.setForeground(new Color(245, 222, 179));
 		labelEmail.setFont(new Font("Tahoma", Font.BOLD, 15));
 		labelEmail.setBounds(307, 437, 141, 23);
 		panelClient.add(labelEmail);
 		
 		 labelAdresse = new JLabel("---------");
+		 labelAdresse.setForeground(new Color(245, 222, 179));
 		labelAdresse.setFont(new Font("Tahoma", Font.BOLD, 15));
 		labelAdresse.setBounds(307, 489, 141, 23);
 		panelClient.add(labelAdresse);
 		
 		JLabel lblNombreToken = new JLabel("tokens");
+		lblNombreToken.setForeground(new Color(255, 248, 220));
 		lblNombreToken.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblNombreToken.setBounds(182, 542, 79, 31);
 		panelClient.add(lblNombreToken);
 		
 		 labelTokens = new JLabel("---------");
+		 labelTokens.setForeground(new Color(245, 222, 179));
 		labelTokens.setFont(new Font("Tahoma", Font.BOLD, 15));
 		labelTokens.setBounds(307, 545, 141, 23);
 		panelClient.add(labelTokens);
@@ -209,6 +221,7 @@ public class AdminClient extends JPanel {
 		panelClient.add(btnSendMail);
 		
 		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(AdminClient.class.getResource("/tn/esprit/auction/gui/client/back.jpg")));
 		label.setBounds(0, 0, 1158, 850);
 		panelClient.add(label);
 

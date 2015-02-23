@@ -96,7 +96,7 @@ public class ListQuestionPanel extends JPanel {
 		
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(ListQuestionPanel.class.getResource("/tn/esprit/auction/gui/admin/backQuiz.jpg")));
+		label.setIcon(new ImageIcon(ListQuestionPanel.class.getResource("/tn/esprit/auction/gui/client/back.jpg")));
 		label.setBounds(0, 0, 1158, 850);
 		panelquestion.add(label);
 

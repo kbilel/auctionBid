@@ -221,7 +221,7 @@ public class QuestionQUIZ extends JPanel {
 		panel_2.add(label_1);
 		
 		JLabel label_2 = new JLabel("");
-		label_2.setIcon(new ImageIcon(QuestionQUIZ.class.getResource("/tn/esprit/auction/gui/admin/backQuiz.jpg")));
+		label_2.setIcon(new ImageIcon(QuestionQUIZ.class.getResource("/tn/esprit/auction/gui/client/back.jpg")));
 		label_2.setBounds(0, 0, 1158, 750);
 		panel.add(label_2);
 

@@ -66,7 +66,7 @@ new EspaceClient().setVisible(true);
 		panel_1.add(button);
 		
 		JLabel label_2 = new JLabel("");
-		label_2.setIcon(new ImageIcon(HomeAdmin.class.getResource("/tn/esprit/auction/gui/authentification/back1.jpg")));
+		label_2.setIcon(new ImageIcon(HomeAdmin.class.getResource("/tn/esprit/auction/gui/client/back.jpg")));
 		label_2.setBounds(0, 0, 1158, 750);
 		panel.add(label_2);
 

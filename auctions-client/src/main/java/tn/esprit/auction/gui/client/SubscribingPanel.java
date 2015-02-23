@@ -60,6 +60,7 @@ public class SubscribingPanel extends JPanel {
 		add(panel);
 		
 		JLabel label = new JLabel("Register For Free Now !!");
+		label.setForeground(new Color(245, 222, 179));
 		label.setFont(new Font("Tahoma", Font.BOLD, 35));
 		label.setBackground(new Color(210, 105, 30));
 		label.setBounds(171, 7, 484, 89);
@@ -95,6 +96,7 @@ public class SubscribingPanel extends JPanel {
 		panel.add(label_6);
 		
 		final JLabel label_7 = new JLabel("");
+		label_7.setBackground(Color.WHITE);
 		label_7.setIcon(new ImageIcon(SubscribingPanel.class.getResource("/tn/esprit/auction/gui/authentification/User-icon.png")));
 		label_7.setBounds(274, 94, 218, 200);
 		panel.add(label_7);
@@ -249,7 +251,7 @@ public class SubscribingPanel extends JPanel {
 		panel.add(button);
 		
 		JLabel label_8 = new JLabel("");
-		label_8.setIcon(new ImageIcon(SubscribingPanel.class.getResource("/tn/esprit/auction/gui/authentification/back1.jpg")));
+		label_8.setIcon(new ImageIcon(SubscribingPanel.class.getResource("/tn/esprit/auction/gui/client/back.jpg")));
 		label_8.setBounds(0, 0, 1142, 791);
 		panel.add(label_8);
 		

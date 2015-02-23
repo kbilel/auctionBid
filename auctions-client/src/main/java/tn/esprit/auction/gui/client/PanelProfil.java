@@ -27,6 +27,7 @@ import tn.esprit.auction.domain.Client;
 import tn.esprit.auction.domain.User;
 import tn.esprit.auction.gui.authentification.Authentification;
 import tn.esprit.auction.gui.authentification.HomeAllUsers;
+import java.awt.SystemColor;
 
 public class PanelProfil extends JPanel {
 	User userConnected;
@@ -47,7 +48,7 @@ public class PanelProfil extends JPanel {
 	 * Create the panel.
 	 */
 	public PanelProfil() {
-		setBounds(0, 0, 1158, 850);
+		setBounds(0, 0, 1158, 750);
 		client=new Client();
 		userConnected= HomeClient.userConnected;
 		if(HomeClient.userConnected==null)
@@ -59,13 +60,13 @@ public class PanelProfil extends JPanel {
 			
 		      if(userConnected==null)
 		    	  userConnected = SubscribingPanel.userConnected;
-		     System.out.println("ouuuuuuuuuuuuh ouh ="+new HomeClient().userConnected.getUserName()); 
+		    
 		setLayout(null);
 		
 		final JPanel panelProfile = new JPanel();
 		panelProfile.setBackground(new Color(253, 245, 230));
 		panelProfile.setForeground(Color.BLACK);
-		panelProfile.setBounds(0, 0, 1142, 791);
+		panelProfile.setBounds(0, 0, 1158, 750);
 		add(panelProfile);
 		panelProfile.setLayout(null);
 		final JLabel labelImageUser = new JLabel("");
@@ -125,61 +126,73 @@ public class PanelProfil extends JPanel {
 		panelProfile.add(btnAddImgEdit);
 		
 		JLabel lblFullName = new JLabel("Full name :");
+		lblFullName.setForeground(Color.LIGHT_GRAY);
 		lblFullName.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblFullName.setBounds(21, 307, 130, 30);
 		panelProfile.add(lblFullName);
 		
 		final JLabel labelFullname = new JLabel("-------------------");
+		labelFullname.setForeground(new Color(245, 222, 179));
 		labelFullname.setFont(new Font("Tahoma", Font.BOLD, 15));
 		labelFullname.setBounds(206, 307, 252, 30);
 		panelProfile.add(labelFullname);
 		
 		JLabel lblLogin = new JLabel("login :");
+		lblLogin.setForeground(Color.LIGHT_GRAY);
 		lblLogin.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblLogin.setBounds(21, 365, 130, 30);
 		panelProfile.add(lblLogin);
 		
 		JLabel lblPassword = new JLabel("password :");
+		lblPassword.setForeground(Color.LIGHT_GRAY);
 		lblPassword.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblPassword.setBounds(21, 427, 130, 30);
 		panelProfile.add(lblPassword);
 		
 		JLabel lblEmail = new JLabel("email:");
+		lblEmail.setForeground(Color.LIGHT_GRAY);
 		lblEmail.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblEmail.setBounds(21, 488, 130, 30);
 		panelProfile.add(lblEmail);
 		
 		JLabel lblAdresse = new JLabel("adresse :");
+		lblAdresse.setForeground(Color.LIGHT_GRAY);
 		lblAdresse.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblAdresse.setBounds(21, 554, 130, 30);
 		panelProfile.add(lblAdresse);
 		
 		JLabel lblTokenNumber = new JLabel("token number :");
+		lblTokenNumber.setForeground(Color.LIGHT_GRAY);
 		lblTokenNumber.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblTokenNumber.setBounds(21, 615, 130, 30);
 		panelProfile.add(lblTokenNumber);
 		
 		final JLabel labelLogin = new JLabel("----------------");
+		labelLogin.setForeground(new Color(245, 222, 179));
 		labelLogin.setFont(new Font("Tahoma", Font.BOLD, 15));
 		labelLogin.setBounds(206, 365, 252, 30);
 		panelProfile.add(labelLogin);
 		
 		final JLabel labelPassword = new JLabel("----------------");
+		labelPassword.setForeground(new Color(245, 222, 179));
 		labelPassword.setFont(new Font("Tahoma", Font.BOLD, 15));
 		labelPassword.setBounds(206, 427, 252, 30);
 		panelProfile.add(labelPassword);
 		
 		final JLabel labelEmail = new JLabel("----------------");
+		labelEmail.setForeground(new Color(245, 222, 179));
 		labelEmail.setFont(new Font("Tahoma", Font.BOLD, 15));
 		labelEmail.setBounds(206, 488, 252, 30);
 		panelProfile.add(labelEmail);
 		
 		final JLabel labelAdresse = new JLabel("----------------");
+		labelAdresse.setForeground(new Color(245, 222, 179));
 		labelAdresse.setFont(new Font("Tahoma", Font.BOLD, 15));
 		labelAdresse.setBounds(206, 554, 252, 30);
 		panelProfile.add(labelAdresse);
 		
 		final JLabel labelToken = new JLabel("----------------");
+		labelToken.setForeground(new Color(245, 222, 179));
 		labelToken.setFont(new Font("Tahoma", Font.BOLD, 15));
 		labelToken.setBounds(206, 615, 252, 30);
 		panelProfile.add(labelToken);
@@ -212,6 +225,15 @@ public class PanelProfil extends JPanel {
 		tfAdresseEdit.setBounds(468, 554, 302, 30);
 		tfAdresseEdit.setVisible(false);
 		panelProfile.add(tfAdresseEdit);
+		
+		labelImageUser.setIcon(new ImageIcon(EspaceClient.class.getResource("/tn/esprit/auction/gui/authentification/User-icon.png")));
+		labelFullname.setText("---------");
+		labelLogin.setText("---------------");
+		labelPassword.setText("-------------");
+		labelEmail.setText("-----------");
+		labelAdresse.setText("-----------------");
+		labelToken.setText("----------");
+		
 		
 		final JButton btnDeleteUser = new JButton("delete");
 		btnDeleteUser.addActionListener(new ActionListener() {
@@ -405,7 +427,7 @@ public class PanelProfil extends JPanel {
 		tfPathImageUser.setColumns(10);
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(PanelProfil.class.getResource("/tn/esprit/auction/gui/authentification/back1.jpg")));
+		label.setIcon(new ImageIcon(PanelProfil.class.getResource("/tn/esprit/auction/gui/client/back.jpg")));
 		label.setBounds(0, 0, 1158, 850);
 		panelProfile.add(label);
 		
