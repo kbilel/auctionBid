@@ -37,7 +37,10 @@ public class GestionProductDelegate {
 	{
 		return getProxy().findAllProducts();
 	}
-	
+	public  static List<Product> doFindAllProductsByCategory(String category)
+	{
+		return getProxy().findAllProductsByCategory(category);
+	}
 	
 	
 }

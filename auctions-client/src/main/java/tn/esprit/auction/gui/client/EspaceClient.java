@@ -148,6 +148,12 @@ public class EspaceClient extends JFrame {
 		menuBar.add(mnNewMenu);
 		
 		JMenu mnAuctions = new JMenu("");
+		mnAuctions.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				scrollPane.setViewportView(new PanelAuctionList());
+			}
+		});
 		mnAuctions.setIcon(new ImageIcon(EspaceClient.class.getResource("/tn/esprit/auction/gui/client/boutonAuction.png")));
 		menuBar.add(mnAuctions);
 		
