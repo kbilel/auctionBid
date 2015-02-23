@@ -36,7 +36,8 @@ public class AddStockManager extends JPanel {
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setForeground(new Color(0, 0, 0));
+		panel.setBackground(Color.BLUE);
+		panel.setForeground(Color.BLUE);
 		panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "add user", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		panel.setBounds(0, 0, 335, 282);
 		add(panel);
@@ -82,7 +83,7 @@ public class AddStockManager extends JPanel {
 		lblUsername.setFont(new Font("Tahoma", Font.ITALIC, 20));
 		
 		JLabel lblPassword = new JLabel("password");
-		lblPassword.setBounds(29, 75, 110, 20);
+		lblPassword.setBounds(34, 75, 110, 20);
 		panel.add(lblPassword);
 		lblPassword.setFont(new Font("Tahoma", Font.ITALIC, 20));
 		

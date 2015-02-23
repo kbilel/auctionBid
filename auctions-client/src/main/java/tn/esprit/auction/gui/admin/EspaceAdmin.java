@@ -102,12 +102,36 @@ public class EspaceAdmin extends JFrame {
 		menuBar.add(mnHome);
 		
 		JMenu mnManager = new JMenu("Manager");
+		mnManager.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				GestionManager gestionManager=new GestionManager();
+				scrollPane.setViewportView(gestionManager);
+			}
+		});
+	
 		menuBar.add(mnManager);
 		
 		JMenu mnStockManager = new JMenu("Stock Manager");
+		mnStockManager.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				GestionStockManager gestionStockManager=new GestionStockManager();
+				scrollPane.setViewportView(gestionStockManager);
+			}
+		});
+		
 		menuBar.add(mnStockManager);
 		
 		JMenu mnDeliveryMan = new JMenu("Delivery Man");
+		mnDeliveryMan.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				GestionDeliveryMan gestionDeliveryMan=new GestionDeliveryMan();
+				scrollPane.setViewportView(gestionDeliveryMan);
+			}
+		});
+		
 		menuBar.add(mnDeliveryMan);
 		
 		JMenu mnClient = new JMenu("Client");
@@ -118,6 +142,16 @@ public class EspaceAdmin extends JFrame {
 				System.out.println("otttk");
 			}
 		});
+		
+		JMenu mnBookKeeper = new JMenu("Book Keeper");
+		mnBookKeeper.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				GestionBookKeeper gestionBookKeeper=new GestionBookKeeper();
+				scrollPane.setViewportView(gestionBookKeeper);
+			}
+		});
+		menuBar.add(mnBookKeeper);
 		
 		menuBar.add(mnClient);
 		

@@ -36,6 +36,7 @@ import org.jdesktop.beansbinding.BeanProperty;
 import org.jdesktop.beansbinding.ObjectProperty;
 
 import javax.swing.border.TitledBorder;
+import javax.swing.ImageIcon;
 
 public class GestionManager extends JPanel {
 	private JTable table;
@@ -49,18 +50,22 @@ public class GestionManager extends JPanel {
 	private JTextField tfEmail;
 	Manager manager;
 	JPanel panel;
-
+	String name;
 
 	/**
 	 * Create the panel.
 	 */
 	public GestionManager() {
 		final JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 83, 354, 258);
+		scrollPane.setBounds(10, 60, 349, 297);
+	
 		managers =new ArrayList<Manager>();
+		
 		managers= GestionStaffDelegate.doFindAllManagers();
 		scrollPane.setViewportView(table);
-	
+		
+			
+		
 
 		JButton btnAdd = new JButton("add");
 		btnAdd.setBounds(144, 368, 69, 23);
@@ -118,7 +123,9 @@ public class GestionManager extends JPanel {
 		tfSearch.setColumns(10);
 		
 		JLabel lblUsername = new JLabel("name:");
-		lblUsername.setBounds(39, 25, 69, 14);
+		lblUsername.setForeground(Color.PINK);
+		lblUsername.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblUsername.setBounds(20, 25, 69, 14);
 		
 		JLabel lblRecherche = new JLabel("recherche");
 		lblRecherche.setBounds(10, 0, 87, 22);
@@ -151,45 +158,68 @@ public class GestionManager extends JPanel {
 		
 
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(429, 60, 352, 256);
+		panel_1.setBackground(Color.BLUE);
+		panel_1.setBounds(429, 60, 371, 297);
 		add(panel_1);
 		panel_1.setBorder(new TitledBorder(null, "Edit manager", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panel_1.setLayout(null);
 		tfName = new JTextField();
-		tfName.setBounds(89, 146, 86, 20);
+		tfName.setBounds(124, 146, 86, 20);
 		panel_1.add(tfName);
 		tfName.setColumns(10);
 		
 		tfLogin = new JTextField();
-		tfLogin.setBounds(89, 53, 86, 20);
+		tfLogin.setBounds(124, 53, 86, 20);
 		panel_1.add(tfLogin);
 		tfLogin.setColumns(10);
 		
 		passwordField = new JTextField();
-		passwordField.setBounds(89, 84, 86, 20);
+		passwordField.setBounds(124, 84, 86, 20);
 		panel_1.add(passwordField);
 		passwordField.setColumns(10);
 		
 		tfEmail = new JTextField();
-		tfEmail.setBounds(89, 115, 86, 20);
+		tfEmail.setBounds(124, 115, 86, 20);
 		panel_1.add(tfEmail);
 		tfEmail.setColumns(10);
 		
 		JLabel lblLogin = new JLabel("login");
+		lblLogin.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		lblLogin.setBounds(29, 56, 46, 14);
 		panel_1.add(lblLogin);
 		
 		JLabel lblPassword = new JLabel("password");
+		lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		lblPassword.setBounds(29, 87, 59, 14);
 		panel_1.add(lblPassword);
 		
 		JLabel lblEmail = new JLabel("Email");
+		lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		lblEmail.setBounds(29, 118, 46, 14);
 		panel_1.add(lblEmail);
 		
 		JLabel lblName = new JLabel("name");
-		lblName.setBounds(29, 149, 46, 14);
+		lblName.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblName.setBounds(29, 149, 59, 14);
 		panel_1.add(lblName);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon(GestionManager.class.getResource("/tn/esprit/auction/gui/admin/back1Config.jpg")));
+		lblNewLabel.setBounds(10, 46, 1254, 754);
+		add(lblNewLabel);
+		
+		JButton btnNewButton = new JButton("New button");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				name= tfSearch.getText();
+				
+				managers= GestionStaffDelegate.doFindAllManagerByName(name);
+				System.out.println(managers.size());
+				initDataBindings();
+			}
+		});
+		btnNewButton.setBounds(195, 22, 89, 23);
+		add(btnNewButton);
 		initDataBindings();
 		initDataBindings();
 

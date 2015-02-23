@@ -36,6 +36,7 @@ import org.jdesktop.beansbinding.BeanProperty;
 import org.jdesktop.beansbinding.ObjectProperty;
 
 import javax.swing.border.TitledBorder;
+import javax.swing.ImageIcon;
 
 public class GestionBookKeeper extends JPanel {
 	private JTable table;
@@ -56,7 +57,7 @@ public class GestionBookKeeper extends JPanel {
 	 */
 	public GestionBookKeeper() {
 		final JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 83, 354, 258);
+		scrollPane.setBounds(10, 60, 354, 281);
 		bookKeepers =new ArrayList<BookKeeper>();
 		bookKeepers= GestionStaffDelegate.doFindAllBookKeeper();
 		scrollPane.setViewportView(table);
@@ -151,7 +152,8 @@ public class GestionBookKeeper extends JPanel {
 		
 
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(429, 60, 352, 256);
+		panel_1.setBackground(Color.BLUE);
+		panel_1.setBounds(429, 60, 352, 281);
 		add(panel_1);
 		panel_1.setBorder(new TitledBorder(null, "Edit book Keeper", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panel_1.setLayout(null);
@@ -190,6 +192,11 @@ public class GestionBookKeeper extends JPanel {
 		JLabel lblName = new JLabel("name");
 		lblName.setBounds(29, 149, 46, 14);
 		panel_1.add(lblName);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon(GestionBookKeeper.class.getResource("/tn/esprit/auction/gui/admin/back1Config.jpg")));
+		lblNewLabel.setBounds(0, 0, 1212, 741);
+		add(lblNewLabel);
 		initDataBindings();
 		initDataBindings();
 

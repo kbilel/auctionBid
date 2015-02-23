@@ -36,6 +36,7 @@ import org.jdesktop.beansbinding.BeanProperty;
 import org.jdesktop.beansbinding.ObjectProperty;
 
 import javax.swing.border.TitledBorder;
+import javax.swing.ImageIcon;
 
 public class GestionDeliveryMan extends JPanel {
 	private JTable table;
@@ -56,7 +57,7 @@ public class GestionDeliveryMan extends JPanel {
 	 */
 	public GestionDeliveryMan() {
 		final JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 83, 354, 258);
+		scrollPane.setBounds(10, 60, 354, 281);
 		deliveryMans =new ArrayList<DeliveryMan>();
 		deliveryMans= GestionStaffDelegate.doFindAllDeliveryMan();
 		scrollPane.setViewportView(table);
@@ -151,7 +152,8 @@ public class GestionDeliveryMan extends JPanel {
 		
 
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(429, 60, 352, 256);
+		panel_1.setBackground(Color.BLUE);
+		panel_1.setBounds(429, 60, 352, 281);
 		add(panel_1);
 		panel_1.setBorder(new TitledBorder(null, "Edit deliveryMan", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panel_1.setLayout(null);
@@ -176,20 +178,29 @@ public class GestionDeliveryMan extends JPanel {
 		tfEmail.setColumns(10);
 		
 		JLabel lblLogin = new JLabel("login");
+		lblLogin.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		lblLogin.setBounds(29, 56, 46, 14);
 		panel_1.add(lblLogin);
 		
 		JLabel lblPassword = new JLabel("password");
+		lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		lblPassword.setBounds(29, 87, 58, 14);
 		panel_1.add(lblPassword);
 		
 		JLabel lblEmail = new JLabel("Email");
+		lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		lblEmail.setBounds(29, 118, 46, 14);
 		panel_1.add(lblEmail);
 		
 		JLabel lblName = new JLabel("name");
+		lblName.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		lblName.setBounds(29, 149, 46, 14);
 		panel_1.add(lblName);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon(GestionDeliveryMan.class.getResource("/tn/esprit/auction/gui/admin/back1Config.jpg")));
+		lblNewLabel.setBounds(0, 0, 1195, 753);
+		add(lblNewLabel);
 		initDataBindings();
 		initDataBindings();
 
