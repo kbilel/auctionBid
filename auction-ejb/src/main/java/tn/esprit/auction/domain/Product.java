@@ -28,6 +28,7 @@ public class Product implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private List<Review> reviews;
 	private Auction auction;
+	List<Order> orders;
 
 	public Product() {
 		super();
@@ -103,6 +104,15 @@ public class Product implements Serializable {
 	}
 	public void setAuction(Auction auction) {
 		this.auction = auction;
+	}
+	
+	@OneToMany(mappedBy="product")
+	public List <Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List <Order> orders) {
+		this.orders = orders;
 	}
    
 }

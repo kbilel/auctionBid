@@ -38,7 +38,7 @@ public class PanelAddProduct extends JPanel {
 	private JLabel lblPhotoProd;
 	 byte[] imageProdByte=null;
 	private String pathImg;
-	private String imageUserPath;
+	private String imageProdPath;
 
 	/**
 	 * Create the panel.
@@ -149,11 +149,11 @@ public class PanelAddProduct extends JPanel {
 			         Path path=Paths.get(pathImg);
 			       String ch=path.getParent().toString();
 			       String ch1=path.getFileName().toString();
-			        System.out.println("pathBaya="+ch1);
+			        System.out.println("path="+ch1);
 			        String ch0 ="imageAuction/";
 			       String ch2=ch0.concat(ch1);
 			       String ch3=ch2.replace('\\', '/');
-			       imageUserPath=ch3;
+			       imageProdPath=ch3;
 			        //ch3=ch.replace('\\', '/');
 			       tfUrlPhotoProd.setText(ch3);
 			

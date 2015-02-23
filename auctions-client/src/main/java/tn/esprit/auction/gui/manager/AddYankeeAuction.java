@@ -31,8 +31,8 @@ public class AddYankeeAuction extends JFrame {
 	private JButton button;
 	private JButton btnFinish;
 	private JLabel lblNewLabel_1;
-	private JLabel lblByClickingFinish;
 	private JLabel lblNewLabel;
+	private JLabel label;
 	/**
 	 * Launch the application.
 	 */
@@ -80,6 +80,8 @@ public class AddYankeeAuction extends JFrame {
 				YankeeAuction yankeeAuction=(YankeeAuction) AddAuction.auction;
 				
 				GestionAuctionDelegate.doAddAuction(yankeeAuction);
+				ConfirmSendMail confirmSendMail=new ConfirmSendMail();
+				confirmSendMail.setVisible(true);
 				setVisible(false);
 			}
 		});
@@ -92,12 +94,12 @@ public class AddYankeeAuction extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNoMoreData = new JLabel("No more Data to add in Yankee Auction !");
-		lblNoMoreData.setBounds(45, 222, 322, 14);
+		lblNoMoreData.setBounds(10, 186, 322, 14);
 		contentPane.add(lblNoMoreData);
 		
-		lblByClickingFinish = new JLabel("By clicking Finish , an email will be send to notify interested clients in this category of auction!");
-		lblByClickingFinish.setBounds(10, 350, 461, 14);
-		contentPane.add(lblByClickingFinish);
+		label = new JLabel("By clicking Finish , a new auction will be created !");
+		label.setBounds(10, 212, 490, 14);
+		contentPane.add(label);
 		
 		
 	}

@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JScrollPane;
 import javax.swing.border.TitledBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
@@ -93,19 +94,19 @@ public class AddAuction extends JFrame {
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Starting Time :");
-		lblNewLabel.setBounds(10, 35, 77, 14);
+		lblNewLabel.setBounds(10, 35, 99, 14);
 		panel.add(lblNewLabel);
 		
 		final JSpinner spinner = new JSpinner();
-		spinner.setBounds(86, 32, 39, 20);
+		spinner.setBounds(114, 35, 39, 20);
 		panel.add(spinner);
 		
 		spinner_1 = new JSpinner();
-		spinner_1.setBounds(132, 32, 39, 20);
+		spinner_1.setBounds(160, 35, 39, 20);
 		panel.add(spinner_1);
 		
 		spinner_2 = new JSpinner();
-		spinner_2.setBounds(181, 32, 39, 20);
+		spinner_2.setBounds(209, 35, 39, 20);
 		panel.add(spinner_2);
 		
 		
@@ -129,7 +130,10 @@ public class AddAuction extends JFrame {
 		
 		button = new JButton("Back");
 		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {setVisible(false);
+			public void actionPerformed(ActionEvent e) {
+				ConvertProductToAuction.productSelected=null;
+
+				setVisible(false);
 				ConvertProductToAuction convertProductToAuction=new ConvertProductToAuction();
 				convertProductToAuction.setVisible(true);
 				
@@ -151,9 +155,10 @@ public class AddAuction extends JFrame {
 				// *** end label data is missing
 				
 				// recuperatio de produit
-				ConvertProductToAuction convertProductToAuction=new ConvertProductToAuction();
-			Product product=new Product();
-			product = convertProductToAuction.productSelected;
+				
+				Product product=new Product();
+				product = ConvertProductToAuction.productSelected;
+				ConvertProductToAuction.productSelected=null;
 				// ** end recuperation produit
 			
 				if (txtfStartingPrice.getText().equals("") ){
@@ -176,7 +181,7 @@ public class AddAuction extends JFrame {
 				Integer secondeS= (Integer) (spinner_2.getValue());
 				String s=yearS+","+mounthS+","+dayS+","+hourS+","+minuteS+","+secondeS;
 				
-	Date auctionStartingDate=new Date(yearS-1000, mounthS-1, dayS, hourS, minuteS, secondeS);
+	Date auctionStartingDate=new Date(yearS-1900, mounthS, dayS, hourS, minuteS, secondeS);
 		
 				System.out.println("start"+s);
 				// **** End auctionStartingDate recuperation de s valeurs
@@ -197,10 +202,13 @@ public class AddAuction extends JFrame {
 				Integer secondeE= (Integer) (spinner_5.getValue());
 				String eND =yearE+","+mounthE+","+dayE+","+hourE+","+minuteE+","+secondeE;
 				
-	Date auctionEndDate=new Date(yearE-1000, mounthE-1, dayE, hourE, minuteE, secondeE);
+	Date auctionEndDate=new Date(yearE-1900, mounthE, dayE, hourE, minuteE, secondeE);
 				
 				System.out.println(eND);
 				// **** End auctionEndDate recuperation de s valeurs
+				
+				if (auctionEndDate.after(auctionStartingDate)){
+					
 				String selectedComboBox =(String) comboBox.getSelectedItem();
 				
 					if (selectedComboBox=="English Auction"){
@@ -216,6 +224,8 @@ public class AddAuction extends JFrame {
 				}else if(selectedComboBox=="Agregate Auction"){
 					auction =new AgregateAuction();
 					auction.setAuctionStartingPrice(Integer.parseInt(txtfStartingPrice.getText()));
+					auction.setAuctionStartingDate(auctionStartingDate);
+					auction.setAuctionEndDate(auctionEndDate);
 					auction.setProduct(product);
 					AddAgregateAuction frame = new AddAgregateAuction();
 					frame.setVisible(true);
@@ -223,6 +233,8 @@ public class AddAuction extends JFrame {
 			}else if(selectedComboBox=="Dutch Auction"){
 				auction =new DutchAuction();
 				auction.setAuctionStartingPrice(Integer.parseInt(txtfStartingPrice.getText()));
+				auction.setAuctionStartingDate(auctionStartingDate);
+				auction.setAuctionEndDate(auctionEndDate);
 				auction.setProduct(product);
 				AddDutchAuction frame = new AddDutchAuction();
 				frame.setVisible(true);
@@ -230,6 +242,8 @@ public class AddAuction extends JFrame {
 		}else if(selectedComboBox=="Yankee Auction"){
 			auction =new YankeeAuction();
 			auction.setAuctionStartingPrice(Integer.parseInt(txtfStartingPrice.getText()));
+			auction.setAuctionStartingDate(auctionStartingDate);
+			auction.setAuctionEndDate(auctionEndDate);
 			auction.setProduct(product);
 			AddYankeeAuction frame = new AddYankeeAuction();
 			frame.setVisible(true);
@@ -237,13 +251,16 @@ public class AddAuction extends JFrame {
 	}else if(selectedComboBox=="Negociated Auction"){
 		auction =new NegociatedAuction();
 		auction.setAuctionStartingPrice(Integer.parseInt(txtfStartingPrice.getText()));
+		auction.setAuctionStartingDate(auctionStartingDate);
+		auction.setAuctionEndDate(auctionEndDate);
 		auction.setProduct(product);
 		AddNegociatedAuction frame = new AddNegociatedAuction();
 		frame.setVisible(true);
 		setVisible(false);
 }
 					
-					}
+					}else 	JOptionPane.showMessageDialog(null, "Be carefull ! Date Start comes after Date End !!");
+				}
 			}
 		});
 		button_1.setBounds(435, 427, 89, 23);

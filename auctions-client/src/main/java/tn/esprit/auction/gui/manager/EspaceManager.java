@@ -34,6 +34,9 @@ import javax.swing.border.LineBorder;
 import javax.swing.JButton;
 
 import tn.esprit.auction.gui.authentification.Authentification;
+import tn.esprit.auction.gui.client.EspaceClient;
+import tn.esprit.auction.gui.client.HomeClient;
+import tn.esprit.auction.gui.client.SubscribingPanel;
 
 import java.awt.Toolkit;
 import java.awt.SystemColor;
@@ -41,7 +44,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
 import javax.swing.JScrollPane;
+
 import java.awt.Cursor;
 import java.awt.Dimension;
 
@@ -98,17 +103,12 @@ public class EspaceManager extends JFrame {
 		mntmAuctions.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				PanelManageAuction.auctionSelected=null;
 				PanelManageAuction panelManageAuction=new PanelManageAuction();
 				scrollPane.setViewportView(panelManageAuction);
 			}
 		});
 		menuBar.add(mntmAuctions);
-		
-		JMenuItem mntmProducts = new JMenuItem("Products");
-		menuBar.add(mntmProducts);
-		
-		JMenuItem mntmAboutUs = new JMenuItem("About us");
-		menuBar.add(mntmAboutUs);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -139,12 +139,23 @@ public class EspaceManager extends JFrame {
 		JButton button = new JButton("Log out");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Authentification frame = new Authentification();
+				EspaceClient frame=new EspaceClient();
 				frame.setVisible(true);
 				setVisible(false);
 			}
 		});
 		button.setBounds(68, 211, 121, 36);
 		panel.add(button);
+		
+		JLabel label_2 = new JLabel("");
+		label_2.setIcon(new ImageIcon(EspaceManager.class.getResource(HomeClient.getUser().getImageUrl())));
+
+		label_2.setBounds(79, 63, 100, 96);
+		panel.add(label_2);
+		
+		JLabel label_3 = new JLabel("");
+		label_3.setText(HomeClient.getUser().getUserName());
+		label_3.setBounds(89, 173, 100, 14);
+		panel.add(label_3);
 	}
 }

@@ -44,11 +44,11 @@ public class TestGestionUser {
 		user2.setPassword("samir");
 		
 		DeliveryMan user3=new DeliveryMan();
-		user3.setUserName("si");
-		user3.setAdress("si");
-		user3.setEmail("si");
-		user3.setFullName("si");
-		user3.setPassword("si");
+		user3.setUserName("kbilel");
+		user3.setAdress("siliana - makthar");
+		user3.setEmail("kbilel@live.fr");
+		user3.setFullName("bilel khaled");
+		user3.setPassword("0000");
 		
 		Admin user4=new Admin();
 		user4.setUserName("admin");

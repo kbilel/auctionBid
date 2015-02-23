@@ -24,7 +24,7 @@ public class TestGestionOrder {
 		OrderPK orderPk = new OrderPK(2, 1);
 		Order order = new Order();
 
-	order.setClient(2);
+	//order.setClient(2);
 	order.setCashPayement(true);
 	order.setOrderPK(orderPk);
 
@@ -37,23 +37,23 @@ public class TestGestionOrder {
 
 	}
 
-	public static void doUpdateOrder(OrderServicesRemote remote) {
+/*	public static void doUpdateOrder(OrderServicesRemote remote) {
 		Manager manager = new Manager();
 		manager.setUserName("Le ManagerR");
 		Order order = remote.findOrderById(2);
-		order.setManager(manager);
+		//order.setManager(manager);
 		if (remote.updateOrder(order)) {
 			System.out.println("OK");
 		} else
 			System.out.println("Erreur ...");
 
 	}
-
+*/
 	public static void doDeleteOrder(OrderServicesRemote remote) {
 
 		Order order = remote.findOrderById(1);
-		if (order == null)
-			System.out.println("order null");
+		if (order==null)
+			System.out.println("liste vide");
 		if (remote.deleteOrder(order)) {
 			System.out.println("OK");
 		} else
@@ -90,9 +90,9 @@ for(Order o :orders)
 		}
 
 		//doAddOrder(remote);
-		doFindAllOrder(remote);
+		//doFindAllOrder(remote);
 		// doUpdateOrder(remote);
-		// doDeleteOrder(remote);
+	 doDeleteOrder(remote);
 		
 	}
 }

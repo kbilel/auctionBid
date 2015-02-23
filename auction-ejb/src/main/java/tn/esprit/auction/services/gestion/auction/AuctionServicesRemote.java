@@ -6,6 +6,7 @@ import javax.ejb.Remote;
 
 import tn.esprit.auction.domain.Auction;
 import tn.esprit.auction.domain.EnglishAuction;
+import tn.esprit.auction.domain.Product;
 
 @Remote
 public interface AuctionServicesRemote {
@@ -15,4 +16,5 @@ public interface AuctionServicesRemote {
 	Auction findAuctionById(Integer idAuction);
 	List<Auction>findAllAuctions();
 	List<EnglishAuction>findAllEnglishAuctions();
+	List<Auction>findAllAuctionsByProduct(Product product);
 }

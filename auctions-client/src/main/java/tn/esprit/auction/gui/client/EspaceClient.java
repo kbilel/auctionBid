@@ -36,6 +36,7 @@ import tn.esprit.auction.domain.Question;
 import tn.esprit.auction.domain.User;
 import tn.esprit.auction.domain.YankeeAuction;
 import tn.esprit.auction.gui.authentification.Authentification;
+import tn.esprit.auction.gui.stockManager.PanelAddProduct;
 
 import javax.swing.JMenuItem;
 
@@ -144,8 +145,16 @@ public class EspaceClient extends JFrame {
 		mnAuctions.setIcon(new ImageIcon(EspaceClient.class.getResource("/tn/esprit/auction/gui/client/boutonAuction.png")));
 		menuBar.add(mnAuctions);
 		
-		JMenu mnProducts = new JMenu("");
-		mnProducts.setIcon(new ImageIcon(EspaceClient.class.getResource("/tn/esprit/auction/gui/client/boutonProduct.png")));
+
+		JMenu mnProducts = new JMenu("Products");
+		mnProducts.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				scrollPane.setViewportView(new PanelProductList());
+			}
+		});
+		
+
 		menuBar.add(mnProducts);
 		
 		JMenu mnStatistic = new JMenu("");

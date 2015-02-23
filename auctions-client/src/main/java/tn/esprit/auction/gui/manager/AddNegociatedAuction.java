@@ -31,10 +31,10 @@ public class AddNegociatedAuction extends JFrame {
 	private JButton button;
 	private JButton btnFinish;
 	private JLabel lblNewLabel_1;
-	private JLabel lblByClickingFinish;
 	private JLabel lblDecreaseValue;
 	private JTextField textField;
 	private JLabel lblNewLabel;
+	private JLabel label;
 	/**
 	 * Launch the application.
 	 */
@@ -90,6 +90,8 @@ public class AddNegociatedAuction extends JFrame {
 				negociatedAuction.setFixedMinimumPrice(Integer.parseInt(textField.getText()));
 				
 				GestionAuctionDelegate.doAddAuction(negociatedAuction);
+				ConfirmSendMail confirmSendMail=new ConfirmSendMail();
+				confirmSendMail.setVisible(true);
 				setVisible(false);
 			}}
 		});
@@ -102,12 +104,8 @@ public class AddNegociatedAuction extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNoMoreData = new JLabel(" Negociated Auction !");
-		lblNoMoreData.setBounds(45, 222, 322, 14);
+		lblNoMoreData.setBounds(10, 217, 322, 14);
 		contentPane.add(lblNoMoreData);
-		
-		lblByClickingFinish = new JLabel("By clicking Finish , an email will be send to notify interested clients in this category of auction!");
-		lblByClickingFinish.setBounds(10, 356, 461, 14);
-		contentPane.add(lblByClickingFinish);
 		
 		lblDecreaseValue = new JLabel("Fixed minimum price :");
 		lblDecreaseValue.setBounds(10, 262, 136, 14);
@@ -117,6 +115,10 @@ public class AddNegociatedAuction extends JFrame {
 		textField.setBounds(223, 259, 86, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
+		
+		label = new JLabel("By clicking Finish , a new auction will be created !");
+		label.setBounds(10, 309, 490, 14);
+		contentPane.add(label);
 		
 		
 	}

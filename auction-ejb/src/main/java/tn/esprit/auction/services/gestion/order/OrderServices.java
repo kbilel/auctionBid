@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import tn.esprit.auction.domain.Auction;
 import tn.esprit.auction.domain.Order;
 
 /**
@@ -62,15 +63,21 @@ public class OrderServices implements OrderServicesRemote, OrderServicesLocal {
 	}
 
 	@Override
-	public Order findOrderById(Integer idOrder) {
+	public Order findOrderById(Integer idProduct) {
+		
 		Order order=null;
 		try {
-			order=entityManager.find(Order.class, idOrder);
-		
-		} catch (Exception e) {
+			Query query=entityManager.createQuery("select o from Order o where o.idProduct=: idp  ");
+			query.setParameter("ipd", idProduct);
+		order=	 (Order) query.getSingleResult();
 			
+		} catch (Exception e) {
+			return null;
 		}
-		return order;
+		
+	return order;
+			
+
 	}
 
 	@Override
@@ -78,6 +85,29 @@ public class OrderServices implements OrderServicesRemote, OrderServicesLocal {
 		Query query=entityManager.createQuery("select o from Order o ");
 		return query.getResultList();
 	
+	}
+
+	@Override
+	public Order findOrderByClientId(Integer idClient) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Order> findOrdersByIdDeliveryMan(Integer idDeliveryMan) {
+
+		List<Order> orders =null;
+		try {
+			Query query=entityManager.createQuery("select o from Order o where o.idDeliveryMan=:iddm ");
+			query.setParameter("iddm", idDeliveryMan);
+		orders=	  query.getResultList();
+			
+		} catch (Exception e) {
+			return null;
+		}
+		
+	return orders;
+			
 	}
 
 	
