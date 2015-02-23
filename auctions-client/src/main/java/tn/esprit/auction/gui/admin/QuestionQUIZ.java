@@ -35,6 +35,9 @@ public class QuestionQUIZ extends JPanel {
 	private Integer compteur=0;
 	private Integer test=0;
 	private Integer testAnswer=0;
+	private Boolean  etatAnswer1;
+	private Boolean  etatAnswer2;
+	private Boolean  etatAnswer3;
 
 	/**
 	 * Create the panel.
@@ -167,11 +170,31 @@ public class QuestionQUIZ extends JPanel {
 		btnValidateAnswers.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(radioButtonReponse1.isSelected()==false)
-					test=1;
+					{test=1;
+					etatAnswer1=true;
+					
+					}
+				else
+				{
+					etatAnswer1=false;
+					
+				}
 				if(radioButtonReponse2.isSelected()==false)
-					test++;
+					{test++;
+				etatAnswer2=true;
+					}
+				else 
+					{etatAnswer2=false;
+					
+					}
 				if(radioButtonReponse1.isSelected()==false)
-					test++;
+					{test++;
+				etatAnswer3=true;
+					}
+				else
+				{
+					etatAnswer3=false;
+				}
 				if(radioButtonReponse1.isSelected()==false && radioButtonReponse2.isSelected()==false && radioButtonReponse3.isSelected()==true )
 					test=1;
 				System.out.println("test="+test);
@@ -197,6 +220,10 @@ public class QuestionQUIZ extends JPanel {
 						answer1.setText(tfReponse1.getText());
 						answer2.setText(tfReponse2.getText());
 						answer3.setText(tfreponse3.getText());
+						
+						answer1.setCorrect(etatAnswer1);
+						answer2.setCorrect(etatAnswer2);
+						answer3.setCorrect(etatAnswer3);
 						if(GestionAnswerDelegate.doAddAnswer(answer1) && GestionAnswerDelegate.doAddAnswer(answer2)  && GestionAnswerDelegate.doAddAnswer(answer3))
 						{testAnswer=1;
 							JOptionPane.showMessageDialog(panel, "good question addedd successfully ");
