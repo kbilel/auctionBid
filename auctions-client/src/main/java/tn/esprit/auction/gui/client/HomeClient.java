@@ -41,11 +41,12 @@ public class HomeClient extends JPanel {
 	public static User userConnected;
 	String password="";
 	String login="";
-	
+	static Boolean etatVisible;
 	/**
 	 * Create the panel.
 	 */
 	public HomeClient() {
+		etatVisible=true;
 		//userConnected = HomeClient.userConnected;
 		if (userConnected == null)
 			userConnected = SubscribingPanel.userConnected;
@@ -145,7 +146,7 @@ public class HomeClient extends JPanel {
 		        String pwd= new String(passwordField.getText());
 		        
 		        if(GestionUserDelegate.doAuthentificate(username, pwd)!=null)
-			 {
+			 { etatVisible=false;
 		        	
 				 userConnected=GestionUserDelegate.doAuthentificate(username, pwd);
 				 if(userConnected instanceof Client)
@@ -190,6 +191,8 @@ public class HomeClient extends JPanel {
 				 {
 					 new EspaceManager().setVisible(true);
 					 setVisible(false);
+					 
+					 
 				 }
 				 
 				 else if(userConnected instanceof Admin)
@@ -209,10 +212,12 @@ public class HomeClient extends JPanel {
 				 }
 				 
 				 
+				 
 			 }
 		        else 
 		        {
 		        	JOptionPane.showMessageDialog(panel, "ouuupss try again ");
+		        	etatVisible=true;
 		        }
 				 
 			}

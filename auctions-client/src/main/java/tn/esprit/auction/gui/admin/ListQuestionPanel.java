@@ -9,6 +9,8 @@ import java.awt.event.MouseEvent;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -19,8 +21,11 @@ import javax.swing.JTable;
 
 import tn.esprit.auction.delegate.GestionAnswerDelegate;
 import tn.esprit.auction.delegate.GestionQuestionDelegate;
+import tn.esprit.auction.delegate.GestionUserDelegate;
 import tn.esprit.auction.domain.Answer;
+import tn.esprit.auction.domain.Client;
 import tn.esprit.auction.domain.Question;
+import tn.esprit.auction.domain.User;
 
 public class ListQuestionPanel extends JPanel {
 	private JTable table;
@@ -71,9 +76,21 @@ public class ListQuestionPanel extends JPanel {
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(question!=null)
-				{ Answer answer = new Answer();
+				{ List <Answer> answers = new ArrayList<Answer>();
+					answers=GestionAnswerDelegate.doFindAllAnswers();
+					Integer index=0;
+					for (Answer  answersQuestion : answers) {
+						if(answersQuestion.getQuestion().getId().equals(question.getId()))
+						{
+							GestionAnswerDelegate.doDeleteAnswer(answers.get(index));
+								}
+						index++;
+						
+					}
+					System.out.println("nombre client="+answers.size());
 					
-					GestionAnswerDelegate.doDeleteAnswer(answer);
+					
+					
 					if(GestionQuestionDelegate.doDeleteQuestion(question))
 				{
 					question=null;
