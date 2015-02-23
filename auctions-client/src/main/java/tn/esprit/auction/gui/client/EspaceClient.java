@@ -78,6 +78,9 @@ public class EspaceClient extends JFrame {
 			public void run() {
 				try {
 					EspaceClient frame = new EspaceClient();
+					
+					
+					
 					RefineryUtilities.centerFrameOnScreen(frame);
 					frame.setVisible(true);
 				} catch (Exception e) {
@@ -91,6 +94,8 @@ public class EspaceClient extends JFrame {
 	 * Create the frame.
 	 */
 	public EspaceClient() {
+		
+			
 		setIconImage(Toolkit.getDefaultToolkit().getImage(EspaceClient.class.getResource("/tn/esprit/auction/gui/authentification/bid1.gif")));
 		client = new Client();
 		final List<Auction> auctions=GestionAuctionDelegate.doFindAllAuctions();
@@ -143,6 +148,12 @@ public class EspaceClient extends JFrame {
 		menuBar.add(mnNewMenu);
 		
 		JMenu mnAuctions = new JMenu("");
+		mnAuctions.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				scrollPane.setViewportView(new PanelAuctionList());
+			}
+		});
 		mnAuctions.setIcon(new ImageIcon(EspaceClient.class.getResource("/tn/esprit/auction/gui/client/boutonAuction.png")));
 		menuBar.add(mnAuctions);
 		

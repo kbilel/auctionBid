@@ -63,7 +63,7 @@ public class AdminClient extends JPanel {
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				username=usernameSearch.getText();
-				if(username!=null)
+				if(!username.equals(""))
 					tableClients.setModel(new ListClient(username));	
 				else
 					tableClients.setModel(new ListClient());

@@ -36,10 +36,10 @@ public class PanelHomeManager extends JPanel {
 		label_3.setBounds(241, 36, 659, 74);
 		add(label_3);
 		
-		JLabel label_4 = new JLabel("Home");
-		label_4.setFont(new Font("Tahoma", Font.PLAIN, 70));
-		label_4.setBounds(205, 240, 277, 130);
-		add(label_4);
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(PanelHomeManager.class.getResource("/tn/esprit/auction/gui/manager/manager.jpg")));
+		label.setBounds(227, 121, 506, 310);
+		add(label);
 
 	}
 }

@@ -77,6 +77,15 @@ public class ProductServices implements ProductServicesRemote, ProductServicesLo
 		return query.getResultList();
 	}
 
+	@Override
+	public List<Product> findAllProductsByCategory(String category) {
+		Query query=entityManager.createQuery("select a from Product a where a.category=:p ");
+		query.setParameter("p", category);
+		if (query.getResultList()!=null)
+		System.out.println("ejb find  auction by product is not null");
+		return query.getResultList();
+	}
+
 	
 
 }
