@@ -40,7 +40,6 @@ import javax.swing.ImageIcon;
 
 public class GestionBookKeeper extends JPanel {
 	private JTable table;
-	private JTextField tfSearch;
 	List<BookKeeper> bookKeepers;
 	AddBookKeeper addBookKeeper;
 	//JScrollPane scrollPane;
@@ -50,7 +49,7 @@ public class GestionBookKeeper extends JPanel {
 	private JTextField tfEmail;
 	BookKeeper bookKeeper;
 	JPanel panel;
-
+	String name;
 
 	/**
 	 * Create the panel.
@@ -113,18 +112,6 @@ public class GestionBookKeeper extends JPanel {
 			}
 		});
 		btnDelete.setBounds(280, 368, 79, 23);
-		
-		tfSearch = new JTextField();
-		tfSearch.setBounds(77, 25, 108, 14);
-		tfSearch.setColumns(10);
-		
-		JLabel lblUsername = new JLabel("name:");
-		lblUsername.setBounds(39, 25, 69, 14);
-		
-		JLabel lblRecherche = new JLabel("recherche");
-		lblRecherche.setBounds(10, 0, 87, 22);
-		lblRecherche.setForeground(Color.BLUE);
-		lblRecherche.setFont(new Font("MV Boli", Font.BOLD | Font.ITALIC, 13));
 		setLayout(null);
 		
 		add(scrollPane);
@@ -146,9 +133,6 @@ public class GestionBookKeeper extends JPanel {
 		add(btnEdit);
 		add(btnAdd);
 		add(btnDelete);
-		add(lblUsername);
-		add(tfSearch);
-		add(lblRecherche);
 		
 
 		JPanel panel_1 = new JPanel();
@@ -194,8 +178,9 @@ public class GestionBookKeeper extends JPanel {
 		panel_1.add(lblName);
 		
 		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setForeground(Color.PINK);
 		lblNewLabel.setIcon(new ImageIcon(GestionBookKeeper.class.getResource("/tn/esprit/auction/gui/admin/back1Config.jpg")));
-		lblNewLabel.setBounds(0, 0, 1212, 741);
+		lblNewLabel.setBounds(0, 0, 1222, 778);
 		add(lblNewLabel);
 		initDataBindings();
 		initDataBindings();

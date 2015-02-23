@@ -40,7 +40,6 @@ import javax.swing.ImageIcon;
 
 public class GestionDeliveryMan extends JPanel {
 	private JTable table;
-	private JTextField tfSearch;
 	List<DeliveryMan> deliveryMans;
 	AddDeliveryMan addDeliveryMan;
 	//JScrollPane scrollPane;
@@ -113,18 +112,6 @@ public class GestionDeliveryMan extends JPanel {
 			}
 		});
 		btnDelete.setBounds(280, 368, 79, 23);
-		
-		tfSearch = new JTextField();
-		tfSearch.setBounds(77, 25, 108, 14);
-		tfSearch.setColumns(10);
-		
-		JLabel lblUsername = new JLabel("name:");
-		lblUsername.setBounds(39, 25, 69, 14);
-		
-		JLabel lblRecherche = new JLabel("recherche");
-		lblRecherche.setBounds(10, 0, 87, 22);
-		lblRecherche.setForeground(Color.BLUE);
-		lblRecherche.setFont(new Font("MV Boli", Font.BOLD | Font.ITALIC, 13));
 		setLayout(null);
 		
 		add(scrollPane);
@@ -146,9 +133,6 @@ public class GestionDeliveryMan extends JPanel {
 		add(btnEdit);
 		add(btnAdd);
 		add(btnDelete);
-		add(lblUsername);
-		add(tfSearch);
-		add(lblRecherche);
 		
 
 		JPanel panel_1 = new JPanel();

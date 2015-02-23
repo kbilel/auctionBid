@@ -282,8 +282,11 @@ try {
 
 	@Override
 	public List<BookKeeper> findAllBookkeeperByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		Query query = entityManager.createQuery("select u from User b where u.userName=:name");
+
+		query.setParameter("name", name);
+return query.getResultList();
+
 	}
 
 	@Override

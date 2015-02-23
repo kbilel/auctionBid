@@ -17,6 +17,7 @@ public interface UserServicesLocal {
 	Boolean deleteUser(User user);
 	User findUserById(Integer idUser);
 	List<User>findAllUsers();
+	User findUserByUsername(String name);
 	User authentificate(String login,String pwd);
 	
 }

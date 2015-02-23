@@ -25,7 +25,7 @@ import tn.esprit.auction.domain.*;
 import javax.swing.JTabbedPane;
 
 import tn.esprit.auction.delegate.GestionStaffDelegate;
-
+import tn.esprit.auction.delegate.GestionUserDelegate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,7 +40,6 @@ import javax.swing.ImageIcon;
 
 public class GestionManager extends JPanel {
 	private JTable table;
-	private JTextField tfSearch;
 	List<Manager> managers;
 	AddManager addManager;
 	//JScrollPane scrollPane;
@@ -117,20 +116,6 @@ public class GestionManager extends JPanel {
 			}
 		});
 		btnDelete.setBounds(280, 368, 79, 23);
-		
-		tfSearch = new JTextField();
-		tfSearch.setBounds(77, 25, 108, 14);
-		tfSearch.setColumns(10);
-		
-		JLabel lblUsername = new JLabel("name:");
-		lblUsername.setForeground(Color.PINK);
-		lblUsername.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblUsername.setBounds(20, 25, 69, 14);
-		
-		JLabel lblRecherche = new JLabel("recherche");
-		lblRecherche.setBounds(10, 0, 87, 22);
-		lblRecherche.setForeground(Color.BLUE);
-		lblRecherche.setFont(new Font("MV Boli", Font.BOLD | Font.ITALIC, 13));
 		setLayout(null);
 		
 		add(scrollPane);
@@ -152,9 +137,6 @@ public class GestionManager extends JPanel {
 		add(btnEdit);
 		add(btnAdd);
 		add(btnDelete);
-		add(lblUsername);
-		add(tfSearch);
-		add(lblRecherche);
 		
 
 		JPanel panel_1 = new JPanel();
@@ -205,21 +187,8 @@ public class GestionManager extends JPanel {
 		
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setIcon(new ImageIcon(GestionManager.class.getResource("/tn/esprit/auction/gui/admin/back1Config.jpg")));
-		lblNewLabel.setBounds(10, 46, 1254, 754);
+		lblNewLabel.setBounds(10, 0, 1254, 800);
 		add(lblNewLabel);
-		
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				name= tfSearch.getText();
-				
-				managers= GestionStaffDelegate.doFindAllManagerByName(name);
-				System.out.println(managers.size());
-				initDataBindings();
-			}
-		});
-		btnNewButton.setBounds(195, 22, 89, 23);
-		add(btnNewButton);
 		initDataBindings();
 		initDataBindings();
 

@@ -34,10 +34,10 @@ public class StatisticAuctionYear extends JPanel {
 	public StatisticAuctionYear() {
 		setBackground(new Color(255, 250, 240));
 		setLayout(null);
-		setBounds(0, 21, 1142, 791);
+		setBounds(0, 21, 1800, 750);
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 250, 240));
-		panel.setBounds(0, 21, 1142, 791);
+		panel.setBounds(0, 21, 1800, 750);
 		add(panel);
 		
 		/********Stat*******/

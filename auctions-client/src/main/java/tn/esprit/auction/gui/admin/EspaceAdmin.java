@@ -76,23 +76,24 @@ public class EspaceAdmin extends JFrame {
 	public EspaceAdmin() {
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 1158, 800);
+		setBounds(0, 0, 1800, 800);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setBounds(0, 0, 1158, 800);
+		contentPane.setBounds(0, 0, 1800, 800);
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		final JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 50, 1158, 800);
+		scrollPane.setBounds(0, 50, 1800, 800);
 		contentPane.add(scrollPane);
 		scrollPane.setViewportView(new HomeAdmin(scrollPane));
 		
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, 0, 1135, 41);
+		menuBar.setBounds(0, 0, 1800, 50);
 		contentPane.add(menuBar);
 		
-		JMenu mnHome = new JMenu("Home");
+		JMenu mnHome = new JMenu("");
+		mnHome.setIcon(new ImageIcon(EspaceAdmin.class.getResource("/tn/esprit/auction/gui/client/boutonHome.png")));
 		mnHome.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -101,7 +102,10 @@ public class EspaceAdmin extends JFrame {
 		});
 		menuBar.add(mnHome);
 		
-		JMenu mnManager = new JMenu("Manager");
+
+		JMenu mnManager = new JMenu("");
+mnManager.setIcon(new ImageIcon(EspaceAdmin.class.getResource("/tn/esprit/auction/gui/client/ManagerBouton.png")));
+
 		mnManager.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -110,9 +114,12 @@ public class EspaceAdmin extends JFrame {
 			}
 		});
 	
-		menuBar.add(mnManager);
+	menuBar.add(mnManager);
 		
-		JMenu mnStockManager = new JMenu("Stock Manager");
+
+		JMenu mnStockManager = new JMenu("");
+		mnStockManager.setIcon(new ImageIcon(EspaceAdmin.class.getResource("/tn/esprit/auction/gui/client/boutonStockManager.png")));
+
 		mnStockManager.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -121,9 +128,13 @@ public class EspaceAdmin extends JFrame {
 			}
 		});
 		
+
 		menuBar.add(mnStockManager);
 		
-		JMenu mnDeliveryMan = new JMenu("Delivery Man");
+
+		JMenu mnDeliveryMan = new JMenu("");
+		mnDeliveryMan.setIcon(new ImageIcon(EspaceAdmin.class.getResource("/tn/esprit/auction/gui/client/boutonDeliveryMan.png")));
+
 		mnDeliveryMan.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -132,9 +143,10 @@ public class EspaceAdmin extends JFrame {
 			}
 		});
 		
-		menuBar.add(mnDeliveryMan);
+	menuBar.add(mnDeliveryMan);
 		
-		JMenu mnClient = new JMenu("Client");
+		JMenu mnClient = new JMenu("");
+		mnClient.setIcon(new ImageIcon(EspaceAdmin.class.getResource("/tn/esprit/auction/gui/client/boutonClients.png")));
 		mnClient.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -155,16 +167,17 @@ public class EspaceAdmin extends JFrame {
 		
 		menuBar.add(mnClient);
 		
-		JMenu mnConfiguration = new JMenu("configuration");
+		JMenu mnConfiguration = new JMenu("");
+		mnConfiguration.setIcon(new ImageIcon(EspaceAdmin.class.getResource("/tn/esprit/auction/gui/client/boutonConfiguration.png")));
 		mnConfiguration.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				scrollPane.setViewportView(new ConfigurationPanel(scrollPane));
 			}
 		});
-		menuBar.add(mnConfiguration);
 		
-		JMenu mnQuiz = new JMenu("QUIZ");
+		JMenu mnQuiz = new JMenu("");
+		mnQuiz.setIcon(new ImageIcon(EspaceAdmin.class.getResource("/tn/esprit/auction/gui/client/boutonQuiz.png")));
 		menuBar.add(mnQuiz);
 		
 		JMenu mnQuestion = new JMenu("Question");
@@ -185,6 +198,7 @@ public class EspaceAdmin extends JFrame {
 			}
 		});
 		mnQuestion.add(mntmDelete);
+		menuBar.add(mnConfiguration);
 		
 		
 		
