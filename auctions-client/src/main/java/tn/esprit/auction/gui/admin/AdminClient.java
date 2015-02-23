@@ -22,6 +22,7 @@ import javax.swing.JButton;
 
 import tn.esprit.auction.delegate.GestionUserDelegate;
 import tn.esprit.auction.domain.Client;
+import javax.swing.JTextField;
 
 public class AdminClient extends JPanel {
 	private JTable table;
@@ -34,6 +35,8 @@ public class AdminClient extends JPanel {
 	JLabel labelEmail;
 	JLabel labelTokens;
 	Client client=null;
+	private String username;
+	private JTextField usernameSearch;
 
 	/**
 	 * Create the panel.
@@ -49,9 +52,30 @@ public class AdminClient extends JPanel {
 		panelClient.setBounds(0, 0, 1800, 750);
 		add(panelClient);
 		panelClient.setLayout(null);
-		
-		
 		tableClients = new JTable();
+		usernameSearch = new JTextField();
+		usernameSearch.setBounds(728, 29, 199, 31);
+		panelClient.add(usernameSearch);
+		usernameSearch.setColumns(10);
+		tableClients.setModel(new ListClient());
+		
+		JButton btnSearch = new JButton("search");
+		btnSearch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				username=usernameSearch.getText();
+				if(username!=null)
+					tableClients.setModel(new ListClient(username));	
+				else
+					tableClients.setModel(new ListClient());
+					
+				
+			}
+		});
+		btnSearch.setBounds(954, 33, 89, 23);
+		panelClient.add(btnSearch);
+		
+		
+		
 		tableClients.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -102,7 +126,7 @@ public class AdminClient extends JPanel {
 		tableClients.setFont(new Font("Tahoma", Font.BOLD, 15));
 		tableClients.setBackground(new Color(253, 245, 230));
 		tableClients.setBounds(544, 122, 586, 406);
-		tableClients.setModel(new ListClient());
+		//tableClients.setModel(new ListClient());
 		panelClient.add(tableClients);
 		
 		 labelImage = new JLabel("");
@@ -220,11 +244,12 @@ public class AdminClient extends JPanel {
 		btnSendMail.setBounds(284, 579, 89, 23);
 		panelClient.add(btnSendMail);
 		
+		
+		
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon(AdminClient.class.getResource("/tn/esprit/auction/gui/client/back.jpg")));
 		label.setBounds(0, 0, 1800, 750);
 		panelClient.add(label);
 
 	}
-
 }

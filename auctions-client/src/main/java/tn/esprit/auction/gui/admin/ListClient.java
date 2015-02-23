@@ -23,7 +23,22 @@ public class ListClient extends AbstractTableModel{
 			
 		}
 		System.out.println("nombre client="+clients.size());
-	} @Override
+		
+	} 
+	
+	public ListClient(String name) {
+		User user = GestionUserDelegate.doFindUserByUsername(name);
+	
+		
+			if(user instanceof Client)
+			{
+				clients.add((Client)user);	
+			
+		}
+		System.out.println("nombre client="+clients.size());
+	}
+	
+	@Override
     public String getColumnName(int column) {
         return header[column];
     }
