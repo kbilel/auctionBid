@@ -26,11 +26,11 @@ public class HomeAdmin extends JPanel {
 	public HomeAdmin(JScrollPane scrollPane) {
 		userConnected = HomeClient.userConnected;
 				
-		setBounds(0, 50, 1158, 750);
+		setBounds(0, 50, 1800, 750);
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 1158, 750);
+		panel.setBounds(0, 0, 1800, 750);
 		add(panel);
 		panel.setLayout(null);
 		
@@ -67,7 +67,7 @@ new EspaceClient().setVisible(true);
 		
 		JLabel label_2 = new JLabel("");
 		label_2.setIcon(new ImageIcon(HomeAdmin.class.getResource("/tn/esprit/auction/gui/client/back.jpg")));
-		label_2.setBounds(0, 0, 1158, 750);
+		label_2.setBounds(0, 0, 1800, 750);
 		panel.add(label_2);
 
 	}

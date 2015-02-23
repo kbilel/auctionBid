@@ -33,7 +33,7 @@ public class StatisticAuctionCategories extends JPanel {
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 250, 240));
-		panel.setBounds(0, 21, 1142, 791);
+		panel.setBounds(0, 21, 1800, 750);
 		add(panel, new Integer(0), 0);
 		/********Stat*******/
 		 List<Auction> auctions=new ArrayList<Auction>();

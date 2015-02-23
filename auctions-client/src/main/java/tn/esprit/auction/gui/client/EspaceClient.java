@@ -122,13 +122,14 @@ public class EspaceClient extends JFrame {
 		contentPane.add(menuBar);
 		
 		JMenu mnProfil = new JMenu("");
-		mnProfil.setIcon(new ImageIcon(EspaceClient.class.getResource("/tn/esprit/auction/gui/client/boutonProfil.png")));
-		mnProfil.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		mnProfil.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
 				scrollPane.setViewportView(new PanelProfil());
-				
 			}
 		});
+		mnProfil.setIcon(new ImageIcon(EspaceClient.class.getResource("/tn/esprit/auction/gui/client/boutonProfil.png")));
+		
 		
 		JMenu mnNewMenu = new JMenu("");
 		mnNewMenu.setIcon(new ImageIcon(EspaceClient.class.getResource("/tn/esprit/auction/gui/client/boutonHome.png")));
@@ -153,6 +154,7 @@ public class EspaceClient extends JFrame {
 		
 
 		JMenu mnProducts = new JMenu("Products");
+		mnProducts.setSelectedIcon(new ImageIcon(EspaceClient.class.getResource("/tn/esprit/auction/gui/client/boutonProduct.png")));
 		mnProducts.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -251,16 +253,6 @@ public class EspaceClient extends JFrame {
 		});
 		mnAuctionByYear.add(mntmBarChart_2);
 		menuBar.add(mnProfil);
-		
-		JMenuItem mntmGestionProfil = new JMenuItem("Gestion Profil");
-		mntmGestionProfil.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				scrollPane.setViewportView(new PanelProfil());
-				System.out.println("otttk");
-			}
-		});
-		mnProfil.add(mntmGestionProfil);
 		
 		
 		mnSubscribe.addMouseListener(new MouseAdapter() {

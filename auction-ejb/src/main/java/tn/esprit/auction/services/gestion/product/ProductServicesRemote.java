@@ -13,5 +13,6 @@ public interface ProductServicesRemote {
 	Boolean deleteProduct(Product product);
 	Product findProductById(Integer idProduct);
 	List<Product>findAllProducts();
+	List<Product>findAllProductsByCategory(String category);
 	
 }

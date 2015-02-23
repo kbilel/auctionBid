@@ -48,7 +48,7 @@ public class PanelProfil extends JPanel {
 	 * Create the panel.
 	 */
 	public PanelProfil() {
-		setBounds(0, 0, 1158, 750);
+		setBounds(0, 0, 1800, 750);
 		client=new Client();
 		userConnected= HomeClient.userConnected;
 		if(HomeClient.userConnected==null)
@@ -66,12 +66,12 @@ public class PanelProfil extends JPanel {
 		final JPanel panelProfile = new JPanel();
 		panelProfile.setBackground(new Color(253, 245, 230));
 		panelProfile.setForeground(Color.BLACK);
-		panelProfile.setBounds(0, 0, 1158, 750);
+		panelProfile.setBounds(0, 0, 1800, 750);
 		add(panelProfile);
 		panelProfile.setLayout(null);
 		final JLabel labelImageUser = new JLabel("");
-		labelImageUser.setIcon(new ImageIcon(EspaceClient.class.getResource("/tn/esprit/auction/gui/authentification/User-icon.png")));
-		labelImageUser.setBounds(419, 5, 215, 212);
+		labelImageUser.setIcon(new ImageIcon(PanelProfil.class.getResource("/tn/esprit/auction/gui/client/profilClient.png")));
+		labelImageUser.setBounds(610, 6, 215, 212);
 		panelProfile.add(labelImageUser);
 		
 		JButton btnAddImgEdit = new JButton("add");
@@ -122,7 +122,7 @@ public class PanelProfil extends JPanel {
 				}
 			}
 		});
-		btnAddImgEdit.setBounds(496, 228, 89, 23);
+		btnAddImgEdit.setBounds(566, 229, 89, 23);
 		panelProfile.add(btnAddImgEdit);
 		
 		JLabel lblFullName = new JLabel("Full name :");
@@ -428,7 +428,7 @@ public class PanelProfil extends JPanel {
 		
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon(PanelProfil.class.getResource("/tn/esprit/auction/gui/client/back.jpg")));
-		label.setBounds(0, 0, 1158, 850);
+		label.setBounds(0, 0, 1800, 750);
 		panelProfile.add(label);
 		
 		if(userConnected!=null)
