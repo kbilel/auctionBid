@@ -20,6 +20,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.UIManager;
 
 import tn.esprit.auction.delegate.GestionStaffDelegate;
+import tn.esprit.auction.domain.DeliveryMan;
 import tn.esprit.auction.domain.Manager;
 
 public class AddDeliveryMan extends JPanel {
@@ -36,7 +37,8 @@ public class AddDeliveryMan extends JPanel {
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setForeground(new Color(0, 0, 0));
+		panel.setBackground(Color.BLUE);
+		panel.setForeground(Color.BLUE);
 		panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "add user", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		panel.setBounds(0, 0, 335, 282);
 		add(panel);
@@ -97,14 +99,14 @@ public class AddDeliveryMan extends JPanel {
 		lblName.setFont(new Font("Tahoma", Font.ITALIC, 20));
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Manager manager= new Manager();
-				manager.setFullName(tfName.getText());
-				manager.setEmail(tfEmail.getText());
-				manager.setAdress(tfAdresse.getText());
-				manager.setUserName(tfLogin.getText());
-				manager.setPassword(new String(passwordField.getText()));
+				DeliveryMan deliveryMan= new DeliveryMan();
+				deliveryMan.setFullName(tfName.getText());
+				deliveryMan.setEmail(tfEmail.getText());
+				deliveryMan.setAdress(tfAdresse.getText());
+				deliveryMan.setUserName(tfLogin.getText());
+				deliveryMan.setPassword(new String(passwordField.getText()));
 				
-				if(GestionStaffDelegate.doAddManager(manager))
+				if(GestionStaffDelegate.doAddDeliveryMan(deliveryMan))
 				 {JOptionPane.showMessageDialog(null, "ok...");
 			}
 				else {}

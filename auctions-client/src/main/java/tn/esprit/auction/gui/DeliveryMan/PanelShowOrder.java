@@ -42,6 +42,7 @@ import tn.esprit.auction.gui.authentification.Authentification;
 import tn.esprit.auction.gui.client.HomeClient;
 import java.awt.Font;
 import javax.swing.ImageIcon;
+import javax.swing.JTextField;
 
 public class PanelShowOrder extends JPanel {
 	List<Order>orders;
@@ -51,6 +52,7 @@ public class PanelShowOrder extends JPanel {
 	private JTable table;
 	private JTable table_1;
 	Order orderSelectedTable ;
+	String adress=new String();
 
 
 	/**
@@ -109,6 +111,8 @@ public class PanelShowOrder extends JPanel {
 				order=orderSelectedTable;
 				order.setIdDeliveryMan(HomeClient.getUser().getId());
 				GestionOrderDelegate.doUpdateOrder(order);
+				ordersTodeliver=GestionOrderDelegate.doFindAllOrders();
+				initDataBindings();
 				System.out.println("update ok");
 			}else JOptionPane.showMessageDialog(null, "This Order is already taken !" );
 				
@@ -125,6 +129,7 @@ public class PanelShowOrder extends JPanel {
 				order= orderState;
 				order.setState("Delivred");
 				GestionOrderDelegate.doUpdateOrder(order);
+				orders=GestionOrderDelegate.doFindAllOrders();
 				initDataBindings();
 				
 			
