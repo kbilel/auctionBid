@@ -153,11 +153,11 @@ User user= remote.authentificate("baya", "baya");
 		System.out.println("erreur jndi ... ");
 			e.printStackTrace();
 		}
-	//doAddUser(remote);	
+	doAddUser(remote);	
 //doFindAllUser(remote);
 		//doUpdateUser(remote);
 	//doDeleteUser(remote);
-		doFindUserByUsername(remote);
+		//doFindUserByUsername(remote);
 	
 	
 	}

@@ -50,6 +50,7 @@ public class EspaceDeliveryMan extends JFrame {
 	PanelShowOrder panelShowOrder;
 	PanelAjoutOrder panelAjoutOrder=new PanelAjoutOrder();
 	PanelProfile panelProfile=new PanelProfile();
+	HomeDelivery homeDelivery=new HomeDelivery();
 	// List<Order>orderForDeliveryMan;
 	
 	
@@ -74,6 +75,7 @@ public class EspaceDeliveryMan extends JFrame {
 	 * Create the frame.
 	 */
 	public EspaceDeliveryMan() {
+		scrollPane.setViewportView(homeDelivery);
 	
 		
 	
@@ -149,8 +151,7 @@ public class EspaceDeliveryMan extends JFrame {
 		JButton button = new JButton("Log out");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				EspaceClient frame=new EspaceClient();
-				frame.setVisible(true);
+			
 				setVisible(false);
 			}
 		});
