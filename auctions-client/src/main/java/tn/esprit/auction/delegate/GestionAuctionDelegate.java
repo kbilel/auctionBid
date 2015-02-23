@@ -45,4 +45,7 @@ public class GestionAuctionDelegate {
 	public static List<Auction> doFindAllAuctionsByProduct(Product product){
 		return getProxy().findAllAuctionsByProduct(product);
 	}	
+	public static List<Auction> doFindAllAuctionsByProductName(String productName){
+		return getProxy().findAllAuctionsByProductName(productName);
+	}	
 }

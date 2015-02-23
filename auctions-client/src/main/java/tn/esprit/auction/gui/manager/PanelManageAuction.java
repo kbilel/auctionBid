@@ -33,16 +33,22 @@ import tn.esprit.auction.domain.Client;
 
 
 
+import tn.esprit.auction.domain.Product;
+
 import java.util.Date;
 
 import org.jdesktop.beansbinding.ObjectProperty;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
+import javax.swing.JTextField;
 
 public class PanelManageAuction extends JPanel {
 	List<Auction> auctions;
 	private JTable table;
 	 static Auction auctionSelected;
+	 private JTextField textField;
 
 	/**
 	 * Create the panel.
@@ -68,7 +74,7 @@ public class PanelManageAuction extends JPanel {
 		JLabel lblAuctionsTable = new JLabel("Auction's Table :");
 		lblAuctionsTable.setForeground(new Color(0, 0, 139));
 		lblAuctionsTable.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblAuctionsTable.setBounds(227, 121, 249, 41);
+		lblAuctionsTable.setBounds(194, 121, 249, 41);
 		add(lblAuctionsTable);
 		
 		JLabel label_5 = new JLabel("Click here to convert a Product to an Auction !");
@@ -139,15 +145,23 @@ public class PanelManageAuction extends JPanel {
 		});
 		scrollPane.setViewportView(table);
 		
-		JButton btnRefreshTable = new JButton("Refresh Table");
+		JButton btnRefreshTable = new JButton("Find Auction By Product name");
 		btnRefreshTable.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
+				Product product=new Product();
+				product.setName(textField.getText());
+			auctions=GestionAuctionDelegate.doFindAllAuctionsByProductName(product.getName());
+			initDataBindings();
 			}
 			
 		});
-		btnRefreshTable.setBounds(467, 154, 126, 23);
+		btnRefreshTable.setBounds(409, 154, 202, 23);
 		add(btnRefreshTable);
+		
+		textField = new JTextField();
+		textField.setBounds(289, 156, 110, 20);
+		add(textField);
+		textField.setColumns(10);
 		
 		initDataBindings();
 
