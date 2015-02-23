@@ -39,14 +39,14 @@ public class AdminClient extends JPanel {
 	 * Create the panel.
 	 */
 	public AdminClient() {
-		setBounds(0, 0, 1158, 750);
+		setBounds(0, 0, 1800, 750);
 		
 		setBackground(new Color(248, 248, 255));
 		setLayout(null);
 		
 		final JPanel panelClient = new JPanel();
 		panelClient.setBackground(new Color(250, 250, 210));
-		panelClient.setBounds(0, 0, 1158, 750);
+		panelClient.setBounds(0, 0, 1800, 750);
 		add(panelClient);
 		panelClient.setLayout(null);
 		
@@ -222,7 +222,7 @@ public class AdminClient extends JPanel {
 		
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon(AdminClient.class.getResource("/tn/esprit/auction/gui/client/back.jpg")));
-		label.setBounds(0, 0, 1158, 850);
+		label.setBounds(0, 0, 1800, 750);
 		panelClient.add(label);
 
 	}

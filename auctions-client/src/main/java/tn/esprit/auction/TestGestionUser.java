@@ -126,6 +126,23 @@ User user= remote.authentificate("baya", "baya");
 
 	}
 	
+	public static void doFindUserByUsername(UserServicesRemote remote){
+		User user=remote.findUserByUsername("samir");
+		//Configuration configuration=new Configuration();
+
+		if(user!=null){
+			
+			System.out.println("OK find");
+			
+		
+		}
+		else
+			System.out.println("Erreur ...find Config");
+
+	}
+	
+	
+	
 	public static void main(String[] args) {
 		
 		
@@ -136,10 +153,12 @@ User user= remote.authentificate("baya", "baya");
 		System.out.println("erreur jndi ... ");
 			e.printStackTrace();
 		}
-	doAddUser(remote);	
+	//doAddUser(remote);	
 //doFindAllUser(remote);
 		//doUpdateUser(remote);
 	//doDeleteUser(remote);
+		doFindUserByUsername(remote);
+	
 	
 	}
 }

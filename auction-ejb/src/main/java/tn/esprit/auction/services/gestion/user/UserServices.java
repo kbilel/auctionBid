@@ -98,6 +98,21 @@ public class UserServices implements UserServicesRemote, UserServicesLocal {
 		return user;
 	}
 
+	@Override
+	public User findUserByUsername(String name) {
+		
+		User user=null;
+
+		try {
+			Query query=entityManager.createQuery("select u from User u where u.userName=:l");	
+		query.setParameter("l", name);
+		user=(User) query.getSingleResult();
+		} catch (Exception e) {
+			user=null;
+		}
+		return user;
+	}
+
 	
 
 

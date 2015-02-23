@@ -53,7 +53,7 @@ public class HomeClient extends JPanel {
 		setLayout(null);
 		
 		final JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 1158, 750);
+		panel.setBounds(0, 0, 1800, 750);
 		panel.setBackground(new Color(173, 216, 230));
 		add(panel);
 		panel.setLayout(null);
@@ -132,11 +132,6 @@ public class HomeClient extends JPanel {
 		});
 		btnDisconnect.setBounds(79, 222, 136, 35);
 		connectRubriq.add(btnDisconnect);
-		
-		JLabel label_2 = new JLabel("");
-		label_2.setIcon(new ImageIcon(HomeClient.class.getResource("/tn/esprit/auction/gui/client/back.jpg")));
-		label_2.setBounds(0, 0, 1158, 750);
-		panel.add(label_2);
 		
 		JLabel label_1 = new JLabel("");
 		label_1.setIcon(new ImageIcon(HomeClient.class.getResource("/tn/esprit/auction/gui/authentification/back1.jpg")));
