@@ -276,7 +276,7 @@ public class PanelManageProducts extends JPanel {
 		jTableBinding.addColumnBinding(productBeanProperty_4).setColumnName("Quantity");
 		//
 		BeanProperty<Product, String> productBeanProperty_5 = BeanProperty.create("description");
-		jTableBinding.addColumnBinding(productBeanProperty_5).setColumnName("New Column");
+		jTableBinding.addColumnBinding(productBeanProperty_5).setColumnName("Description");
 		//
 		jTableBinding.bind();
 		//
