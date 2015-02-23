@@ -178,9 +178,11 @@ public class PanelManageProducts extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				productSelected=products.get(table.getSelectedRow());
 				GestionProductDelegate.doDeleteProduct(productSelected);
-				productSelected=new Product();
-				GestionProductDelegate.doFindAllProducts();
 				initDataBindings();
+				productSelected=new Product();
+				
+				GestionProductDelegate.doFindAllProducts();
+				
 				
 				
 			}
