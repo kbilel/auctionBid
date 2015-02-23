@@ -35,6 +35,7 @@ public class EspaceStockManager extends JFrame {
 	private JPanel contentPane;
 	PanelAddProduct panelAddProduct;
 	PanelManageProducts panelManageProducts;
+	PanelStockManagerProfile panelStockManagerProfile;
 	 JScrollPane scrollPane;
 
 	/**
@@ -63,7 +64,15 @@ public class EspaceStockManager extends JFrame {
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
-		
+		JMenuItem mntmProfile = new JMenuItem("Profile");
+		mntmProfile.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				panelStockManagerProfile=new PanelStockManagerProfile();
+				scrollPane.setViewportView(panelStockManagerProfile);
+				
+			}
+		});
+		menuBar.add(mntmProfile);
 		JMenuItem mntmManageProducts = new JMenuItem("Manage Products");
 		mntmManageProducts.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -92,7 +101,7 @@ public class EspaceStockManager extends JFrame {
 		panel.setLayout(null);
 		panel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		
-		JLabel label = new JLabel("Manager");
+		JLabel label = new JLabel(" Stock Manager:");
 		label.setForeground(new Color(0, 0, 139));
 		label.setFont(new Font("Times New Roman", Font.BOLD, 20));
 		label.setBounds(59, 11, 100, 41);
