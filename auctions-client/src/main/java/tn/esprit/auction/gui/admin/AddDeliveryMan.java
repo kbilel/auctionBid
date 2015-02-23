@@ -36,7 +36,8 @@ public class AddDeliveryMan extends JPanel {
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setForeground(new Color(0, 0, 0));
+		panel.setBackground(Color.BLUE);
+		panel.setForeground(Color.BLUE);
 		panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "add user", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		panel.setBounds(0, 0, 335, 282);
 		add(panel);

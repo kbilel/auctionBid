@@ -74,17 +74,17 @@ public class PanelManageAuction extends JPanel {
 		JLabel lblAuctionsTable = new JLabel("Auction's Table :");
 		lblAuctionsTable.setForeground(new Color(0, 0, 139));
 		lblAuctionsTable.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblAuctionsTable.setBounds(194, 121, 249, 41);
+		lblAuctionsTable.setBounds(27, 142, 249, 41);
 		add(lblAuctionsTable);
 		
 		JLabel label_5 = new JLabel("Click here to convert a Product to an Auction !");
 		label_5.setForeground(Color.GREEN);
-		label_5.setBounds(200, 357, 454, 14);
+		label_5.setBounds(266, 357, 454, 14);
 		add(label_5);
 		
 		JLabel label_6 = new JLabel("Select an auction to update and then click the button !");
 		label_6.setForeground(new Color(255, 140, 0));
-		label_6.setBounds(200, 393, 454, 14);
+		label_6.setBounds(266, 393, 454, 14);
 		add(label_6);
 		
 		JButton button_1 = new JButton("Add new Auction");
@@ -94,7 +94,7 @@ public class PanelManageAuction extends JPanel {
 				frame.setVisible(true);
 			}
 		});
-		button_1.setBounds(0, 357, 190, 23);
+		button_1.setBounds(66, 357, 190, 23);
 		add(button_1);
 		
 		JButton button_2 = new JButton("Update selected Auction");
@@ -109,7 +109,7 @@ public class PanelManageAuction extends JPanel {
 				}
 			}
 		});
-		button_2.setBounds(0, 389, 190, 23);
+		button_2.setBounds(66, 389, 190, 23);
 		add(button_2);
 		
 		JButton button_3 = new JButton("Delete selected Auction");
@@ -123,12 +123,12 @@ public class PanelManageAuction extends JPanel {
 			    erreurSelection.setVisible(true);
 			}}
 		});
-		button_3.setBounds(0, 423, 190, 23);
+		button_3.setBounds(66, 423, 190, 23);
 		add(button_3);
 		
 		JLabel label_7 = new JLabel("Select an auction to delete and then click the button !");
 		label_7.setForeground(Color.RED);
-		label_7.setBounds(200, 427, 454, 14);
+		label_7.setBounds(266, 427, 454, 14);
 		add(label_7);
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -159,7 +159,7 @@ public class PanelManageAuction extends JPanel {
 		add(btnRefreshTable);
 		
 		textField = new JTextField();
-		textField.setBounds(289, 156, 110, 20);
+		textField.setBounds(214, 156, 185, 20);
 		add(textField);
 		textField.setColumns(10);
 		

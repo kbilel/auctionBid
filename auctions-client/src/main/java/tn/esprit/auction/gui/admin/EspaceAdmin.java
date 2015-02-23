@@ -102,17 +102,48 @@ public class EspaceAdmin extends JFrame {
 		});
 		menuBar.add(mnHome);
 		
+
 		JMenu mnManager = new JMenu("");
-		mnManager.setIcon(new ImageIcon(EspaceAdmin.class.getResource("/tn/esprit/auction/gui/client/ManagerBouton.png")));
-		menuBar.add(mnManager);
+mnManager.setIcon(new ImageIcon(EspaceAdmin.class.getResource("/tn/esprit/auction/gui/client/ManagerBouton.png")));
+
+		mnManager.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				GestionManager gestionManager=new GestionManager();
+				scrollPane.setViewportView(gestionManager);
+			}
+		});
+	
+	menuBar.add(mnManager);
 		
+
 		JMenu mnStockManager = new JMenu("");
 		mnStockManager.setIcon(new ImageIcon(EspaceAdmin.class.getResource("/tn/esprit/auction/gui/client/boutonStockManager.png")));
+
+		mnStockManager.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				GestionStockManager gestionStockManager=new GestionStockManager();
+				scrollPane.setViewportView(gestionStockManager);
+			}
+		});
+		
+
 		menuBar.add(mnStockManager);
 		
+
 		JMenu mnDeliveryMan = new JMenu("");
 		mnDeliveryMan.setIcon(new ImageIcon(EspaceAdmin.class.getResource("/tn/esprit/auction/gui/client/boutonDeliveryMan.png")));
-		menuBar.add(mnDeliveryMan);
+
+		mnDeliveryMan.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				GestionDeliveryMan gestionDeliveryMan=new GestionDeliveryMan();
+				scrollPane.setViewportView(gestionDeliveryMan);
+			}
+		});
+		
+	menuBar.add(mnDeliveryMan);
 		
 		JMenu mnClient = new JMenu("");
 		mnClient.setIcon(new ImageIcon(EspaceAdmin.class.getResource("/tn/esprit/auction/gui/client/boutonClients.png")));
@@ -123,6 +154,16 @@ public class EspaceAdmin extends JFrame {
 				System.out.println("otttk");
 			}
 		});
+		
+		JMenu mnBookKeeper = new JMenu("Book Keeper");
+		mnBookKeeper.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				GestionBookKeeper gestionBookKeeper=new GestionBookKeeper();
+				scrollPane.setViewportView(gestionBookKeeper);
+			}
+		});
+		menuBar.add(mnBookKeeper);
 		
 		menuBar.add(mnClient);
 		

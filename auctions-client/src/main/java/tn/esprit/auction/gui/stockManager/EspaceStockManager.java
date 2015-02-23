@@ -29,6 +29,7 @@ import tn.esprit.auction.gui.client.EspaceClient;
 import tn.esprit.auction.gui.client.HomeClient;
 
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.SwingConstants;
 
 public class EspaceStockManager extends JFrame {
 
@@ -155,6 +156,10 @@ public class EspaceStockManager extends JFrame {
 							.addComponent(panel, GroupLayout.PREFERRED_SIZE, 258, GroupLayout.PREFERRED_SIZE)))
 					.addContainerGap(27, Short.MAX_VALUE))
 		);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(EspaceStockManager.class.getResource("/tn/esprit/auction/gui/stockManager/stock.jpg")));
+		scrollPane.setViewportView(lblNewLabel);
 		contentPane.setLayout(gl_contentPane);
 	
 }

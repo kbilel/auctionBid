@@ -162,11 +162,11 @@ public class PanelManageProducts extends JPanel {
 				product.setName(ProdName.getText());
 				product.setCategory(Category.getText());
 				product.setQuantity(Integer.parseInt(Quantity.getText().toString()));
-				product.setPrice(Integer.parseInt(Quantity.getText().toString()));
+				product.setPrice(Integer.parseInt(Price.getText().toString()));
 				product.setDescription(Category.getText());
 				System.out.println(product.getId());
 				GestionProductDelegate.doUpdateProduct(product);
-					
+				initDataBindings();	
 				
 				
 				

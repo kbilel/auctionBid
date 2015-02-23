@@ -36,6 +36,7 @@ public class AddBookKeeper extends JPanel {
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(Color.BLUE);
 		panel.setForeground(new Color(0, 0, 0));
 		panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "add user", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		panel.setBounds(0, 0, 335, 282);
