@@ -151,8 +151,10 @@ public class EspaceDeliveryMan extends JFrame {
 		JButton button = new JButton("Log out");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
-				setVisible(false);
+				
+				HomeClient.userConnected  =null;
+				EspaceClient	 frame=new EspaceClient();
+					frame.setVisible(true);
 			}
 		});
 		button.setBounds(68, 281, 121, 36);
