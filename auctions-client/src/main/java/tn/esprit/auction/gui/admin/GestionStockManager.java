@@ -49,6 +49,7 @@ public class GestionStockManager extends JPanel {
 	private JTextField tfEmail;
 	StockManager stockManager;
 	JPanel panel;
+	private JTextField tfSearch;
 
 
 	/**
@@ -179,9 +180,27 @@ public class GestionStockManager extends JPanel {
 		panel_1.add(lblName);
 		
 		JLabel lblNewLabel = new JLabel("New label");
+
 		lblNewLabel.setIcon(new ImageIcon(GestionStockManager.class.getResource("/tn/esprit/auction/gui/client/back.jpg")));
 		lblNewLabel.setBounds(0, 0, 1800, 750);
+
 		add(lblNewLabel);
+		
+		tfSearch = new JTextField();
+		tfSearch.setBounds(57, 11, 86, 20);
+		add(tfSearch);
+		tfSearch.setColumns(10);
+		
+		JButton btnNewButton = new JButton("New button");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+			
+				
+			}
+		});
+		btnNewButton.setBounds(175, 10, 89, 23);
+		add(btnNewButton);
 		initDataBindings();
 		initDataBindings();
 		JLabel label = new JLabel("");

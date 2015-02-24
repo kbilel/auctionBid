@@ -1,6 +1,7 @@
 package tn.esprit.auction.gui.admin;
 
 import javax.swing.ImageIcon;
+
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.GroupLayout;
@@ -10,18 +11,26 @@ import javax.swing.JLabel;
 
 import java.awt.Font;
 import java.awt.Color;
+import java.awt.Image;
+import java.awt.Toolkit;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import javax.swing.border.TitledBorder;
 import javax.swing.UIManager;
 
 import tn.esprit.auction.delegate.GestionStaffDelegate;
 import tn.esprit.auction.domain.Manager;
+import tn.esprit.auction.gui.stockManager.PanelAddProduct;
 
 public class AddManager extends JPanel {
 	private JTextField tfLogin;
@@ -29,6 +38,7 @@ public class AddManager extends JPanel {
 	private JTextField tfEmail;
 	private JTextField tfName;
 	private JTextField tfAdresse;
+	JLabel labelImage;
 
 	/**
 	 * Create the panel.
@@ -36,9 +46,10 @@ public class AddManager extends JPanel {
 	public AddManager() {
 		setLayout(null);
 		setBounds(0, 0, 1800, 750);
+
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.BLUE);
-		panel.setForeground(new Color(0, 0, 0));
+		panel.setForeground(Color.BLUE);
 		panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "add user", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		panel.setBounds(0, 0, 1800, 750);
 		add(panel);

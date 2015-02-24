@@ -38,6 +38,7 @@ public class EspaceStockManager extends JFrame {
 	PanelManageProducts panelManageProducts;
 	PanelStockManagerProfile panelStockManagerProfile;
 	 JScrollPane scrollPane;
+	 EspaceClient frame;
 
 	/**
 	 * Launch the application.
@@ -120,12 +121,14 @@ public class EspaceStockManager extends JFrame {
 		JButton button = new JButton("Log out");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
 				EspaceClient frame=new EspaceClient();
 				//user
 				HomeClient.userConnected=null;
 				HomeClient.setUser(null);
 				
 				frame.setVisible(true);
+
 				setVisible(false);
 			}
 		});
