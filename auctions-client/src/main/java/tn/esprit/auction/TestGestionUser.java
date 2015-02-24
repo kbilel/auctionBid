@@ -14,11 +14,13 @@ import javax.naming.NamingException;
 
 
 
+
 import tn.esprit.auction.domain.Admin;
 import tn.esprit.auction.domain.Client;
 import tn.esprit.auction.domain.Configuration;
 import tn.esprit.auction.domain.DeliveryMan;
 import tn.esprit.auction.domain.Manager;
+import tn.esprit.auction.domain.StockManager;
 import tn.esprit.auction.domain.User;
 import tn.esprit.auction.services.Configuration.ConfigurationServiceRemote;
 import tn.esprit.auction.services.gestion.user.UserServicesRemote;
@@ -35,6 +37,7 @@ public class TestGestionUser {
 		user1.setEmail("alex");
 		user1.setFullName("alex");
 		user1.setPassword("alex");
+		user1.setImageUrl("/tn/esprit/auction/gui/client/profilClient.png");
 		
 		Client user2=new Client();
 		user2.setUserName("samir");
@@ -42,6 +45,7 @@ public class TestGestionUser {
 		user2.setEmail("samir");
 		user2.setFullName("samir");
 		user2.setPassword("samir");
+		user2.setImageUrl("/tn/esprit/auction/gui/client/profilClient.png");
 		
 		DeliveryMan user3=new DeliveryMan();
 		user3.setUserName("kbilel");
@@ -49,6 +53,7 @@ public class TestGestionUser {
 		user3.setEmail("kbilel@live.fr");
 		user3.setFullName("bilel khaled");
 		user3.setPassword("0000");
+		user3.setImageUrl("/tn/esprit/auction/gui/client/profilClient.png");
 		
 		Admin user4=new Admin();
 		user4.setUserName("admin");
@@ -56,9 +61,18 @@ public class TestGestionUser {
 		user4.setEmail("admin@mail.fr");
 		user4.setFullName("admin");
 		user4.setPassword("admin");
+		user4.setImageUrl("/tn/esprit/auction/gui/client/profilClient.png");
+		
+		StockManager user5=new StockManager();
+		user5.setUserName("sab");
+		user5.setAdress("sab");
+		user5.setEmail("sab@mail.fr");
+		user5.setFullName("sab");
+		user5.setPassword("sab");
+		user5.setImageUrl("/tn/esprit/auction/gui/client/profilClient.png");
 		
 		
-		if(remote.addUser(user3)&remote.addUser(user1)&remote.addUser(user2)&remote.addUser(user4)){
+		if(remote.addUser(user3)&remote.addUser(user1)&remote.addUser(user2)&remote.addUser(user4)&remote.addUser(user5)){
 			System.out.println("OK");
 		}
 		else
@@ -153,11 +167,11 @@ User user= remote.authentificate("baya", "baya");
 		System.out.println("erreur jndi ... ");
 			e.printStackTrace();
 		}
-	//doAddUser(remote);	
+	doAddUser(remote);	
 //doFindAllUser(remote);
 		//doUpdateUser(remote);
 	//doDeleteUser(remote);
-		doFindUserByUsername(remote);
+		//doFindUserByUsername(remote);
 	
 	
 	}

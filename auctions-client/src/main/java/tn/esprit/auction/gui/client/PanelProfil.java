@@ -235,7 +235,8 @@ public class PanelProfil extends JPanel {
 		labelToken.setText("----------");
 		
 		
-		final JButton btnDeleteUser = new JButton("delete");
+		final JButton btnDeleteUser = new JButton("");
+		btnDeleteUser.setIcon(new ImageIcon(PanelProfil.class.getResource("/tn/esprit/auction/gui/client/boutonDelete.png")));
 		btnDeleteUser.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(userConnected!=null)
@@ -262,10 +263,11 @@ public class PanelProfil extends JPanel {
 				}
 			}
 		});
-		btnDeleteUser.setBounds(398, 710, 89, 23);
+		btnDeleteUser.setBounds(304, 679, 174, 39);
 		panelProfile.add(btnDeleteUser);
 		
-		JButton btnEditUser = new JButton("edit");
+		JButton btnEditUser = new JButton("");
+		btnEditUser.setIcon(new ImageIcon(PanelProfil.class.getResource("/tn/esprit/auction/gui/admin/bountonEdit.png")));
 		btnEditUser.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -295,10 +297,11 @@ public class PanelProfil extends JPanel {
 				}
 			}
 		});
-		btnEditUser.setBounds(566, 710, 89, 23);
+		btnEditUser.setBounds(513, 679, 157, 39);
 		panelProfile.add(btnEditUser);
 		
-		JButton btnValidateEdit = new JButton("validate Edit");
+		JButton btnValidateEdit = new JButton("");
+		btnValidateEdit.setIcon(new ImageIcon(PanelProfil.class.getResource("/tn/esprit/auction/gui/admin/boutonValidateEdit.png")));
 		btnValidateEdit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(userConnected!=null)
@@ -417,7 +420,7 @@ public class PanelProfil extends JPanel {
 				}
 			}
 		});
-		btnValidateEdit.setBounds(680, 710, 108, 23);
+		btnValidateEdit.setBounds(680, 677, 145, 39);
 		panelProfile.add(btnValidateEdit);
 		
 		tfPathImageUser = new JTextField();

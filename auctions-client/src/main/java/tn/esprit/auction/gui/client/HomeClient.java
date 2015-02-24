@@ -50,7 +50,7 @@ public class HomeClient extends JPanel {
 		//userConnected = HomeClient.userConnected;
 		if (userConnected == null)
 			userConnected = SubscribingPanel.userConnected;
-		setBounds(0, 0, 1158, 750);
+		setBounds(0, 0, 1800, 750);
 		setLayout(null);
 		
 		final JPanel panel = new JPanel();
@@ -60,7 +60,7 @@ public class HomeClient extends JPanel {
 		panel.setLayout(null);
 		
 		JLabel label = new JLabel("");
-		label.setBounds(0, 0, 1142, 189);
+		label.setBounds(93, 0, 1431, 189);
 		label.setIcon(new ImageIcon(HomeClient.class.getResource("/tn/esprit/auction/gui/client/logo10.png")));
 		panel.add(label);
 		
@@ -91,8 +91,9 @@ public class HomeClient extends JPanel {
 		loginTF.setBounds(112, 176, 139, 20);
 		authentification.add(loginTF);
 		loginTF.setColumns(10);
-		JButton btnConnect = new JButton("connect");
-		btnConnect.setBounds(63, 253, 139, 36);
+		JButton btnConnect = new JButton("");
+		btnConnect.setIcon(new ImageIcon(HomeClient.class.getResource("/tn/esprit/auction/gui/client/boutonLogin.png")));
+		btnConnect.setBounds(33, 253, 185, 36);
 		authentification.add(btnConnect);
 		
 		passwordField = new JPasswordField();
@@ -117,7 +118,8 @@ public class HomeClient extends JPanel {
 		fullname.setBounds(87, 195, 164, 25);
 		connectRubriq.add(fullname);
 		
-		JButton btnDisconnect = new JButton("disconnect");
+		JButton btnDisconnect = new JButton("");
+		btnDisconnect.setIcon(new ImageIcon(HomeClient.class.getResource("/tn/esprit/auction/gui/admin/boutonLogoutt.png")));
 		btnDisconnect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				userConnected=null;
@@ -131,7 +133,7 @@ public class HomeClient extends JPanel {
 				connectRubriq.setVisible(false);
 			}
 		});
-		btnDisconnect.setBounds(79, 222, 136, 35);
+		btnDisconnect.setBounds(56, 216, 159, 41);
 		connectRubriq.add(btnDisconnect);
 		
 		JLabel label_1 = new JLabel("");
@@ -283,5 +285,9 @@ public class HomeClient extends JPanel {
 	public static User getUser()
 	{
 		return userConnected;
+	}
+	public static void setUser(User user)
+	{
+		userConnected=user;
 	}
 }

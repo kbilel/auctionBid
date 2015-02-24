@@ -54,12 +54,13 @@ public class AdminClient extends JPanel {
 		panelClient.setLayout(null);
 		tableClients = new JTable();
 		usernameSearch = new JTextField();
-		usernameSearch.setBounds(728, 29, 199, 31);
+		usernameSearch.setBounds(728, 11, 199, 49);
 		panelClient.add(usernameSearch);
 		usernameSearch.setColumns(10);
 		tableClients.setModel(new ListClient());
 		
-		JButton btnSearch = new JButton("search");
+		JButton btnSearch = new JButton("");
+		btnSearch.setIcon(new ImageIcon(AdminClient.class.getResource("/tn/esprit/auction/gui/client/boutonSearch.png")));
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				username=usernameSearch.getText();
@@ -71,7 +72,7 @@ public class AdminClient extends JPanel {
 				
 			}
 		});
-		btnSearch.setBounds(954, 33, 89, 23);
+		btnSearch.setBounds(954, 11, 169, 49);
 		panelClient.add(btnSearch);
 		
 		
@@ -206,7 +207,8 @@ public class AdminClient extends JPanel {
 		labelTokens.setBounds(307, 545, 141, 23);
 		panelClient.add(labelTokens);
 		
-		JButton btnDelete = new JButton("delete");
+		JButton btnDelete = new JButton("");
+		btnDelete.setIcon(new ImageIcon(AdminClient.class.getResource("/tn/esprit/auction/gui/client/boutonDelete.png")));
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(client!=null)
@@ -232,7 +234,7 @@ public class AdminClient extends JPanel {
 				}
 			}
 		});
-		btnDelete.setBounds(405, 579, 89, 23);
+		btnDelete.setBounds(383, 579, 169, 36);
 		panelClient.add(btnDelete);
 		
 		JButton btnSendMail = new JButton("send Mail");

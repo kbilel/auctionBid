@@ -29,11 +29,11 @@ public class ConfigurationPanel extends JPanel {
 	 * Create the panel.
 	 */
 	public ConfigurationPanel(final JScrollPane scrollPane ) {
-		setBounds(0, 0, 1158, 750);
+		setBounds(0, 0, 1800, 750);
 		setLayout(null);
 		
 		final JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 1158, 750);
+		panel.setBounds(0, 0, 1800, 750);
 		add(panel);
 		panel.setLayout(null);
 		
@@ -64,7 +64,8 @@ public class ConfigurationPanel extends JPanel {
 		spinnerQuiz.setBounds(469, 318, 206, 47);
 		panel.add(spinnerQuiz);
 		
-		JButton btnValidate = new JButton("validate");
+		JButton btnValidate = new JButton("");
+		btnValidate.setIcon(new ImageIcon(ConfigurationPanel.class.getResource("/tn/esprit/auction/gui/client/boutonAdd.png")));
 		btnValidate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -82,6 +83,7 @@ public class ConfigurationPanel extends JPanel {
 					configuration.setNbrTokenParInvitation(invit);
 					
 					List<Configuration> configurations =new ArrayList<Configuration>();
+					configurations=GestionConfigurationDelegate.doFindAllConfigurations();
 					if(configurations!=null)
 					{for (Configuration conf : configurations) {
 						GestionConfigurationDelegate.doDeleteConfiguration(conf);
@@ -96,15 +98,15 @@ public class ConfigurationPanel extends JPanel {
 			}
 		});
 		btnValidate.setFont(new Font("Tahoma", Font.BOLD, 20));
-		btnValidate.setBounds(371, 480, 161, 55);
+		btnValidate.setBounds(371, 480, 226, 55);
 		panel.add(btnValidate);
 		
 		
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon(ConfigurationPanel.class.getResource("/tn/esprit/auction/gui/admin/back1Config.jpg")));
-		lblNewLabel.setBounds(0, 0, 1158, 850);
-		panel.add(lblNewLabel);
+		JLabel label1 = new JLabel("");
+		label1.setIcon(new ImageIcon(ConfigurationPanel.class.getResource("/tn/esprit/auction/gui/client/back.jpg")));
+		label1.setBounds(0, 0, 1800, 750);
+		panel.add(label1);
 
 	}
 }

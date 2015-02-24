@@ -61,11 +61,13 @@ public class EspaceStockManager extends JFrame {
 	public EspaceStockManager() {
 		setTitle("Espace Stock Manager");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1100, 600);
+		setBounds(100, 100, 1800, 850);
 		
 		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBounds(0, 0, 1800, 50);
 		setJMenuBar(menuBar);
-		JMenuItem mntmProfile = new JMenuItem("Profile");
+		JMenuItem mntmProfile = new JMenuItem("");
+		mntmProfile.setIcon(new ImageIcon(EspaceStockManager.class.getResource("/tn/esprit/auction/gui/client/boutonProfil.png")));
 		mntmProfile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				panelStockManagerProfile=new PanelStockManagerProfile();
@@ -74,7 +76,8 @@ public class EspaceStockManager extends JFrame {
 			}
 		});
 		menuBar.add(mntmProfile);
-		JMenuItem mntmManageProducts = new JMenuItem("Manage Products");
+		JMenuItem mntmManageProducts = new JMenuItem("");
+		mntmManageProducts.setIcon(new ImageIcon(EspaceStockManager.class.getResource("/tn/esprit/auction/gui/client/boutonMnageProduct.png")));
 		mntmManageProducts.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				panelManageProducts=new PanelManageProducts();
@@ -84,7 +87,8 @@ public class EspaceStockManager extends JFrame {
 		});
 		menuBar.add(mntmManageProducts);
 		
-		JMenuItem mntmAddProduct = new JMenuItem("Add Product");
+		JMenuItem mntmAddProduct = new JMenuItem("");
+		mntmAddProduct.setIcon(new ImageIcon(EspaceStockManager.class.getResource("/tn/esprit/auction/gui/client/boutonAddProduct.png")));
 		mntmAddProduct.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				panelAddProduct=new PanelAddProduct();
@@ -93,6 +97,7 @@ public class EspaceStockManager extends JFrame {
 		});
 		menuBar.add(mntmAddProduct);
 		contentPane = new JPanel();
+		contentPane.setBounds(0, 50, 1800, 750);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
@@ -116,6 +121,10 @@ public class EspaceStockManager extends JFrame {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				EspaceClient frame=new EspaceClient();
+				//user
+				HomeClient.userConnected=null;
+				HomeClient.setUser(null);
+				
 				frame.setVisible(true);
 				setVisible(false);
 			}

@@ -158,7 +158,8 @@ public class EspaceClient extends JFrame {
 		menuBar.add(mnAuctions);
 		
 
-		JMenu mnProducts = new JMenu("Products");
+		JMenu mnProducts = new JMenu("");
+		mnProducts.setIcon(new ImageIcon(EspaceClient.class.getResource("/tn/esprit/auction/gui/client/boutonProduct.png")));
 		mnProducts.setSelectedIcon(new ImageIcon(EspaceClient.class.getResource("/tn/esprit/auction/gui/client/boutonProduct.png")));
 		mnProducts.addMouseListener(new MouseAdapter() {
 			@Override
@@ -175,10 +176,12 @@ public class EspaceClient extends JFrame {
 		mnStatistic.setSelectedIcon(new ImageIcon(EspaceClient.class.getResource("/tn/esprit/auction/gui/client/boutonStat.png")));
 		menuBar.add(mnStatistic);
 		
-		JMenu mnProductByCategories = new JMenu("Product by Category");
+		JMenu mnProductByCategories = new JMenu("");
+		mnProductByCategories.setIcon(new ImageIcon(EspaceClient.class.getResource("/tn/esprit/auction/gui/client/boutonStetisticProduct.png")));
 		mnStatistic.add(mnProductByCategories);
 		
-		JMenuItem mntmPieChart = new JMenuItem("Pie chart");
+		JMenuItem mntmPieChart = new JMenuItem("");
+		mntmPieChart.setIcon(new ImageIcon(EspaceClient.class.getResource("/tn/esprit/auction/gui/client/boutonPie.png")));
 		mntmPieChart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(products!=null)
@@ -190,7 +193,8 @@ public class EspaceClient extends JFrame {
 		});
 		mnProductByCategories.add(mntmPieChart);
 		
-		JMenuItem mntmBarChart = new JMenuItem("Bar chart");
+		JMenuItem mntmBarChart = new JMenuItem("");
+		mntmBarChart.setIcon(new ImageIcon(EspaceClient.class.getResource("/tn/esprit/auction/gui/client/boutonBar.png")));
 		mntmBarChart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(products!=null)
@@ -203,10 +207,12 @@ public class EspaceClient extends JFrame {
 		});
 		mnProductByCategories.add(mntmBarChart);
 		
-		JMenu mnAuctionByCategory = new JMenu("Auction by Category");
+		JMenu mnAuctionByCategory = new JMenu("");
+		mnAuctionByCategory.setIcon(new ImageIcon(EspaceClient.class.getResource("/tn/esprit/auction/gui/client/boutonStatauctionByCtegory.png")));
 		mnStatistic.add(mnAuctionByCategory);
 		
-		JMenuItem mntmPieChart_1 = new JMenuItem("Pie Chart");
+		JMenuItem mntmPieChart_1 = new JMenuItem("");
+		mntmPieChart_1.setIcon(new ImageIcon(EspaceClient.class.getResource("/tn/esprit/auction/gui/client/boutonPie.png")));
 		mntmPieChart_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(auctions!=null)
@@ -218,7 +224,8 @@ public class EspaceClient extends JFrame {
 		});
 		mnAuctionByCategory.add(mntmPieChart_1);
 		
-		JMenuItem mntmBarChart_1 = new JMenuItem("Bar chart");
+		JMenuItem mntmBarChart_1 = new JMenuItem("");
+		mntmBarChart_1.setIcon(new ImageIcon(EspaceClient.class.getResource("/tn/esprit/auction/gui/client/boutonBar.png")));
 		mntmBarChart_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(auctions!=null)
@@ -230,10 +237,12 @@ public class EspaceClient extends JFrame {
 		});
 		mnAuctionByCategory.add(mntmBarChart_1);
 		
-		JMenu mnAuctionByYear = new JMenu("Auction by year");
+		JMenu mnAuctionByYear = new JMenu("");
+		mnAuctionByYear.setIcon(new ImageIcon(EspaceClient.class.getResource("/tn/esprit/auction/gui/client/boutonStatAuctionByYear.png")));
 		mnStatistic.add(mnAuctionByYear);
 		
-		JMenuItem mntmPieChart_2 = new JMenuItem("Pie chart");
+		JMenuItem mntmPieChart_2 = new JMenuItem("");
+		mntmPieChart_2.setIcon(new ImageIcon(EspaceClient.class.getResource("/tn/esprit/auction/gui/client/boutonPie.png")));
 		mntmPieChart_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(auctions!=null)
@@ -245,7 +254,8 @@ public class EspaceClient extends JFrame {
 		});
 		mnAuctionByYear.add(mntmPieChart_2);
 		
-		JMenuItem mntmBarChart_2 = new JMenuItem("Bar chart");
+		JMenuItem mntmBarChart_2 = new JMenuItem("");
+		mntmBarChart_2.setIcon(new ImageIcon(EspaceClient.class.getResource("/tn/esprit/auction/gui/client/boutonBar.png")));
 		mntmBarChart_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(auctions!=null)

@@ -155,7 +155,8 @@ mnManager.setIcon(new ImageIcon(EspaceAdmin.class.getResource("/tn/esprit/auctio
 			}
 		});
 		
-		JMenu mnBookKeeper = new JMenu("Book Keeper");
+		JMenu mnBookKeeper = new JMenu("");
+		mnBookKeeper.setIcon(new ImageIcon(EspaceAdmin.class.getResource("/tn/esprit/auction/gui/client/boutonBook.png")));
 		mnBookKeeper.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -163,6 +164,32 @@ mnManager.setIcon(new ImageIcon(EspaceAdmin.class.getResource("/tn/esprit/auctio
 				scrollPane.setViewportView(gestionBookKeeper);
 			}
 		});
+		
+		JMenu mnQuiz = new JMenu("");
+		mnQuiz.setIcon(new ImageIcon(EspaceAdmin.class.getResource("/tn/esprit/auction/gui/client/boutonQuiz.png")));
+		menuBar.add(mnQuiz);
+		
+		JMenu mnQuestion = new JMenu("");
+		mnQuestion.setIcon(new ImageIcon(EspaceAdmin.class.getResource("/tn/esprit/auction/gui/client/boutonQuestion.png")));
+		mnQuiz.add(mnQuestion);
+		
+		JMenuItem mntmAdd = new JMenuItem("");
+		mntmAdd.setIcon(new ImageIcon(EspaceAdmin.class.getResource("/tn/esprit/auction/gui/client/boutonAddQuestion.png")));
+		mntmAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				scrollPane.setViewportView(new QuestionQUIZ(scrollPane));
+			}
+		});
+		mnQuestion.add(mntmAdd);
+		
+		JMenuItem mntmDelete = new JMenuItem("");
+		mntmDelete.setIcon(new ImageIcon(EspaceAdmin.class.getResource("/tn/esprit/auction/gui/client/boutonDeleteQuestion.png")));
+		mntmDelete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				scrollPane.setViewportView(new ListQuestionPanel());
+			}
+		});
+		mnQuestion.add(mntmDelete);
 		menuBar.add(mnBookKeeper);
 		
 		menuBar.add(mnClient);
@@ -175,29 +202,6 @@ mnManager.setIcon(new ImageIcon(EspaceAdmin.class.getResource("/tn/esprit/auctio
 				scrollPane.setViewportView(new ConfigurationPanel(scrollPane));
 			}
 		});
-		
-		JMenu mnQuiz = new JMenu("");
-		mnQuiz.setIcon(new ImageIcon(EspaceAdmin.class.getResource("/tn/esprit/auction/gui/client/boutonQuiz.png")));
-		menuBar.add(mnQuiz);
-		
-		JMenu mnQuestion = new JMenu("Question");
-		mnQuiz.add(mnQuestion);
-		
-		JMenuItem mntmAdd = new JMenuItem("add");
-		mntmAdd.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				scrollPane.setViewportView(new QuestionQUIZ(scrollPane));
-			}
-		});
-		mnQuestion.add(mntmAdd);
-		
-		JMenuItem mntmDelete = new JMenuItem("delete");
-		mntmDelete.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				scrollPane.setViewportView(new ListQuestionPanel());
-			}
-		});
-		mnQuestion.add(mntmDelete);
 		menuBar.add(mnConfiguration);
 		
 		

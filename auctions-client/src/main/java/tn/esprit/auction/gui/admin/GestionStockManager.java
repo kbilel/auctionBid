@@ -179,11 +179,15 @@ public class GestionStockManager extends JPanel {
 		panel_1.add(lblName);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon(GestionStockManager.class.getResource("/tn/esprit/auction/gui/admin/back1Config.jpg")));
-		lblNewLabel.setBounds(0, 0, 1215, 756);
+		lblNewLabel.setIcon(new ImageIcon(GestionStockManager.class.getResource("/tn/esprit/auction/gui/client/back.jpg")));
+		lblNewLabel.setBounds(0, 0, 1800, 750);
 		add(lblNewLabel);
 		initDataBindings();
 		initDataBindings();
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(AdminClient.class.getResource("/tn/esprit/auction/gui/client/back.jpg")));
+		label.setBounds(0, 0, 1800, 750);
+		//panel.add(label);
 
 	}
 	protected void initDataBindings() {

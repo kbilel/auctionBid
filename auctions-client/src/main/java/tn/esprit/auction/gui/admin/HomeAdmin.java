@@ -51,10 +51,12 @@ public class HomeAdmin extends JPanel {
 		
 		panel_1.add(label_1);
 		
-		JButton button = new JButton("disconnect");
+		JButton button = new JButton("");
+		button.setIcon(new ImageIcon(HomeAdmin.class.getResource("/tn/esprit/auction/gui/admin/boutonLogoutt.png")));
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				userConnected=null;
+				HomeClient.userConnected=null;
 new EspaceClient().setVisible(true);
                   setVisible(false);
 				
@@ -62,7 +64,7 @@ new EspaceClient().setVisible(true);
 				
 			}
 		});
-		button.setBounds(79, 222, 136, 35);
+		button.setBounds(40, 222, 184, 35);
 		panel_1.add(button);
 		
 		JLabel label_2 = new JLabel("");

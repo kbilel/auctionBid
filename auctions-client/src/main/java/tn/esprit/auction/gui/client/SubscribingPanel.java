@@ -124,7 +124,8 @@ public class SubscribingPanel extends JPanel {
 		tfEmail.setBounds(238, 610, 368, 41);
 		panel.add(tfEmail);
 		
-		JButton button_1 = new JButton("register");
+		JButton button_1 = new JButton("");
+		button_1.setIcon(new ImageIcon(SubscribingPanel.class.getResource("/tn/esprit/auction/gui/client/boutonRegister.png")));
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -195,7 +196,7 @@ public class SubscribingPanel extends JPanel {
 				
 			}
 		});
-		button_1.setBounds(360, 728, 132, 35);
+		button_1.setBounds(634, 584, 155, 35);
 		panel.add(button_1);
 		
 		tfPathImage = new JTextField();

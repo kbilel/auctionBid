@@ -1,5 +1,6 @@
 package tn.esprit.auction.gui.admin;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.GroupLayout;
@@ -34,12 +35,12 @@ public class AddStockManager extends JPanel {
 	 */
 	public AddStockManager() {
 		setLayout(null);
-		
+		setBounds(0, 0, 1800, 750);
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.BLUE);
 		panel.setForeground(Color.BLUE);
 		panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "add user", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panel.setBounds(0, 0, 335, 282);
+		panel.setBounds(0, 0, 1800, 750);
 		add(panel);
 		panel.setLayout(null);
 		
@@ -104,6 +105,7 @@ public class AddStockManager extends JPanel {
 				stockManager.setAdress(tfAdresse.getText());
 				stockManager.setUserName(tfLogin.getText());
 				stockManager.setPassword(new String(passwordField.getText()));
+				stockManager.setImageUrl("/tn/esprit/auction/gui/client/back.jpg");
 				
 				if(GestionStaffDelegate.doAddStockManager(stockManager))
 				 {JOptionPane.showMessageDialog(null, "ok...");
@@ -111,6 +113,11 @@ public class AddStockManager extends JPanel {
 				else {}
 			}
 		});
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(AdminClient.class.getResource("/tn/esprit/auction/gui/client/back.jpg")));
+		label.setBounds(0, 0, 1800, 750);
+		panel.add(label);
 
 	}
 }

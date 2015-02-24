@@ -55,6 +55,7 @@ public class GestionBookKeeper extends JPanel {
 	 * Create the panel.
 	 */
 	public GestionBookKeeper() {
+		setBounds(0, 0, 1800, 750);
 		final JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 60, 354, 281);
 		bookKeepers =new ArrayList<BookKeeper>();
@@ -92,7 +93,8 @@ public class GestionBookKeeper extends JPanel {
 		});
 		btnEdit.setBounds(447, 368, 69, 23);
 		
-		JButton btnDelete = new JButton("delete");
+		JButton btnDelete = new JButton("");
+		btnDelete.setIcon(new ImageIcon(GestionBookKeeper.class.getResource("/tn/esprit/auction/gui/client/boutonDelete.png")));
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				bookKeeper.setUserName(tfLogin.getText());
@@ -111,7 +113,7 @@ public class GestionBookKeeper extends JPanel {
 				else {}
 			}
 		});
-		btnDelete.setBounds(280, 368, 79, 23);
+		btnDelete.setBounds(261, 368, 163, 35);
 		setLayout(null);
 		
 		add(scrollPane);
@@ -179,11 +181,15 @@ public class GestionBookKeeper extends JPanel {
 		
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setForeground(Color.PINK);
-		lblNewLabel.setIcon(new ImageIcon(GestionBookKeeper.class.getResource("/tn/esprit/auction/gui/admin/back1Config.jpg")));
-		lblNewLabel.setBounds(0, 0, 1222, 778);
+		lblNewLabel.setIcon(new ImageIcon(GestionBookKeeper.class.getResource("/tn/esprit/auction/gui/client/back.jpg")));
+		lblNewLabel.setBounds(0, 0, 1800, 750);
 		add(lblNewLabel);
 		initDataBindings();
 		initDataBindings();
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(AdminClient.class.getResource("/tn/esprit/auction/gui/client/back.jpg")));
+		label.setBounds(0, 0, 1800, 750);
+		//panel.add(label);
 
 	}
 	protected void initDataBindings() {

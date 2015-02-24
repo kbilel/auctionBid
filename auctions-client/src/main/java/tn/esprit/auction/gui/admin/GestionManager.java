@@ -55,6 +55,7 @@ public class GestionManager extends JPanel {
 	 * Create the panel.
 	 */
 	public GestionManager() {
+		setBounds(0, 0, 1800, 750);
 		final JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 60, 349, 297);
 	
@@ -96,7 +97,8 @@ public class GestionManager extends JPanel {
 		});
 		btnEdit.setBounds(447, 368, 69, 23);
 		
-		JButton btnDelete = new JButton("delete");
+		JButton btnDelete = new JButton("");
+		btnDelete.setIcon(new ImageIcon(GestionManager.class.getResource("/tn/esprit/auction/gui/client/boutonDelete.png")));
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				manager.setUserName(tfLogin.getText());
@@ -115,7 +117,7 @@ public class GestionManager extends JPanel {
 				else {}
 			}
 		});
-		btnDelete.setBounds(280, 368, 79, 23);
+		btnDelete.setBounds(258, 368, 168, 37);
 		setLayout(null);
 		
 		add(scrollPane);
@@ -186,12 +188,15 @@ public class GestionManager extends JPanel {
 		panel_1.add(lblName);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon(GestionManager.class.getResource("/tn/esprit/auction/gui/admin/back1Config.jpg")));
-		lblNewLabel.setBounds(10, 0, 1254, 800);
+		lblNewLabel.setIcon(new ImageIcon(GestionManager.class.getResource("/tn/esprit/auction/gui/client/back.jpg")));
+		lblNewLabel.setBounds(10, 0, 1800, 750);
 		add(lblNewLabel);
 		initDataBindings();
 		initDataBindings();
-
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(AdminClient.class.getResource("/tn/esprit/auction/gui/client/back.jpg")));
+		label.setBounds(0, 0, 1800, 750);
+		//panel_1.add(label);
 	}
 	protected void initDataBindings() {
 		JTableBinding<Manager, List<Manager>, JTable> jTableBinding = SwingBindings.createJTableBinding(UpdateStrategy.READ_WRITE, managers, table);

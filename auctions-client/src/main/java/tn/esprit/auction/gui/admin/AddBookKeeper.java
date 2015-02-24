@@ -1,5 +1,6 @@
 package tn.esprit.auction.gui.admin;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.GroupLayout;
@@ -34,12 +35,12 @@ public class AddBookKeeper extends JPanel {
 	 */
 	public AddBookKeeper() {
 		setLayout(null);
-		
+		setBounds(0, 0, 1800, 750);
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.BLUE);
 		panel.setForeground(new Color(0, 0, 0));
 		panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "add user", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panel.setBounds(0, 0, 335, 282);
+		panel.setBounds(0, 0, 1800, 750);
 		add(panel);
 		panel.setLayout(null);
 		
@@ -76,6 +77,10 @@ public class AddBookKeeper extends JPanel {
 		JButton btnSave = new JButton("save");
 		btnSave.setBounds(125, 203, 89, 23);
 		panel.add(btnSave);
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(AddBookKeeper.class.getResource("/tn/esprit/auction/gui/client/back.jpg")));
+		label.setBounds(0, 0, 1800, 750);
+		panel.add(label);
 		
 		JLabel lblUsername = new JLabel("username");
 		lblUsername.setBounds(34, 45, 110, 23);
@@ -104,6 +109,9 @@ public class AddBookKeeper extends JPanel {
 				bookKeeper.setAdress(tfAdresse.getText());
 				bookKeeper.setUserName(tfLogin.getText());
 				bookKeeper.setPassword(new String(passwordField.getText()));
+				bookKeeper.setImageUrl("/tn/esprit/auction/gui/client/back.jpg");
+				
+				
 				
 				if(GestionStaffDelegate.doAddBookKeeper(bookKeeper))
 				 {JOptionPane.showMessageDialog(null, "ok...");
@@ -113,4 +121,5 @@ public class AddBookKeeper extends JPanel {
 		});
 
 	}
+	
 }
