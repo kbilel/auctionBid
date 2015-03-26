@@ -26,6 +26,8 @@ public Integer getIdYankeeAuction() {
 public void setIdYankeeAuction(Integer idYankeeAuction) {
 	this.idYankeeAuction = idYankeeAuction;
 }
+
+
 @Override
 public int hashCode() {
 	final int prime = 31;

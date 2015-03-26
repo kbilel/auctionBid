@@ -185,10 +185,10 @@ public class SubscribingPanel extends JPanel {
 					Client client2=(Client)clients.get((clients.size()-1));
 					 userConnected=client2;
 					new HomeClient().userConnected=userConnected;
-					 System.out.println("ouiiiiiiiiiiii inscri mrigla");
+					 System.out.println(" inscri mrigla");
 					 new HomeClient().setVisible(true);
 					 setVisible(false);
-					 System.out.println("ouiiiiiiiiiiii inscri mrigla");
+					 System.out.println(" inscri mrigla");
 				 }
 			}
 		        else msg=0;

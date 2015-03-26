@@ -121,15 +121,9 @@ public class EspaceStockManager extends JFrame {
 		JButton button = new JButton("Log out");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
-				EspaceClient frame=new EspaceClient();
-				//user
-				HomeClient.userConnected=null;
-				HomeClient.setUser(null);
-				
-				frame.setVisible(true);
-
-				setVisible(false);
+				HomeClient.userConnected  =null;
+				EspaceClient	 frame=new EspaceClient();
+					frame.setVisible(true);
 			}
 		});
 		button.setBounds(68, 211, 121, 36);

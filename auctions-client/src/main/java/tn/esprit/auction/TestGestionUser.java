@@ -45,12 +45,12 @@ public class TestGestionUser {
 		user2.setEmail("samir");
 		user2.setFullName("samir");
 		user2.setPassword("samir");
-		user2.setImageUrl("/tn/esprit/auction/gui/client/profilClient.png");
-		
+		user2.setImageUrl("imageAuction/2-2.jpg");
+user2.setNumberTockens(20);		
 		DeliveryMan user3=new DeliveryMan();
 		user3.setUserName("kbilel");
 		user3.setAdress("siliana - makthar");
-		user3.setEmail("kbilel@live.fr");
+		user3.setEmail("bilel.khaled@esprit.tn");
 		user3.setFullName("bilel khaled");
 		user3.setPassword("0000");
 		user3.setImageUrl("/tn/esprit/auction/gui/client/profilClient.png");

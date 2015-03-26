@@ -59,6 +59,7 @@ public class BidServices implements BidServicesRemote, BidServicesLocal {
 			return false;
 		}
 	}
+	//hello moto :D
 
 	@Override
 	public Bid findBidById(Integer idBid) {
