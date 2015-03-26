@@ -16,8 +16,8 @@ public class TestConfiguration {
 	public static void doAddConfiguration(ConfigurationServiceRemote remote){
 
 		Configuration configuration=new Configuration();
-		configuration.setNbrTokenParInscription(10);
-		configuration.setNbrTokenParInvitation(20);
+		configuration.setNbrTokenParInscription(20);
+		configuration.setNbrTokenParInvitation(10);
 		if(remote.addConfiguration(configuration)){
 			System.out.println("OK add");
 		}
