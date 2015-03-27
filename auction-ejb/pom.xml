@@ -35,7 +35,7 @@
 			<plugin>
 				<artifactId>maven-ejb-plugin</artifactId>
 				<configuration>
-					<ejbVersion>3.2</ejbVersion>
+					<ejbVersion>3.2.1</ejbVersion>
 				</configuration>
 			</plugin>
 		</plugins>
