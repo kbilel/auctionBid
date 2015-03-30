@@ -40,6 +40,7 @@ public class Answer implements Serializable {
 	public String getText() {
 		return this.text;
 	}
+	//hello world
 
 	public void setText(String text) {
 		this.text = text;
