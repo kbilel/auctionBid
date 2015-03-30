@@ -15,6 +15,7 @@ public class GestionAnswerDelegate {
 	private static AnswerServicesRemote getProxy(){
 		return (AnswerServicesRemote) ServiceLocator.getInstance().getProxy(jndi);
 	}
+	//test commentaire
 
 	public  static Boolean doAddAnswer(Answer answer )
 	{
