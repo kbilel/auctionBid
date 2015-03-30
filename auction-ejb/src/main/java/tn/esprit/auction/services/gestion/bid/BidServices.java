@@ -68,7 +68,7 @@ public class BidServices implements BidServicesRemote, BidServicesLocal {
 			bid=entityManager.find(Bid.class, idBid);
 		
 		} catch (Exception e) {
-			
+			//pl
 		}
 		return bid;
 	}
