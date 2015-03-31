@@ -32,6 +32,7 @@ public void setIdYankeeAuction(Integer idYankeeAuction) {
 public int hashCode() {
 	final int prime = 31;
 	int result = 1;
+	//hey
 	result = prime * result + ((idClient == null) ? 0 : idClient.hashCode());
 	result = prime * result
 			+ ((idYankeeAuction == null) ? 0 : idYankeeAuction.hashCode());
