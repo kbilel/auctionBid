@@ -26,7 +26,7 @@ public Integer getIdYankeeAuction() {
 public void setIdYankeeAuction(Integer idYankeeAuction) {
 	this.idYankeeAuction = idYankeeAuction;
 }
-
+//test
 
 @Override
 public int hashCode() {
